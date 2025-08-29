@@ -1,7 +1,8 @@
 body{
     display: flex;
+    align-content: left;
     flex-direction: column;
-    align-items: center;
+    
     
     margin: 0;
     padding: 0;
@@ -19,11 +20,11 @@ body{
     display: flex;
     flex-direction: row;
 
-    width: 90vw;
-    height: 6vh;
+    width: 71vh;
+    height: 8vh;
     
-    gap: 1vh;
-    margin: 1%;
+    gap: 5px;
+    margin: 5px;
 
     padding: 10px;
 
@@ -105,20 +106,22 @@ body{
     display: flex;
     flex-direction: row;
 
-    width: 90vw;
-    height: 80vh;
+    height: 90vh;
     
     gap: 1vh;
-    margin: 1%;
+    margin: 5px;
 
     box-sizing: border-box;
+
+    overflow-x: auto;
 }
 
     .macroContenedor{   
     display: flex;
     flex-direction: column;
 
-    width: 100%;
+    min-width: 35vh;
+    max-width: 35vh;
     box-sizing: border-box;
 
     padding: 5px;
@@ -142,7 +145,7 @@ body{
     margin-bottom: 10px;
 
 
-    background-color: rgb(200, 200, 200);
+    background-color: rgb(230, 230, 230);
     border-radius: 10px;
     border: 1px solid;
     border-color: rgb(100,100,100);
@@ -520,7 +523,7 @@ body{
     max-height: 3vh;
     min-width: 3vw;;
     max-width: 3vw;
-    background-color: rgb(200,200,200);
+    background-color: rgb(230,230,230);
     border-radius: 20px;
     }
     .color_1:hover{
@@ -532,7 +535,7 @@ body{
     max-height: 3vh;
     min-width: 3vw;;
     max-width: 3vw;
-    background-color: rgb(220, 220, 95);
+    background-color: rgb(195, 195, 130);
     border-radius: 20px;
     }
     .color_2:hover{
@@ -544,7 +547,7 @@ body{
     max-height: 3vh;
     min-width: 3vw;;
     max-width: 3vw;
-    background-color: rgb(160, 170, 255);
+    background-color: rgb(150, 150, 210);
     border-radius: 20px;  
     }
     .color_3:hover{
@@ -556,7 +559,7 @@ body{
     max-height: 3vh;
     min-width: 3vw;;
     max-width: 3vw;
-    background-color: rgb(255, 120, 120);
+    background-color: rgb(230, 140, 140);
     border-radius: 20px; 
     }
     .color_4:hover{
@@ -568,7 +571,7 @@ body{
     max-height: 3vh;
     min-width: 3vw;;
     max-width: 3vw;
-    background-color: rgb(100, 220, 130);
+    background-color: rgb(145, 210, 160);
     border-radius: 20px; 
     }
     .color_5:hover{

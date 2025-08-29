@@ -56,7 +56,7 @@ function funcionAgregarContenedor(){
         // Creamos el input para subtitulo   
     subTitulo = document.createElement("input");
     subTitulo.classList.add("subTitulo");
-    subTitulo.setAttribute("placeholder", "Nombre del contenedor")
+    subTitulo.setAttribute("placeholder", "Proceso...")
         // Se agrega el listener al boton inmediatamente es creado y se le asigna funcion de remover
         // el macro contenedor creado en la primera linea
     botonEliminarContenedor = document.createElement("button");
@@ -224,7 +224,7 @@ function funcionAgregarTarea(event){
 
 
     // asignar color por defecto
-    colorTareaListada = "rgb(200, 200, 200)" 
+    colorTareaListada = "rgb(230, 230, 230)" 
     tareaListada.style.backgroundColor = colorTareaListada;
     // Agregamos la tarea listada al contenedor que identificamos en las primeras lineas
     contenedorTareasListadas.appendChild(tareaListada);

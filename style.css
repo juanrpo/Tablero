@@ -1,9 +1,7 @@
 body{
     display: flex;
-    align-content: left;
     flex-direction: column;
-    
-    
+
     margin: 0;
     padding: 0;
     
@@ -15,24 +13,29 @@ body{
     overflow-x: hidden;
 }
 
+.superdiv{
+    align-self: center;
+    justify-self: center;
+}
+
 /*___ TITULO ___*/
 .contenedorTitulo{
-    display: flex;
-    flex-direction: row;
+    display:flex;
+    flex-direction:row;
+    box-sizing: border-box;
 
-    width: 50vw;
-    height: 8vh;
+    min-width: 99vw;
+    max-width: 99vw;
     
-    gap: 5px;
+    gap: 1vw;
     margin: 5px;
 
     padding: 10px;
 
-    box-sizing: border-box;
-
     border: 1px solid;
     border-color: rgb(100,100,100);
     border-radius: 10px;
+
 }
 
     .titulo{
@@ -103,12 +106,17 @@ body{
 
 /*___ SUBTITULO ___*/
 .contenedorDeContenedores{
-    display: flex;
-    flex-direction: row;
-
-    height: 85vh;
     
-    gap: 5px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    
+    height: 90vh;
+
+    min-width: 99vw;
+    max-width: 99vw;
+
+    gap: 1vw;
     margin: 5px;
 
     box-sizing: border-box;
@@ -120,8 +128,9 @@ body{
     display: flex;
     flex-direction: column;
 
-    min-width: 35vh;
-    max-width: 35vh;
+    min-width: 24vw;
+    max-width: 24vw;
+
     box-sizing: border-box;
 
     padding: 5px;
@@ -525,6 +534,9 @@ body{
     max-width: 3vw;
     background-color: rgb(230,230,230);
     border-radius: 20px;
+
+    border: none;
+    outline: none;
     }
     .color_1:hover{
     cursor: pointer;
@@ -535,8 +547,11 @@ body{
     max-height: 3vh;
     min-width: 3vw;;
     max-width: 3vw;
-    background-color: rgb(195, 195, 130);
+    background-color: rgb(255, 238, 147);
     border-radius: 20px;
+
+    border: none;
+    outline: none;
     }
     .color_2:hover{
     cursor: pointer;
@@ -547,8 +562,11 @@ body{
     max-height: 3vh;
     min-width: 3vw;;
     max-width: 3vw;
-    background-color: rgb(150, 150, 210);
-    border-radius: 20px;  
+    background-color: rgb(121, 173, 220);
+    border-radius: 20px;
+    
+    border: none;
+    outline: none;
     }
     .color_3:hover{
     cursor: pointer;
@@ -559,8 +577,11 @@ body{
     max-height: 3vh;
     min-width: 3vw;;
     max-width: 3vw;
-    background-color: rgb(230, 140, 140);
+    background-color: rgb(255, 116, 119);
     border-radius: 20px; 
+
+    border: none;
+    outline: none;
     }
     .color_4:hover{
     cursor: pointer;
@@ -573,6 +594,9 @@ body{
     max-width: 3vw;
     background-color: rgb(145, 210, 160);
     border-radius: 20px; 
+
+    border: none;
+    outline: none;
     }
     .color_5:hover{
     cursor: pointer;

@@ -20,7 +20,7 @@ body{
     display: flex;
     flex-direction: row;
 
-    width: 71vh;
+    width: 50vw;
     height: 8vh;
     
     gap: 5px;
@@ -108,7 +108,7 @@ body{
 
     height: 90vh;
     
-    gap: 1vh;
+    gap: 5px;
     margin: 5px;
 
     box-sizing: border-box;

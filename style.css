@@ -70,7 +70,7 @@ body{
     background-color: rgb(190, 255, 180);
     }
 
-    .botonCargarTablero{
+    .inputCargarTablero{
     min-width: 3vw;
     max-width: 3vw;
 
@@ -82,7 +82,7 @@ body{
     outline: none;
     }
 
-    .botonCargarTablero:hover{
+    .inputCargarTablero:hover{
     cursor: pointer;
     background-color: rgb(180, 180, 255);
     }
@@ -379,8 +379,8 @@ body{
 }
 
     .pesoTarea{
-    min-height: 2vh;
-    max-height: 2vh;
+    min-width: 5vw;
+    max-width: 5vw;
 
     font-size: 12px;
     font-family: Arial, Helvetica, sans-serif;
@@ -398,8 +398,8 @@ body{
     }
 
     .estado_2{
-    min-height: 2vh;
-    max-height: 2vh;
+    min-width: 5vw;
+    max-width: 5vw;
 
     font-size: 12px;
     font-family: Arial, Helvetica, sans-serif;
@@ -418,8 +418,8 @@ body{
     }
 
     .fechaInicio{
-    min-height: 2vh;
-    max-height: 2vh;
+    min-width: 5vw;
+    max-width: 5vw;
 
     font-size: 12px;
     font-family: Arial, Helvetica, sans-serif;
@@ -434,8 +434,8 @@ body{
     }
 
     .fechaFin{
-    min-height: 2vh;
-    max-height: 2vh;
+    min-width: 5vw;
+    max-width: 5vw;
 
     font-size: 12px;
     font-family: Arial, Helvetica, sans-serif;
@@ -450,8 +450,8 @@ body{
     }
 
     .responsable{
-    min-height: 2vh;
-    max-height: 2vh;
+    min-width: 5vw;
+    max-width: 5vw;
 
     font-size: 12px;
     font-family: Arial, Helvetica, sans-serif;

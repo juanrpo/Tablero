@@ -1,7 +1,7 @@
 //ELEMENTOS TRAIDOS DEL HTML
 let contenedorDeContenedores = document.getElementById("contenedorDeContenedores")
 let botonAgregarContenedor = document.getElementById("botonAgregarContenedor");
-let botonCargarTablero = document.getElementById("botonCargarTablero");
+let inputCargarTablero = document.getElementById("inputArchivo");
 let botonGuardarTablero = document.getElementById("botonGuardarTablero");
 
 //SE DECLARAN LOS ELEMENTOS QUE COMPONENE LOS CONTENEDORES DE TAREAS COMO VARIABLES GLOBALES
@@ -34,12 +34,14 @@ let tareaListada = null;
         let fechaInicio = null;
         let fechaFin = null;
         let responsable = null;
+    let colorTareaListada = null;
 
-let colorTareaListada = null;
-  
+let listaTareas = [];
+let nombreMacroContenedor = " ";
+
 
 // FUNCIONES
-function funcionAgregarContenedor(){
+function funcionAgregarContenedor(nombreMacroContenedor){
 
     // Creamos el macro contenedor y se le asigna un ID unico
     macroContenedor = document.createElement("div");
@@ -57,6 +59,13 @@ function funcionAgregarContenedor(){
     subTitulo = document.createElement("input");
     subTitulo.classList.add("subTitulo");
     subTitulo.setAttribute("placeholder", "Proceso...")
+    
+    if (nombreMacroContenedor == "[object PointerEvent]"){
+        subTitulo.setAttribute("placeholder", "Proceso...")
+    }else{
+        subTitulo.value = nombreMacroContenedor;
+    }
+
         // Se agrega el listener al boton inmediatamente es creado y se le asigna funcion de remover
         // el macro contenedor creado en la primera linea
     botonEliminarContenedor = document.createElement("button");
@@ -129,6 +138,8 @@ function funcionEliminarContenedor(event){
     funcionActualizarContadores();
 }
 
+
+
 function funcionAgregarTarea(event){
 
     //se utiliza el objeto event para usar la propiedad target
@@ -140,7 +151,7 @@ function funcionAgregarTarea(event){
     // Dentro del macro contenedor identificamos la variable de texto para crear la tarea
     inputTarea = macroContenedor.querySelector(".inputTarea")
 
-    // Indentificamos a que contendeor de pendeintes debe ir la tarea
+    // Indentificamos a que contendeor debe ir la tarea
     contenedorTareasListadas = macroContenedor.querySelector(".contenedorTareasListadas");
     
     // Tomamos el valor del input luego de haberlo ubicado en las lineas anteriores
@@ -211,8 +222,6 @@ function funcionAgregarTarea(event){
     tareaListada.appendChild(tareaListada_l2);
 
     tareaListada_l1.appendChild(textoTarea);
-    tareaListada_l1.appendChild(botonEliminarTarea);
-    tareaListada_l1.appendChild(botonConfigTarea);
    
     tareaListada_l2.appendChild(pesoTarea);
     tareaListada_l2.appendChild(estado_2);
@@ -232,6 +241,8 @@ function funcionAgregarTarea(event){
     console.log("se ha agregado una tarea: ", tareaListada.id)
     //Limpiamos el input
     inputTarea.value = "";
+
+    funcionActualizarContadores();
 }
 
 function funcionEliminarTarea(event){
@@ -363,8 +374,11 @@ function funcionObtenerID(event){
     }
 }
 
+
+
 function funcionGuardarTablero(){
-    console.log("INICIA GUARDADO")
+    console.log("GUARDAR");
+    let listaTareas = [];
 
     // La funcion se inicia centrada en la variable textoTarea
     // todas las variables de almacenamiento iniciaran con este simbolo$
@@ -425,10 +439,193 @@ function funcionGuardarTablero(){
             "/ fechaFinal = ", $fechaFin,
             "/ responsable = ", $responsable,
             "/ color = ", $color
-
         );
+
+        listaTareas.push({
+            id_tareaListada: $id,
+            macroContenedor : $subTitulo.value,
+            textoTarea : $textoTarea,
+            pesoTarea : $valorPesoTarea,
+            estado_2 : $estado_2,
+            fechaInicio : $fechaInicio,
+            fechaFin : $fechaFin,
+            responsable : $responsable,
+            color : $color
+        })
     });
+
+    let blob = new Blob([JSON.stringify(listaTareas, null, 2)], { type: "application/json" });
+    let enlace = document.createElement("a");
+    enlace.href = URL.createObjectURL(blob);
+    enlace.download = "tareas.json";
+    enlace.click();
 }
+
+function funcionCargarTablero(event){
+    console.log("CARGAR");
+    let archivo = event.target.files[0];
+    if (!archivo) return;
+    
+    let lector = new FileReader();
+    lector.onload = function(event) {
+        // Variable para simular el clcik en el body y activar la funcion D&D+S
+        let body = document.body;
+
+        listaTareas = JSON.parse(event.target.result);
+        console.log(listaTareas);
+        funcionRedibujarTablero();
+        
+        funcionActualizarContadores();
+        // Click simulado
+        body.click();
+    };
+    
+    lector.readAsText(archivo);
+    inputCargarTablero.value = "";
+    
+}
+
+function funcionRedibujarTablero(){
+
+    macroContenedor = document.querySelectorAll(".macroContenedor");
+    macroContenedor.forEach(elemento =>{
+        elemento.remove();
+    });
+    
+    // REDIBUJAR TABLERO
+    let titulosMacroContenedores = [];
+    listaTareas.forEach(elemento => {
+        titulosMacroContenedores.push(elemento.macroContenedor);   
+    });
+    
+    titulosMacroContenedores = [...new Set(titulosMacroContenedores)];
+    console.log(titulosMacroContenedores);
+
+    
+    for (let i = 0; i <= titulosMacroContenedores.length - 1; i++){
+        console.log(titulosMacroContenedores[i])
+        funcionAgregarContenedor(titulosMacroContenedores[i]);
+        listaTareas.forEach(tarea => {
+            if (tarea.macroContenedor === titulosMacroContenedores[i]){
+                funcionRedibujarTareas(
+                    tarea.id_tareaListada,
+                    tarea.macroContenedor,
+                    tarea.textoTarea, 
+                    tarea.pesoTarea,
+                    tarea.estado_2, 
+                    tarea.fechaInicio, 
+                    tarea.fechaFin,
+                    tarea.responsable,
+                    tarea.color
+                );
+
+                contenedorTareasListadas.appendChild(tareaListada);
+                console.log(tarea);
+            }
+        })
+    }
+}
+
+function funcionRedibujarTareas(
+    $id_tareaListada,
+    $macroContenedor,
+    $textoTarea, 
+    $pesoTarea,
+    $estado_2, 
+    $fechaInicio, 
+    $fechaFin,
+    $responsable,
+    $color)
+    {
+
+    // Creamos los elementos que componen la tarea
+        tareaListada = document.createElement("div");
+        tareaListada.id = $id_tareaListada;
+        tareaListada.classList.add("tareaListada");
+        tareaListada.setAttribute("draggable", true);
+
+    // Creamos linea 1 del contenedor tareaListada
+    tareaListada_l1 = document.createElement("div");
+    tareaListada_l1.classList.add("tareaListada_l1");
+
+        // Crear campo textoTarea
+        textoTarea = document.createElement("textarea");
+        textoTarea.value = $textoTarea;
+        textoTarea.classList.add("textoTarea");
+        textoTarea.setAttribute("rows", 2);
+
+
+    // Creamos linea 2 del contenedor tareaListada
+    tareaListada_l2 = document.createElement("div");
+    tareaListada_l2.classList.add("tareaListada_l2");
+
+        // Crear campo de peso
+        pesoTarea = document.createElement("input");
+        pesoTarea.value = $pesoTarea;
+        pesoTarea.classList.add("pesoTarea");
+        pesoTarea.setAttribute("placeholder", "pesoTarea")
+
+        // Crear campo de estado_2
+        estado_2 = document.createElement("input");
+        estado_2.value = $estado_2;
+        estado_2.classList.add("estado_2");
+        estado_2.setAttribute("type", "text");
+        estado_2.setAttribute("placeholder", "estado_2")
+
+        // Crear campo de fecha de inicio
+        fechaInicio = document.createElement("input");
+        fechaInicio.value = $fechaInicio;
+        fechaInicio.classList.add("fechaInicio");
+        fechaInicio.setAttribute("type", "date");
+
+        // Crear campo de fecha de final
+        fechaFin = document.createElement("input");
+        fechaFin.value = $fechaFin;
+        fechaFin.classList.add("fechaFin");
+        fechaFin.setAttribute("type", "date");
+
+        // Crear campo de responsable
+        responsable = document.createElement("input");
+        responsable.value = $responsable;
+        responsable.classList.add("responsable");
+        responsable.setAttribute("type", "text");
+        responsable.setAttribute("placeholder", "responsable")
+
+        // crear Boton eliminar
+        botonEliminarTarea = document.createElement("button");
+        botonEliminarTarea.textContent = "x";
+        botonEliminarTarea.classList.add("botonEliminarTarea");
+        botonEliminarTarea.addEventListener("click", funcionEliminarTarea);
+
+        // crear boton configurar
+        botonConfigTarea = document.createElement("button");
+        botonConfigTarea.textContent = "⛭";
+        botonConfigTarea.classList.add("botonConfigTarea");
+        botonConfigTarea.addEventListener("click", funcionDialogoColoresTareas);
+
+    // Ensamblamos
+    tareaListada.appendChild(tareaListada_l1);
+    tareaListada.appendChild(tareaListada_l2);
+
+    tareaListada_l1.appendChild(textoTarea);
+    tareaListada_l1.appendChild(botonEliminarTarea);
+    tareaListada_l1.appendChild(botonConfigTarea);
+   
+    tareaListada_l2.appendChild(pesoTarea);
+    tareaListada_l2.appendChild(estado_2);
+    tareaListada_l2.appendChild(fechaInicio);
+    tareaListada_l2.appendChild(fechaFin);
+    tareaListada_l2.appendChild(responsable);
+    tareaListada_l2.appendChild(botonEliminarTarea);
+    tareaListada_l2.appendChild(botonConfigTarea);
+
+
+    // asignar color por defecto
+    colorTareaListada = $color;
+    tareaListada.style.backgroundColor = colorTareaListada;
+}
+
+
 
 // FUNCION D&D+S
 document.addEventListener("click", funcionDragDropSort);
@@ -441,3 +638,6 @@ document.addEventListener("click", funcionObtenerID);
 
 // BOTON GUARDAR
 botonGuardarTablero.addEventListener("click", funcionGuardarTablero);
+
+// BOTON CARGAR
+inputCargarTablero.addEventListener("change", funcionCargarTablero);

@@ -43,6 +43,8 @@ body{
     font-size: 30px;
     font-family: Arial, Helvetica, sans-serif;
 
+    font-weight: 1000;
+
     border-radius: 10px;
     border: none;
     outline: none;
@@ -70,6 +72,23 @@ body{
     background-color: rgb(190, 255, 180);
     }
 
+    .botonCargarTablero{
+    min-width: 3vw;
+    max-width: 3vw;
+
+    align-content: center;
+    justify-content: center;
+    
+    border-radius: 10px 10px 10px 10px;
+    border: none;
+    outline: none;
+    }
+
+    .botonCargarTablero:hover{
+    cursor: pointer;
+    background-color: rgb(190, 255, 180);
+    }
+
     .inputCargarTablero{
     min-width: 3vw;
     max-width: 3vw;
@@ -80,6 +99,8 @@ body{
     border-radius: 10px 10px 10px 10px;
     border: none;
     outline: none;
+
+    display: none;
     }
 
     .inputCargarTablero:hover{
@@ -351,7 +372,7 @@ body{
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
 
-    border-radius: 10px;
+    border-radius: 5px;
     border: none;
     
     outline: none;
@@ -385,7 +406,7 @@ body{
     font-size: 12px;
     font-family: Arial, Helvetica, sans-serif;
 
-    border-radius: 10px;
+    border-radius: 5px;
     border: none;
     
     outline: none;
@@ -404,7 +425,7 @@ body{
     font-size: 12px;
     font-family: Arial, Helvetica, sans-serif;
 
-    border-radius: 10px;
+    border-radius: 5px;
     border: none;
     
     outline: none;
@@ -424,7 +445,7 @@ body{
     font-size: 12px;
     font-family: Arial, Helvetica, sans-serif;
 
-    border-radius: 10px;
+    border-radius: 5px;
     border: none;
     
     outline: none;
@@ -440,7 +461,7 @@ body{
     font-size: 12px;
     font-family: Arial, Helvetica, sans-serif;
 
-    border-radius: 10px;
+    border-radius: 5px;
     border: none;
     
     outline: none;
@@ -456,7 +477,7 @@ body{
     font-size: 12px;
     font-family: Arial, Helvetica, sans-serif;
 
-    border-radius: 10px;
+    border-radius: 5px;
     border: none;
     
     outline: none;
@@ -476,7 +497,7 @@ body{
     align-content: center;
     justify-content: center;
     
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 5px;
     border: none;
     outline: none;
     }
@@ -493,7 +514,7 @@ body{
     align-content: center;
     justify-content: center;
     
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 5px;
     border: none;
     outline: none;
     }

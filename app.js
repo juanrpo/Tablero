@@ -226,7 +226,7 @@ function funcionDibujarTareas(
         let textoTarea = document.createElement("textarea");
         textoTarea.value = $textoTarea;
         textoTarea.classList.add("textoTarea");
-        textoTarea.setAttribute("rows", 3);
+        textoTarea.setAttribute("rows", 2);
 
     // Creamos linea 2 del contenedor tareaListada
     let tareaListada_l2 = document.createElement("div");

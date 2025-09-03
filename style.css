@@ -8,8 +8,6 @@ body{
     box-sizing: border-box;
     background-color: rgb(255, 255, 255);
     
-    margin-top: 10px;
-    
     overflow-x: hidden;
 }
 
@@ -127,7 +125,6 @@ body{
 
 /*___ SUBTITULO ___*/
 .contenedorDeContenedores{
-    
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
@@ -176,7 +173,7 @@ body{
 
 
     background-color: rgb(230, 230, 230);
-    border-radius: 10px;
+    border-radius: 5px;
     border: 1px solid;
     border-color: rgb(100,100,100);
 
@@ -201,7 +198,7 @@ body{
     font-size: 25px;
     font-family: Arial, Helvetica, sans-serif;
 
-    border-radius: 10px;
+    border-radius: 5px;
     border: none;
     outline: none;
     text-align: left;
@@ -209,25 +206,6 @@ body{
 
             .subTitulo::placeholder {
   font-style: italic;
-            }
-
-            .botonEliminarContenedor{
-    min-width: 3vw;
-    max-width: 3vw;
-
-    height: 3vh;
-
-    align-content: center;
-    justify-content: center;
-    
-    border-radius: 10px 10px 10px 10px;
-    border: none;
-    outline: none;
-            }
-
-            .botonEliminarContenedor:hover{
-    cursor: pointer;
-    background-color: rgb(255, 150, 150);
             }
 
         .contenedorSubTitulo_l2{
@@ -241,23 +219,42 @@ body{
     gap: 5px;
         }
 
-            .inputTarea{
-    width: 100%;
+            .botonIzquierda{
+    min-width: 3vw;
+    max-width: 3vw;
+
     height: 3vh;
 
-    font-size: 15px;
-    font-family: Arial, Helvetica, sans-serif;
-
-    border-radius: 10px;
+    align-content: center;
+    justify-content: center;
+    
+    border-radius: 10px 10px 10px 10px;
     border: none;
     outline: none;
-    text-align: left;
-
-    resize: none;
             }
 
-            .inputTarea::placeholder {
-  font-style: italic;
+            .botonIzquierda:hover{
+    cursor: pointer;
+    background-color: rgb(180, 180, 255);
+            }
+
+            .botonDerecha{
+    min-width: 3vw;
+    max-width: 3vw;
+
+    height: 3vh;
+
+    align-content: center;
+    justify-content: center;
+    
+    border-radius: 10px 10px 10px 10px;
+    border: none;
+    outline: none;
+            }
+
+            .botonDerecha:hover{
+    cursor: pointer;
+    background-color: rgb(180, 180, 255);
             }
 
             .botonAgregarTarea{
@@ -277,6 +274,44 @@ body{
             .botonAgregarTarea:hover{
     cursor: pointer;
     background-color: rgb(190, 255, 180);
+            }
+
+            .botonConfigurarContenedor{
+    min-width: 3vw;
+    max-width: 3vw;
+
+    height: 3vh;
+
+    align-content: center;
+    justify-content: center;
+    
+    border-radius: 10px 10px 10px 10px;
+    border: none;
+    outline: none;
+            }
+
+            .botonConfigurarContenedor:hover{
+    cursor: pointer;
+    background-color: rgb(180, 180, 255);
+            }
+            
+            .botonEliminarContenedor{
+    min-width: 3vw;
+    max-width: 3vw;
+
+    height: 3vh;
+
+    align-content: center;
+    justify-content: center;
+    
+    border-radius: 10px 10px 10px 10px;
+    border: none;
+    outline: none;
+            }
+
+            .botonEliminarContenedor:hover{
+    cursor: pointer;
+    background-color: rgb(255, 150, 150);
             }
 
 /*___ CONTENEDORES DE TAREAS ___*/
@@ -336,7 +371,7 @@ body{
     box-sizing: border-box;
     
     background-color: rgb(200, 200, 200);
-    border-radius: 10px;
+    border-radius: 5px;
     border: 1px solid;
     border-color: rgb(100,100,100);
 
@@ -490,23 +525,6 @@ body{
   font-style: italic;
     }
 
-    .botonEliminarTarea{
-    min-width: 3vw;
-    max-width: 3vw;
-
-    align-content: center;
-    justify-content: center;
-    
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    }
-
-    .botonEliminarTarea:hover{
-    cursor: pointer;
-    background-color: rgb(255, 150, 150);
-    }
-
     .botonConfigTarea{
     min-width: 3vw;
     max-width: 3vw;
@@ -523,6 +541,23 @@ body{
     cursor: pointer;
     background-color: rgb(180, 180, 255);
 }
+
+    .botonEliminarTarea{
+    min-width: 3vw;
+    max-width: 3vw;
+
+    align-content: center;
+    justify-content: center;
+    
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    }
+
+    .botonEliminarTarea:hover{
+    cursor: pointer;
+    background-color: rgb(255, 150, 150);
+    }
 
 /*___ VENTANA EMERGENTE ___*/
 .ventanaEmergente{
@@ -622,6 +657,21 @@ body{
     .color_5:hover{
     cursor: pointer;
     }
+
+    footer{
+    display: flex;
+    justify-content: right;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    color: rgb(150,150,150);
+
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+}
 
 
 

@@ -9,7 +9,7 @@ let botonGuardarTablero = document.getElementById("botonGuardarTablero");
     let listaContenedores = [];
     let listaTareas = [];   
     let objetoContenedor = {};
-    let colorBasePorDefecto = "rgb(245,245,245)";
+    let colorBasePorDefecto = "rgb(230,230,230)";
 
 // FUNCIONES
 

@@ -1,137 +1,141 @@
 
 body{
-    display: flex;
-    flex-direction: column;
-
-    margin: 0;
-    padding: 0;
-    
+    margin: 0px;
+    padding: 0px;
     box-sizing: border-box;
-    
     overflow-x: hidden;
 }
 
     .superdiv{
         align-self: center;
         justify-self: center;
-
         height: 95vh;
-        width: 99vw;
+        width: 98%;
+        margin: 5px;
+        padding: 5px;
     }
 
     /*___ TITULO ___*/
     .contenedorTitulo{
         display:flex;
-        flex-direction:row;
+        flex-direction:column;
         box-sizing: border-box;
-
-        min-width: 99vw;
-        max-width: 99vw;
-    
-        gap: 1vw;
+        min-width: 99%;
+        max-width: 99%;
+        gap: 5px;
         margin: 5px;
-
-        padding: 10px;
     }
 
         .titulo{
             width: 100%;
             font-size: 30px;
             font-family: Arial, Helvetica, sans-serif;
-
             font-weight: 1000;
-
             border-radius: 5px;
             border: none;
             outline: none;
             text-align: left;
-
             background-color: transparent;
+            padding-right: 5px;
+            padding-left: 5px;
         }
 
         .titulo::placeholder {
             font-style: italic;
         }
 
-        .botonAgregarContenedor{
-            min-width: 3em;
-            max-width: 3em;
 
-            align-content: center;
-            justify-content: center;
-    
-            border-radius: 10px 10px 10px 10px;
-            border: none;
-            outline: none;
+        .contenedorControles{
+            display:flex;
+            flex-direction:row;
+            box-sizing: border-box;
+            min-width: 99%;
+            max-width: 99%;
+            gap: 10px;
+            margin: 5px;
         }
 
-        .botonAgregarContenedor:hover{
-            cursor: pointer;
-            background-color: rgb(190, 255, 180);
-        }
+            .botonAgregarContenedor{
+                min-width: 3em;
+                max-width: 3em;
+                height: 3em;
+                align-content: center;
+                justify-content: center;
+                border-radius: 10px 10px 10px 10px;
+                border: none;
+                outline: none;
+            }
 
-        .botonCargarTablero{
-            min-width: 3em;
-            max-width: 3em;
+            .botonAgregarContenedor:hover{
+                cursor: pointer;
+                background-color: rgb(190, 255, 180);
+            }
 
-            align-content: center;
-            justify-content: center;
-    
-            border-radius: 10px 10px 10px 10px;
-            border: none;
-            outline: none;
-        }
+            .botonCargarTablero{
+                min-width: 3em;
+                max-width: 3em;
+                height: 3em;
 
-        .botonCargarTablero:hover{
-            cursor: pointer;
-            background-color: rgb(190, 255, 180);
-        }
+                align-content: center;
+                justify-content: center;
+        
+                border-radius: 10px 10px 10px 10px;
+                border: none;
+                outline: none;
+            }
 
-        .inputCargarTablero{
-            min-width: 3em;
-            max-width: 3em;
+            .botonCargarTablero:hover{
+                cursor: pointer;
+                background-color: rgb(190, 255, 180);
+            }
 
-            align-content: center;
-            justify-content: center;
-    
-            border-radius: 10px 10px 10px 10px;
-            border: none;
-            outline: none;
+            .inputCargarTablero{
+                min-width: 3em;
+                max-width: 3em;
+                height: 3em;
 
-            display: none;
-        }
+                align-content: center;
+                justify-content: center;
+        
+                border-radius: 10px 10px 10px 10px;
+                border: none;
+                outline: none;
 
-        .inputCargarTablero:hover{
-            cursor: pointer;
-            background-color: rgb(180, 180, 255);
-        }
+                display: none;
+            }
 
-        .botonGuardarTablero{
-            min-width: 3em;
-            max-width: 3em;
+            .inputCargarTablero:hover{
+                cursor: pointer;
+                background-color: rgb(180, 180, 255);
+            }
 
-            align-content: center;
-            justify-content: center;
-    
-            border-radius: 10px 10px 10px 10px;
-            border: none;
-            outline: none;
-        }
+            .botonGuardarTablero{
+                min-width: 3em;
+                max-width: 3em;
+                height: 3em;
 
-        .botonGuardarTablero:hover{
-            cursor: pointer;
-            background-color: rgb(180, 180, 255);
-        }
+                align-content: center;
+                justify-content: center;
+
+                border-radius: 10px 10px 10px 10px;
+                border: none;
+                outline: none;
+            }
+
+            .botonGuardarTablero:hover{
+                cursor: pointer;
+                background-color: rgb(180, 180, 255);
+            }
 
     /*___ SUBTITULO ___*/
     .contenedorDeContenedores{
         display: flex;
-        flex-wrap: nowrap;
         flex-direction: row;
     
-        min-width: 99vw;
-        max-width: 99vw;
-        height: 90vh;
+        min-width: 99%;
+        max-width: 99%;
+        min-height: 99%;
+        max-height: 99%;
 
         gap: 5px;
         margin: 5px;
@@ -145,13 +149,12 @@ body{
             display: flex;
             flex-direction: column;
 
-            min-width: 20%;
-            max-width: 20%;
+            min-width: 23%;
+            max-width: 23%;
 
             box-sizing: border-box;
-
-            padding: 5px;
             
+            padding: 5px;
             overflow-x: hidden;
         }
 
@@ -166,7 +169,7 @@ body{
     
                 margin-bottom: 10px;
 
-                border: 3px solid;
+                border: 2px solid;
                 border-color: rgb(50,50,50);
 
                 gap: 5px;
@@ -215,9 +218,9 @@ body{
                 }
 
                     .botonIzquierda{
-                        min-width: 2em;
-                        max-width: 2em;
-                        height: 2em;
+                        min-width: 3em;
+                        max-width: 3em;
+                        height: 3em;
 
                         border-radius: 10px 10px 10px 10px;
                         border: none;
@@ -230,9 +233,9 @@ body{
                     }
 
                     .botonDerecha{
-                        min-width: 2em;
-                        max-width: 2em;
-                        height: 2em;
+                        min-width: 3em;
+                        max-width: 3em;
+                        height: 3em;
     
                         border-radius: 10px 10px 10px 10px;
                         border: none;
@@ -245,9 +248,9 @@ body{
                     }
 
                     .botonAgregarTarea{
-                        min-width: 2em;
-                        max-width: 2em;
-                        height: 2em;
+                        min-width: 3em;
+                        max-width: 3em;
+                        height: 3em;
     
                         border-radius: 10px 10px 10px 10px;
                         border: none;
@@ -260,9 +263,9 @@ body{
                     }
 
                     .botonConfigurarContenedor{
-                        min-width: 2em;
-                        max-width: 2em;
-                        height: 2em;
+                        min-width: 3em;
+                        max-width: 3em;
+                        height: 3em;
     
                         border-radius: 10px 10px 10px 10px;
                         border: none;
@@ -275,9 +278,9 @@ body{
                     }
             
                     .botonEliminarContenedor{
-                        min-width: 2em;
-                        max-width: 2em;
-                        height: 2em;
+                        min-width: 3em;
+                        max-width: 3em;
+                        height: 3em;
     
                         border-radius: 10px 10px 10px 10px;
                         border: none;
@@ -298,7 +301,6 @@ body{
         height: 100%;
 
         box-sizing: border-box;
-    
         overflow-y: auto;
         overflow-x: hidden;
     }
@@ -373,7 +375,7 @@ body{
                     .textoTarea{
                         width: 100%;
 
-                        font-size: 14px;
+                        font-size: 15px;
                         font-family: Arial, Helvetica, sans-serif;
                         font-weight: 300;
 
@@ -408,8 +410,8 @@ body{
                     .pesoTarea{
                         min-width: 5em;
                         max-width: 5em;
-                        min-height: 1.5em;
-                        max-height: 1.5em;
+                        min-height: 2em;
+                        max-height: 2em;
 
                         font-size: 12px;
                         font-family: Arial, Helvetica, sans-serif;
@@ -427,8 +429,8 @@ body{
                     .estado_2{
                         min-width: 5em;
                         max-width: 5em;
-                        min-height: 1.5em;
-                        max-height: 1.5em;
+                        min-height: 2em;
+                        max-height: 2em;
 
 
                         font-size: 12px;
@@ -446,10 +448,10 @@ body{
                     }
 
                     .fechaInicio{
-                        min-width: 6em;
-                        max-width: 6em;
-                        min-height: 1.5em;
-                        max-height: 1.5em;
+                        min-width: 7em;
+                        max-width: 7em;
+                        min-height: 2em;
+                        max-height: 2em;
 
 
                         font-size: 12px;
@@ -463,10 +465,10 @@ body{
                     }
 
                     .fechaFin{
-                        min-width: 6em;
-                        max-width: 6em;
-                        min-height: 1.5em;
-                        max-height: 1.5em;
+                        min-width: 7em;
+                        max-width: 7em;
+                        min-height: 2em;
+                        max-height: 2em;
 
 
                         font-size: 12px;
@@ -482,8 +484,8 @@ body{
                     .responsable{
                         min-width: 6em;
                         max-width: 6em;
-                        min-height: 1.5em;
-                        max-height: 1.5em;
+                        min-height: 2em;
+                        max-height: 2em;
 
                         font-size: 12px;
                         font-family: Arial, Helvetica, sans-serif;
@@ -500,10 +502,10 @@ body{
                     }
 
                     .botonConfigTarea{
-                        min-width: 2em;
-                        max-width: 2em;
-                        min-height: 1.5em;
-                        max-height: 1.5em;
+                        min-width: 3em;
+                        max-width: 3em;
+                        min-height: 2em;
+                        max-height: 2em;
     
                         border-radius: 5px;
                         border: none;
@@ -516,10 +518,10 @@ body{
                     }
 
                     .botonEliminarTarea{
-                        min-width: 2em;
-                        max-width: 2em;
-                        min-height: 1.5em;
-                        max-height: 1.5em;
+                        min-width: 3em;
+                        max-width: 3em;
+                        min-height: 2em;
+                        max-height: 2em;
     
                         border-radius: 5px;
                         border: none;
@@ -530,16 +532,6 @@ body{
                         cursor: pointer;
                         background-color: rgb(255, 150, 150);
                     }
-        footer{
-            display: flex;
-            justify-content: right;
-            margin-right: 10px;
-            margin-left: 10px;
-
-            font-family: Arial, Helvetica, sans-serif;
-            font-style: italic;
-            color: rgb(150,150,150);
-        }
 
 /*___ VENTANA EMERGENTE ___*/
 .ventanaEmergente{
@@ -570,7 +562,7 @@ body{
         max-width: 3em;
         height: 3em;
     
-        background-color: rgb(230,230,230);
+        background-color: rgb(245,245,245);
         border-radius: 20px;
 
         border: none;
@@ -638,13 +630,14 @@ body{
 
 
 /*___ MEDIA QUERY ___*/
-@media (max-width: 1080px) {
+
+@media (min-width: 300px){
     .macroContenedor{   
         display: flex;
         flex-direction: column;
 
-        max-width: 20%;
-        min-width: 20%;
+        max-width: 73%;
+        min-width: 73%;
 
         box-sizing: border-box;
 
@@ -653,13 +646,14 @@ body{
     }
 }
 
-@media (max-width: 720px) {
+
+@media (min-width: 480px){
     .macroContenedor{   
         display: flex;
         flex-direction: column;
 
-        max-width: 45%;
-        min-width: 45%;
+        max-width: 53%;
+        min-width: 53%;
 
         box-sizing: border-box;
 
@@ -668,13 +662,13 @@ body{
     }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 720px){
     .macroContenedor{   
         display: flex;
         flex-direction: column;
 
-        max-width: 60%;
-        min-width: 60%;
+        max-width: 33%;
+        min-width: 33%;
 
         box-sizing: border-box;
 
@@ -682,6 +676,22 @@ body{
         overflow-x: hidden;
     }
 }
+
+@media (min-width: 1080px){
+    .macroContenedor{   
+        display: flex;
+        flex-direction: column;
+
+        max-width: 23%;
+        min-width: 23%;
+
+        box-sizing: border-box;
+
+        padding: 5px;
+        overflow-x: hidden;
+    }
+}
+
 
 
 

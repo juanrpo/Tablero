@@ -410,8 +410,8 @@ body{
                     .pesoTarea{
                         min-width: 5em;
                         max-width: 5em;
-                        min-height: 3em;
-                        max-height: 3em;
+                        min-height: 2em;
+                        max-height: 2em;
 
                         font-size: 12px;
                         font-family: Arial, Helvetica, sans-serif;
@@ -429,8 +429,8 @@ body{
                     .estado_2{
                         min-width: 5em;
                         max-width: 5em;
-                        min-height: 3em;
-                        max-height: 3em;
+                        min-height: 2em;
+                        max-height: 2em;
 
 
                         font-size: 12px;
@@ -450,8 +450,8 @@ body{
                     .fechaInicio{
                         min-width: 5em;
                         max-width: 5em;
-                        min-height: 3em;
-                        max-height: 3em;
+                        min-height: 2em;
+                        max-height: 2em;
 
 
                         font-size: 12px;
@@ -482,8 +482,8 @@ body{
                     .responsable{
                         min-width: 5em;
                         max-width: 5em;
-                        min-height: 3em;
-                        max-height: 3em;
+                        min-height: 2em;
+                        max-height: 2em;
 
                         font-size: 12px;
                         font-family: Arial, Helvetica, sans-serif;
@@ -502,8 +502,8 @@ body{
                     .botonConfigTarea{
                         min-width: 5em;
                         max-width: 5em;
-                        min-height: 3em;
-                        max-height: 3em;
+                        min-height: 2em;
+                        max-height: 2em;
     
                         border-radius: 5px;
                         border: none;
@@ -518,8 +518,8 @@ body{
                     .botonEliminarTarea{
                         min-width: 5em;
                         max-width: 5em;
-                        min-height: 3em;
-                        max-height: 3em;
+                        min-height: 2em;
+                        max-height: 2em;
     
                         border-radius: 5px;
                         border: none;

@@ -1,3 +1,4 @@
+
 body{
     display: flex;
     flex-direction: column;
@@ -10,563 +11,535 @@ body{
     overflow-x: hidden;
 }
 
-.superdiv{
-    align-self: center;
-    justify-self: center;
+    .superdiv{
+        align-self: center;
+        justify-self: center;
 
-    height: 100vh;
-    width: 100vw;
-}
+        height: 100vh;
+        width: 100vw;
+    }
 
-/*___ TITULO ___*/
-.contenedorTitulo{
-    display:flex;
-    flex-direction:row;
-    box-sizing: border-box;
+    /*___ TITULO ___*/
+    .contenedorTitulo{
+        display:flex;
+        flex-direction:row;
+        box-sizing: border-box;
 
-    min-width: 99vw;
-    max-width: 99vw;
+        min-width: 99vw;
+        max-width: 99vw;
     
-    gap: 1vw;
-    margin: 5px;
+        gap: 1vw;
+        margin: 5px;
 
-    padding: 10px;
-
-    /* border: 1px solid;
-    border-color: rgb(100,100,100);
-    border-radius: 10px; */
-
-}
-
-    .titulo{
-    width: 100%;
-    font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
-
-    font-weight: 1000;
-
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    text-align: left;
-
-    background-color: transparent;
+        padding: 10px;
     }
 
-    .titulo::placeholder {
-  font-style: italic;
-    }
+        .titulo{
+            width: 100%;
+            font-size: 30px;
+            font-family: Arial, Helvetica, sans-serif;
 
-    .botonAgregarContenedor{
-    min-width: 3vw;
-    max-width: 3vw;
+            font-weight: 1000;
 
-    align-content: center;
-    justify-content: center;
-    
-    border-radius: 10px 10px 10px 10px;
-    border: none;
-    outline: none;
-    }
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            text-align: left;
 
-    .botonAgregarContenedor:hover{
-    cursor: pointer;
-    background-color: rgb(190, 255, 180);
-    }
-
-    .botonCargarTablero{
-    min-width: 3vw;
-    max-width: 3vw;
-
-    align-content: center;
-    justify-content: center;
-    
-    border-radius: 10px 10px 10px 10px;
-    border: none;
-    outline: none;
-    }
-
-    .botonCargarTablero:hover{
-    cursor: pointer;
-    background-color: rgb(190, 255, 180);
-    }
-
-    .inputCargarTablero{
-    min-width: 3vw;
-    max-width: 3vw;
-
-    align-content: center;
-    justify-content: center;
-    
-    border-radius: 10px 10px 10px 10px;
-    border: none;
-    outline: none;
-
-    display: none;
-    }
-
-    .inputCargarTablero:hover{
-    cursor: pointer;
-    background-color: rgb(180, 180, 255);
-    }
-
-    .botonGuardarTablero{
-    min-width: 3vw;
-    max-width: 3vw;
-
-    align-content: center;
-    justify-content: center;
-    
-    border-radius: 10px 10px 10px 10px;
-    border: none;
-    outline: none;
-    }
-
-    .botonGuardarTablero:hover{
-    cursor: pointer;
-    background-color: rgb(180, 180, 255);
-    }
-
-/*___ SUBTITULO ___*/
-.contenedorDeContenedores{
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    
-    height: 90vh;
-
-    min-width: 99vw;
-    max-width: 99vw;
-
-    gap: 1vw;
-    margin: 5px;
-
-    box-sizing: border-box;
-
-    overflow-x: auto;
-}
-
-    .macroContenedor{   
-    display: flex;
-    flex-direction: column;
-
-    min-width: 24vw;
-    max-width: 24vw;
-
-    box-sizing: border-box;
-
-    padding: 5px;
-
-    /* border: 1px solid;
-    border-color: rgb(100,100,100); 
-    border-radius: 10px;
-    ;*/
-
-    overflow-x: hidden;
-    }
-
-        .contenedorSubTitulo{
-    display: flex;
-    flex-direction: column;
-
-    width: 100%;
-    padding: 5px;
-
-    box-sizing: border-box;
-    
-    margin-bottom: 10px;
-
-
-    /* border-radius: 5px; */
-    border: 3px solid;
-    border-color: rgb(50,50,50);
-
-    gap: 5px;
+            background-color: transparent;
         }
 
-        .contenedorSubTitulo_l1{
-    display: flex;
-    flex-direction: row;
-
-    width: 100%;
-
-    box-sizing: border-box;
-
-    gap: 5px;
+        .titulo::placeholder {
+            font-style: italic;
         }
 
-            .subTitulo{
-    width: 100%;
-    height: 3vh;
+        .botonAgregarContenedor{
+            min-width: 3em;
+            max-width: 3em;
 
-    font-size: 20px;
-    font-weight: 600;
-    font-family: Arial, Helvetica, sans-serif;
-
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    text-align: left;
-
-    background-color: transparent;
-            }
-
-            .subTitulo::placeholder {
-  font-style: italic;
-            }
-
-        .contenedorSubTitulo_l2{
-    display: flex;
-    flex-direction: row;
-
-    width: 100%;
-
-    box-sizing: border-box;
+            align-content: center;
+            justify-content: center;
     
-    gap: 5px;
+            border-radius: 10px 10px 10px 10px;
+            border: none;
+            outline: none;
         }
 
-            .botonIzquierda{
-    min-width: 3vw;
-    max-width: 3vw;
+        .botonAgregarContenedor:hover{
+            cursor: pointer;
+            background-color: rgb(190, 255, 180);
+        }
 
-    height: 3vh;
+        .botonCargarTablero{
+            min-width: 3em;
+            max-width: 3em;
 
-    align-content: center;
-    justify-content: center;
+            align-content: center;
+            justify-content: center;
     
-    border-radius: 10px 10px 10px 10px;
-    border: none;
-    outline: none;
-            }
+            border-radius: 10px 10px 10px 10px;
+            border: none;
+            outline: none;
+        }
 
-            .botonIzquierda:hover{
-    cursor: pointer;
-    background-color: rgb(180, 180, 255);
-            }
+        .botonCargarTablero:hover{
+            cursor: pointer;
+            background-color: rgb(190, 255, 180);
+        }
 
-            .botonDerecha{
-    min-width: 3vw;
-    max-width: 3vw;
+        .inputCargarTablero{
+            min-width: 3em;
+            max-width: 3em;
 
-    height: 3vh;
-
-    align-content: center;
-    justify-content: center;
+            align-content: center;
+            justify-content: center;
     
-    border-radius: 10px 10px 10px 10px;
-    border: none;
-    outline: none;
-            }
+            border-radius: 10px 10px 10px 10px;
+            border: none;
+            outline: none;
 
-            .botonDerecha:hover{
-    cursor: pointer;
-    background-color: rgb(180, 180, 255);
-            }
+            display: none;
+        }
 
-            .botonAgregarTarea{
-    min-width: 3vw;
-    max-width: 3vw;
+        .inputCargarTablero:hover{
+            cursor: pointer;
+            background-color: rgb(180, 180, 255);
+        }
 
-    height: 3vh;
+        .botonGuardarTablero{
+            min-width: 3em;
+            max-width: 3em;
 
-    align-content: center;
-    justify-content: center;
+            align-content: center;
+            justify-content: center;
     
-    border-radius: 10px 10px 10px 10px;
-    border: none;
-    outline: none;
-            }
+            border-radius: 10px 10px 10px 10px;
+            border: none;
+            outline: none;
+        }
 
-            .botonAgregarTarea:hover{
-    cursor: pointer;
-    background-color: rgb(190, 255, 180);
-            }
+        .botonGuardarTablero:hover{
+            cursor: pointer;
+            background-color: rgb(180, 180, 255);
+        }
 
-            .botonConfigurarContenedor{
-    min-width: 3vw;
-    max-width: 3vw;
-
-    height: 3vh;
-
-    align-content: center;
-    justify-content: center;
+    /*___ SUBTITULO ___*/
+    .contenedorDeContenedores{
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
     
-    border-radius: 10px 10px 10px 10px;
-    border: none;
-    outline: none;
-            }
+        min-width: 99vw;
+        max-width: 99vw;
+        height: 90vh;
 
-            .botonConfigurarContenedor:hover{
-    cursor: pointer;
-    background-color: rgb(180, 180, 255);
-            }
+        gap: 5px;
+        margin: 5px;
+
+        box-sizing: border-box;
+
+        overflow-x: auto;
+    }
+
+        .macroContenedor{   
+            display: flex;
+            flex-direction: column;
+
+            min-width: 25%;
+            max-width: 25%;
+
+            box-sizing: border-box;
+
+            padding: 5px;
             
-            .botonEliminarContenedor{
-    min-width: 3vw;
-    max-width: 3vw;
+            overflow-x: hidden;
+        }
 
-    height: 3vh;
+            .contenedorSubTitulo{
+                display: flex;
+                flex-direction: column;
 
-    align-content: center;
-    justify-content: center;
+                width: 100%;
+                padding: 5px;
+
+                box-sizing: border-box;
     
-    border-radius: 10px 10px 10px 10px;
-    border: none;
-    outline: none;
+                margin-bottom: 10px;
+
+                border: 3px solid;
+                border-color: rgb(50,50,50);
+
+                gap: 5px;
             }
 
-            .botonEliminarContenedor:hover{
-    cursor: pointer;
-    background-color: rgb(255, 150, 150);
+                .contenedorSubTitulo_l1{
+                    display: flex;
+                    flex-direction: row;
+
+                    width: 100%;
+
+                    box-sizing: border-box;
+
+                    gap: 5px;
+                 }
+
+                    .subTitulo{
+                        width: 100%;
+                        height: 3vh;
+
+                        font-size: 20px;
+                        font-weight: 600;
+                        font-family: Arial, Helvetica, sans-serif;
+
+                        border-radius: 10px;
+                        border: none;
+                        outline: none;
+                        text-align: left;
+
+                        background-color: transparent;
+                    }
+
+                    .subTitulo::placeholder {
+                        font-style: italic;
+                    }
+
+                .contenedorSubTitulo_l2{
+                    display: flex;
+                    flex-direction: row;
+
+                    width: 100%;
+
+                    box-sizing: border-box;
+    
+                    gap: 5px;
+                }
+
+                    .botonIzquierda{
+                        min-width: 2em;
+                        max-width: 2em;
+                        height: 2em;
+
+                        border-radius: 10px 10px 10px 10px;
+                        border: none;
+                        outline: none;
+                    }
+
+                    .botonIzquierda:hover{
+                        cursor: pointer;
+                        background-color: rgb(180, 180, 255);
+                    }
+
+                    .botonDerecha{
+                        min-width: 2em;
+                        max-width: 2em;
+                        height: 2em;
+    
+                        border-radius: 10px 10px 10px 10px;
+                        border: none;
+                        outline: none;
+                    }
+
+                    .botonDerecha:hover{
+                        cursor: pointer;
+                        background-color: rgb(180, 180, 255);
+                    }
+
+                    .botonAgregarTarea{
+                        min-width: 2em;
+                        max-width: 2em;
+                        height: 2em;
+    
+                        border-radius: 10px 10px 10px 10px;
+                        border: none;
+                        outline: none;
+                    }
+
+                    .botonAgregarTarea:hover{
+                        cursor: pointer;
+                        background-color: rgb(190, 255, 180);
+                    }
+
+                    .botonConfigurarContenedor{
+                        min-width: 2em;
+                        max-width: 2em;
+                        height: 2em;
+    
+                        border-radius: 10px 10px 10px 10px;
+                        border: none;
+                        outline: none;
+                    }
+
+                    .botonConfigurarContenedor:hover{
+                        cursor: pointer;
+                        background-color: rgb(180, 180, 255);
+                    }
+            
+                    .botonEliminarContenedor{
+                        min-width: 2em;
+                        max-width: 2em;
+                        height: 2em;
+    
+                        border-radius: 10px 10px 10px 10px;
+                        border: none;
+                        outline: none;
+                    }
+
+                    .botonEliminarContenedor:hover{
+                        cursor: pointer;
+                        background-color: rgb(255, 150, 150);
+                    }
+
+    /*___ CONTENEDORES DE TAREAS ___*/
+    .contenedorTareas{
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+        height: 100%;
+
+        box-sizing: border-box;
+    
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+        .textoContador{
+            width: 100%;
+            font-size: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: left;
+            font-weight: bold;
+    
+            margin: 0;
+            padding: 0;
+
+            margin-bottom: 10px;
+    
+            font-style: italic;
+        }
+
+        .contenedorTareasListadas{   
+            display: flex;
+            flex-direction: column;
+
+            width: 100%;
+            height: 100%;
+
+            box-sizing: border-box;
+    
+            overflow-y: auto;
+
+            gap:5px;
+
             }
 
-/*___ CONTENEDORES DE TAREAS ___*/
-.contenedorTareas{
-    display: flex;
-    flex-direction: column;
+            /*___ TAREA LISTADA ___*/
+            .tareaListada{
+                display: flex;
+                flex-direction: column;
 
-    width: 100%;
-    height: 100%;
+                align-content: center;
+                justify-content: center;
 
-    box-sizing: border-box;
+                padding: 10px;
+
+                box-sizing: border-box;
     
-    overflow-y: auto;
-    overflow-x: hidden;
-}
+                gap: 5px;
+            }
 
-    .textoContador{
-    width: 100%;
-    font-size: 15px;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: left;
-    font-weight: bold;
+            .tareaListada:hover{
+                cursor: pointer;
+                border: 1px solid;
+                border-color: rgb(100,100,100);
+            }
+
+                /*___ RENGLON 1 ___*/
+                .tareaListada_l1{
+                    width: 100%;
+
+                    display: flex;
+                    flex-direction: row;
+
+                    align-content: center;
+                    justify-content: center;
+
+                    padding-top: 1px;
+                    padding-bottom: 1px;
+
+                    box-sizing: border-box;
+
+                    gap: 5px;
+                }
+
+                    .textoTarea{
+                        width: 100%;
+
+                        font-size: 14px;
+                        font-family: Arial, Helvetica, sans-serif;
+                        font-weight: 300;
+
+                        border-radius: 5px;
+                        border: none;
+                        outline: none;
+                        text-align: left;
+
+                        resize: none;
+
+                        background-color: transparent;
+                    }
+
+                /*___ RENGLON 2 ___*/
+                .tareaListada_l2{
+                    width: 100%;
+
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    align-content: center;
+                    justify-content: left;
+
+                    padding-top: 1px;
+                    padding-bottom: 1px;
+
+                    box-sizing: border-box;
+
+                    gap: 5px;
+                }
+
+                    .pesoTarea{
+                        min-width: 5em;
+                        max-width: 5em;
+                        min-height: 3em;
+                        max-height: 3em;
+
+                        font-size: 12px;
+                        font-family: Arial, Helvetica, sans-serif;
+
+                        border-radius: 5px;
+                        border: none;
     
-    margin: 0;
-    padding: 0;
+                        outline: none;
+                    }
 
-    margin-bottom: 10px;
+                    .pesoTarea::placeholder {
+                        font-style: italic;
+                    }
+
+                    .estado_2{
+                        min-width: 5em;
+                        max-width: 5em;
+                        min-height: 3em;
+                        max-height: 3em;
+
+
+                        font-size: 12px;
+                        font-family: Arial, Helvetica, sans-serif;
+
+                        border-radius: 5px;
+                        border: none;
     
-    font-style: italic;
-    }
+                        outline: none;
+                        text-align: left;
+                    }
 
-    .contenedorTareasListadas{   
-    display: flex;
-    flex-direction: column;
+                    .estado_2::placeholder {
+                        font-style: italic;
+                    }
 
-    width: 100%;
-    height: 100%;
+                    .fechaInicio{
+                        min-width: 5em;
+                        max-width: 5em;
+                        min-height: 3em;
+                        max-height: 3em;
 
-    box-sizing: border-box;
+
+                        font-size: 12px;
+                        font-family: Arial, Helvetica, sans-serif;
+
+                        border-radius: 5px;
+                        border: none;
     
-    overflow-y: auto;
+                        outline: none;
+                        text-align: left;
+                    }
 
-    gap:5px;
+                    .fechaFin{
+                        min-width: 5em;
+                        max-width: 5em;
 
-    }
 
-/*___ TAREA LISTADA ___*/
-.tareaListada{
-    display: flex;
-    flex-direction: column;
+                        font-size: 12px;
+                        font-family: Arial, Helvetica, sans-serif;
 
-    align-content: center;
-    justify-content: center;
-
-    padding: 10px;
-
-    box-sizing: border-box;
+                        border-radius: 5px;
+                        border: none;
     
+                        outline: none;
+                        text-align: left;
+                    }
+
+                    .responsable{
+                        min-width: 5em;
+                        max-width: 5em;
+                        min-height: 3em;
+                        max-height: 3em;
+
+                        font-size: 12px;
+                        font-family: Arial, Helvetica, sans-serif;
+
+                        border-radius: 5px;
+                        border: none;
     
+                        outline: none;
+                        text-align: left;
+                    }
 
-    gap: 3px;
-}
+                    .responsable::placeholder {
+                        font-style: italic;
+                    }
 
-.tareaListada:hover{
-    cursor: pointer;
-    border: 1px solid;
-    border-color: rgb(100,100,100);
-}
-
-/*___ RENGLON 1 ___*/
-.tareaListada_l1{
-    width: 100%;
-
-    display: flex;
-    flex-direction: row;
-
-    align-content: center;
-    justify-content: center;
-
-    padding-top: 1px;
-    padding-bottom: 1px;
-
-    box-sizing: border-box;
-
-    gap: 5px;
-}
-
-
-    .textoTarea{
-    width: 100%;
-
-    font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 300;
-
-    border-radius: 5px;
-    border: none;
+                    .botonConfigTarea{
+                        min-width: 5em;
+                        max-width: 5em;
+                        min-height: 3em;
+                        max-height: 3em;
     
-    outline: none;
-    text-align: left;
+                        border-radius: 5px;
+                        border: none;
+                        outline: none;
+                    }
 
-    resize: none;
+                    .botonConfigTarea:hover{
+                        cursor: pointer;
+                        background-color: rgb(180, 180, 255);
+                    }
 
-    background-color: transparent;
-    }
-
-/*___ RENGLON 2 ___*/
-.tareaListada_l2{
-    width: 100%;
-
-    display: flex;
-    flex-wrap: wrap;
-
-    align-content: center;
-    justify-content: left;
-
-    padding-top: 1px;
-    padding-bottom: 1px;
-
-    box-sizing: border-box;
-
-    gap: 5px;
-}
-
-    .pesoTarea{
-    min-width: 5vw;
-    max-width: 5vw;
-
-    font-size: 12px;
-    font-family: Arial, Helvetica, sans-serif;
-
-    border-radius: 5px;
-    border: none;
+                    .botonEliminarTarea{
+                        min-width: 5em;
+                        max-width: 5em;
+                        min-height: 3em;
+                        max-height: 3em;
     
-    outline: none;
+                        border-radius: 5px;
+                        border: none;
+                        outline: none;
+                    }
 
-    resize: none;
-    }
+                    .botonEliminarTarea:hover{
+                        cursor: pointer;
+                        background-color: rgb(255, 150, 150);
+                    }
+        footer{
+            display: flex;
+            justify-content: right;
+            margin-right: 10px;
+            margin-left: 10px;
 
-    .pesoTarea::placeholder {
-  font-style: italic;
-    }
-
-    .estado_2{
-    min-width: 5vw;
-    max-width: 5vw;
-
-    font-size: 12px;
-    font-family: Arial, Helvetica, sans-serif;
-
-    border-radius: 5px;
-    border: none;
-    
-    outline: none;
-    text-align: left;
-
-    resize: none;
-    }
-
-    .estado_2::placeholder {
-  font-style: italic;
-    }
-
-    .fechaInicio{
-    min-width: 5vw;
-    max-width: 5vw;
-
-    font-size: 12px;
-    font-family: Arial, Helvetica, sans-serif;
-
-    border-radius: 5px;
-    border: none;
-    
-    outline: none;
-    text-align: left;
-
-    resize: none;
-    }
-
-    .fechaFin{
-    min-width: 5vw;
-    max-width: 5vw;
-
-    font-size: 12px;
-    font-family: Arial, Helvetica, sans-serif;
-
-    border-radius: 5px;
-    border: none;
-    
-    outline: none;
-    text-align: left;
-
-    resize: none;
-    }
-
-    .responsable{
-    min-width: 5vw;
-    max-width: 5vw;
-
-    font-size: 12px;
-    font-family: Arial, Helvetica, sans-serif;
-
-    border-radius: 5px;
-    border: none;
-    
-    outline: none;
-    text-align: left;
-
-    resize: none;
-    }
-
-    .responsable::placeholder {
-  font-style: italic;
-    }
-
-    .botonConfigTarea{
-    min-width: 3vw;
-    max-width: 3vw;
-
-    align-content: center;
-    justify-content: center;
-    
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    }
-
-    .botonConfigTarea:hover{
-    cursor: pointer;
-    background-color: rgb(180, 180, 255);
-}
-
-    .botonEliminarTarea{
-    min-width: 3vw;
-    max-width: 3vw;
-
-    align-content: center;
-    justify-content: center;
-    
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    }
-
-    .botonEliminarTarea:hover{
-    cursor: pointer;
-    background-color: rgb(255, 150, 150);
-    }
+            font-family: Arial, Helvetica, sans-serif;
+            font-style: italic;
+            color: rgb(150,150,150);
+        }
 
 /*___ VENTANA EMERGENTE ___*/
 .ventanaEmergente{
@@ -593,103 +566,122 @@ body{
     }
 
     .color_1{
-    min-height: 3vh;
-    max-height: 3vh;
-    min-width: 3vw;;
-    max-width: 3vw;
-    background-color: rgb(230,230,230);
-    border-radius: 20px;
+        min-width: 3em;
+        max-width: 3em;
+        height: 3em;
+    
+        background-color: rgb(230,230,230);
+        border-radius: 20px;
 
-    border: none;
-    outline: none;
+        border: none;
+        outline: none;
     }
     .color_1:hover{
-    cursor: pointer;
+        cursor: pointer;
     }
 
     .color_2{
-    min-height: 3vh;
-    max-height: 3vh;
-    min-width: 3vw;;
-    max-width: 3vw;
-    background-color: rgb(255, 238, 147);
-    border-radius: 20px;
+        min-width: 3em;
+        max-width: 3em;
+        height: 3em;
+        background-color: rgb(255, 238, 147);
+        border-radius: 20px;
 
-    border: none;
-    outline: none;
+        border: none;
+        outline: none;
     }
     .color_2:hover{
-    cursor: pointer;
+        cursor: pointer;
     }
 
     .color_3{
-    min-height: 3vh;
-    max-height: 3vh;
-    min-width: 3vw;;
-    max-width: 3vw;
-    background-color: rgb(121, 173, 220);
-    border-radius: 20px;
+        min-width: 3em;
+        max-width: 3em;
+        height: 3em;
+        background-color: rgb(121, 173, 220);
+        border-radius: 20px;
     
-    border: none;
-    outline: none;
+        border: none;
+        outline: none;
     }
     .color_3:hover{
-    cursor: pointer;
+        cursor: pointer;
     }
 
     .color_4{
-    min-height: 3vh;
-    max-height: 3vh;
-    min-width: 3vw;;
-    max-width: 3vw;
-    background-color: rgb(255, 116, 119);
-    border-radius: 20px; 
+        min-width: 3em;
+        max-width: 3em;
+        height: 3em;
+        background-color: rgb(255, 116, 119);
+        border-radius: 20px; 
 
-    border: none;
-    outline: none;
+        border: none;
+        outline: none;
     }
     .color_4:hover{
-    cursor: pointer;
+        cursor: pointer;
     }
 
     .color_5{
-    min-height: 3vh;
-    max-height: 3vh;
-    min-width: 3vw;;
-    max-width: 3vw;
-    background-color: rgb(145, 210, 160);
-    border-radius: 20px; 
+        min-width: 3em;
+        max-width: 3em;
+        height: 3em;
+        background-color: rgb(145, 210, 160);
+        border-radius: 20px; 
 
-    border: none;
-    outline: none;
+        border: none;
+        outline: none;
     }
     .color_5:hover{
-    cursor: pointer;
+        cursor: pointer;
     }
 
-    footer{
-    display: flex;
-    justify-content: right;
-    margin-right: 10px;
-    margin-left: 10px;
 
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: italic;
-    color: rgb(150,150,150);
+/*___ MEDIA QUERY ___*/
+@media (max-width: 1080px) {
+    .macroContenedor{   
+        display: flex;
+        flex-direction: column;
+
+        max-width: 30%;
+        min-width: 30%;
+
+        box-sizing: border-box;
+
+        padding: 5px;
+        overflow-x: hidden;
+    }
 }
 
+@media (max-width: 720px) {
+    .macroContenedor{   
+        display: flex;
+        flex-direction: column;
 
+        max-width: 45%;
+        min-width: 45%;
 
+        box-sizing: border-box;
 
+        padding: 5px;
+        overflow-x: hidden;
+    }
+}
 
+@media (max-width: 480px) {
+    .macroContenedor{   
+        display: flex;
+        flex-direction: column;
 
+        max-width: 60%;
+        min-width: 60%;
 
+        box-sizing: border-box;
 
-
-
-
-
-
+        padding: 5px;
+        overflow-x: hidden;
+    }
+}
 
 
 

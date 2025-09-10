@@ -58,6 +58,7 @@ function funcionDibujarContenedor(
         subTitulo.value = $subTitulo.value;
         subTitulo.classList.add("subTitulo");
         subTitulo.setAttribute("placeholder", "Proceso...")   
+        subTitulo.setAttribute("maxlength", "25");
         
         if ($subTitulo === "undefined"){
             subTitulo.setAttribute("placeholder", "Proceso...")
@@ -154,7 +155,7 @@ function funcionMoverContenedor(event){
     }
     if (boton.classList.contains("botonDerecha") && macroContenedor.nextElementSibling){
         //console.log("A la Derecha")
-        contenedorDeContenedores.insertBefore(macroContenedor.nextElementSibling, macroContenedor,) 
+        contenedorDeContenedores.insertBefore(macroContenedor.nextElementSibling, macroContenedor) 
     }
 }
 
@@ -196,7 +197,6 @@ function funcionAgregarTarea(event){
     funcionActualizarContadores();
 }
 
-// Esta funcion dibuja las tareas
 function funcionDibujarTareas(
     $id_tareaListada,
     $textoTarea, 
@@ -222,15 +222,40 @@ function funcionDibujarTareas(
     let tareaListada_l1 = document.createElement("div");
     tareaListada_l1.classList.add("tareaListada_l1");
 
-        // Crear campo textoTarea
+        //Crear campo textoTarea
         let textoTarea = document.createElement("textarea");
-        textoTarea.value = $textoTarea;
+        textoTarea.textContent= $textoTarea;
         textoTarea.classList.add("textoTarea");
-        textoTarea.setAttribute("rows", 2);
-
+        textoTarea.setAttribute("rows", 3);
+        textoTarea.setAttribute("maxlength", "125");
+   
     // Creamos linea 2 del contenedor tareaListada
     let tareaListada_l2 = document.createElement("div");
     tareaListada_l2.classList.add("tareaListada_l2");
+
+        // Boton Izquierda
+        let botonL = document.createElement("button");
+        botonL.textContent = "˂";
+        botonL.classList.add("botonL");
+        botonL.addEventListener("click", funcionMoverTarea);
+        
+        // Boton Arriba
+        let botonUp = document.createElement("button");
+        botonUp.textContent = "˄";
+        botonUp.classList.add("botonUp");
+        botonUp.addEventListener("click", funcionMoverTarea);
+        
+        // Boton Abajo
+        let botonDown = document.createElement("button");
+        botonDown.textContent = "˅";
+        botonDown.classList.add("botonDown");
+        botonDown.addEventListener("click", funcionMoverTarea);
+        
+        // Boton Derecha
+        let botonR = document.createElement("button");
+        botonR.textContent = "˃"; 
+        botonR.classList.add("botonR"); 
+        botonR.addEventListener("click", funcionMoverTarea);
 
         // Crear campo de peso
         let pesoTarea = document.createElement("input");
@@ -279,9 +304,14 @@ function funcionDibujarTareas(
     // Ensamblamos
     tareaListada.appendChild(tareaListada_l1);
     tareaListada.appendChild(tareaListada_l2);
-
+    
     tareaListada_l1.appendChild(textoTarea);
-   
+    
+    tareaListada_l2.appendChild(botonDown);
+    tareaListada_l2.appendChild(botonUp);
+    tareaListada_l2.appendChild(botonL);
+    tareaListada_l2.appendChild(botonR);
+
     tareaListada_l2.appendChild(pesoTarea);
     tareaListada_l2.appendChild(estado_2);
     tareaListada_l2.appendChild(fechaInicio);
@@ -308,6 +338,28 @@ function funcionEliminarTarea(event){
     funcionActualizarContadores();
 }
 
+function funcionMoverTarea(event){
+    let boton = event.target;
+    let macroContenedor = boton.closest(".macroContenedor");
+    let contenedorTareasListadas = macroContenedor.querySelector(".contenedorTareasListadas");
+    let tareaListada = boton.closest(".tareaListada");
+    if (boton.classList.contains("botonUp") && tareaListada.previousElementSibling){
+        contenedorTareasListadas.insertBefore(tareaListada, tareaListada.previousElementSibling); 
+    }
+    if (boton.classList.contains("botonDown") && tareaListada.nextElementSibling){
+        contenedorTareasListadas.insertBefore(tareaListada.nextElementSibling, tareaListada); 
+    }
+    if (boton.classList.contains("botonL") && macroContenedor.previousElementSibling){
+        let contenedorL = macroContenedor.previousElementSibling.querySelector(".contenedorTareasListadas");
+        contenedorL.appendChild(tareaListada);
+    }
+    if (boton.classList.contains("botonR") && macroContenedor.nextElementSibling){
+        let contenedorR = macroContenedor.nextElementSibling.querySelector(".contenedorTareasListadas");
+        contenedorR.appendChild(tareaListada);
+    }
+    
+}
+
 function funcionDialogoColoresTareas(event){
     /// Se utiliza el objeto event para usar la propiedad target
     // Aca identificamos en que macrContenedeor donde se disparo la accion
@@ -332,7 +384,21 @@ function funcionDialogoColoresTareas(event){
     document.body.appendChild(ventana);
     ventana.showModal();
 
-    // Cerrar modal
+    // Cerrar modal con click
+    ventana.addEventListener("click", (e) => {
+        if (e.target === ventana) {
+            ventana.close();
+            ventana.remove();
+        }
+    });
+
+    // Cerrar modal con Escape
+    ventana.addEventListener("cancel", () => {
+        ventana.close();
+        ventana.remove();
+    });
+
+    // Cerrar modal al seleccionar color
     ventana.querySelectorAll(".color_1, .color_2, .color_3, .color_4, .color_5").forEach(boton => {
         boton.addEventListener("click", () => {
             let estilo = window.getComputedStyle(boton)
@@ -371,13 +437,25 @@ function funcionDialogoColoresContenedores(event){
     document.body.appendChild(ventana);
     ventana.showModal();
 
-    // Cerrar modal
+    // Cerrar modal con click
+    ventana.addEventListener("click", (e) => {
+        if (e.target === ventana) {
+            ventana.close();
+            ventana.remove();
+        }
+    });
+
+    // Cerrar modal con Escape
+    ventana.addEventListener("cancel", () => {
+        ventana.close();
+        ventana.remove();
+    });
+
+    // Cerrar modal al seleccionar color
     ventana.querySelectorAll(".color_1, .color_2, .color_3, .color_4, .color_5").forEach(boton => {
         boton.addEventListener("click", () => {
             let estilo = window.getComputedStyle(boton)
             let color = estilo.backgroundColor;
-            
-            //console.log("Elegiste:", boton.className, "RGB: ",color);
             
             // Cerrar y remover la ventana en el DOM
             ventana.close();

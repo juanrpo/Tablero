@@ -9,8 +9,8 @@ body{
     .superdiv{
         align-self: center;
         justify-self: center;
-        height: 95vh;
-        width: 98%;
+        height: 85vh;
+        width: 95%;
         margin: 5px;
         padding: 5px;
     }
@@ -56,12 +56,12 @@ body{
         }
 
             .botonAgregarContenedor{
-                min-width: 3em;
-                max-width: 3em;
-                height: 3em;
+                min-width: 2em;
+                max-width: 2em;
+                height: 1.5em;
                 align-content: center;
                 justify-content: center;
-                border-radius: 10px 10px 10px 10px;
+                border-radius: 5px;
                 border: none;
                 outline: none;
             }
@@ -72,14 +72,14 @@ body{
             }
 
             .botonCargarTablero{
-                min-width: 3em;
-                max-width: 3em;
-                height: 3em;
+                min-width: 2em;
+                max-width: 2em;
+                height: 1.5em;
 
                 align-content: center;
                 justify-content: center;
         
-                border-radius: 10px 10px 10px 10px;
+                border-radius: 5px;
                 border: none;
                 outline: none;
             }
@@ -90,14 +90,14 @@ body{
             }
 
             .inputCargarTablero{
-                min-width: 3em;
-                max-width: 3em;
-                height: 3em;
+                min-width: 2em;
+                max-width: 2em;
+                height: 1.5em;
 
                 align-content: center;
                 justify-content: center;
         
-                border-radius: 10px 10px 10px 10px;
+                border-radius: 5px;
                 border: none;
                 outline: none;
 
@@ -110,14 +110,14 @@ body{
             }
 
             .botonGuardarTablero{
-                min-width: 3em;
-                max-width: 3em;
-                height: 3em;
+                min-width: 2em;
+                max-width: 2em;
+                height: 1.5em;
 
                 align-content: center;
                 justify-content: center;
 
-                border-radius: 10px 10px 10px 10px;
+                border-radius: 5px;
                 border: none;
                 outline: none;
             }
@@ -199,6 +199,9 @@ body{
                         outline: none;
                         text-align: left;
 
+                        padding-left: 10px;
+                        padding-right: 10px;
+
                         background-color: transparent;
                     }
 
@@ -209,20 +212,24 @@ body{
                 .contenedorSubTitulo_l2{
                     display: flex;
                     flex-direction: row;
+                    flex-wrap: wrap;
 
                     width: 100%;
 
+                    padding-left: 5px;
+                    padding-right: 5px;
+
+
                     box-sizing: border-box;
     
-                    gap: 5px;
+                    gap: 10px;
                 }
 
                     .botonIzquierda{
-                        min-width: 3em;
-                        max-width: 3em;
-                        height: 3em;
-
-                        border-radius: 10px 10px 10px 10px;
+                        min-width: 2em;
+                        max-width: 2em;
+                        height: 1.5em;
+                        border-radius: 5px;
                         border: none;
                         outline: none;
                     }
@@ -233,11 +240,10 @@ body{
                     }
 
                     .botonDerecha{
-                        min-width: 3em;
-                        max-width: 3em;
-                        height: 3em;
-    
-                        border-radius: 10px 10px 10px 10px;
+                        min-width: 2em;
+                        max-width: 2em;
+                        height: 1.5em;
+                        border-radius: 5px;
                         border: none;
                         outline: none;
                     }
@@ -248,11 +254,10 @@ body{
                     }
 
                     .botonAgregarTarea{
-                        min-width: 3em;
-                        max-width: 3em;
-                        height: 3em;
-    
-                        border-radius: 10px 10px 10px 10px;
+                        min-width: 2em;
+                        max-width: 2em;
+                        height: 1.5em;
+                        border-radius: 5px;
                         border: none;
                         outline: none;
                     }
@@ -263,11 +268,10 @@ body{
                     }
 
                     .botonConfigurarContenedor{
-                        min-width: 3em;
-                        max-width: 3em;
-                        height: 3em;
-    
-                        border-radius: 10px 10px 10px 10px;
+                        min-width: 2em;
+                        max-width: 2em;
+                        height: 1.5em;
+                        border-radius: 5px;
                         border: none;
                         outline: none;
                     }
@@ -278,11 +282,10 @@ body{
                     }
             
                     .botonEliminarContenedor{
-                        min-width: 3em;
-                        max-width: 3em;
-                        height: 3em;
-    
-                        border-radius: 10px 10px 10px 10px;
+                        min-width: 2em;
+                        max-width: 2em;
+                        height: 1.5em;
+                        border-radius: 5px;
                         border: none;
                         outline: none;
                     }
@@ -361,15 +364,12 @@ body{
                     display: flex;
                     flex-direction: row;
 
-                    align-content: center;
-                    justify-content: center;
-
                     padding-top: 1px;
                     padding-bottom: 1px;
 
                     box-sizing: border-box;
 
-                    gap: 5px;
+                    gap: 15px;
                 }
 
                     .textoTarea{
@@ -380,15 +380,17 @@ body{
                         font-weight: 300;
 
                         border-radius: 5px;
-                        border: none;
-                        outline: none;
                         text-align: left;
+
+                        padding: 5px;
+
+                        outline: none;
 
                         resize: none;
 
                         background-color: transparent;
                     }
-
+                
                 /*___ RENGLON 2 ___*/
                 .tareaListada_l2{
                     width: 100%;
@@ -403,15 +405,33 @@ body{
                     padding-bottom: 1px;
 
                     box-sizing: border-box;
-
-                    gap: 5px;
+                    column-gap: 10px;
+                    row-gap: 5px;
                 }
 
+                    /*___ CONTROL ___*/ 
+                    .botonL, .botonUp, .botonDown, .botonR {
+                        min-width: 2em;
+                        max-width: 2em;
+                        min-height: 1.5em;
+                        max-height: 1.5em;
+                        border-radius: 5px;
+                        border: none;
+                        outline: none;
+                        justify-content: center;
+                    }
+
+                    .botonL:hover, .botonUp:hover, .botonDown:hover, .botonR:hover {
+                        cursor: pointer;
+                        background-color: rgb(180, 180, 255);   
+                    }
+
+
                     .pesoTarea{
-                        min-width: 5em;
-                        max-width: 5em;
-                        min-height: 2em;
-                        max-height: 2em;
+                        min-width: 4em;
+                        max-width: 4em;
+                        min-height: 1.5em;
+                        max-height: 1.5em;
 
                         font-size: 12px;
                         font-family: Arial, Helvetica, sans-serif;
@@ -429,8 +449,8 @@ body{
                     .estado_2{
                         min-width: 5em;
                         max-width: 5em;
-                        min-height: 2em;
-                        max-height: 2em;
+                        min-height: 1.5em;
+                        max-height: 1.5em;
 
 
                         font-size: 12px;
@@ -448,10 +468,10 @@ body{
                     }
 
                     .fechaInicio{
-                        min-width: 7em;
-                        max-width: 7em;
-                        min-height: 2em;
-                        max-height: 2em;
+                        min-width: 6em;
+                        max-width: 6em;
+                        min-height: 1.5em;
+                        max-height: 1.5em;
 
 
                         font-size: 12px;
@@ -465,10 +485,10 @@ body{
                     }
 
                     .fechaFin{
-                        min-width: 7em;
-                        max-width: 7em;
-                        min-height: 2em;
-                        max-height: 2em;
+                        min-width: 6em;
+                        max-width: 6em;
+                        min-height: 1.5em;
+                        max-height: 1.5em;
 
 
                         font-size: 12px;
@@ -484,8 +504,8 @@ body{
                     .responsable{
                         min-width: 6em;
                         max-width: 6em;
-                        min-height: 2em;
-                        max-height: 2em;
+                        min-height: 1.5em;
+                        max-height: 1.5em;
 
                         font-size: 12px;
                         font-family: Arial, Helvetica, sans-serif;
@@ -502,10 +522,10 @@ body{
                     }
 
                     .botonConfigTarea{
-                        min-width: 3em;
-                        max-width: 3em;
-                        min-height: 2em;
-                        max-height: 2em;
+                        min-width: 2em;
+                        max-width: 2em;
+                        min-height: 1.5em;
+                        max-height: 1.5em;
     
                         border-radius: 5px;
                         border: none;
@@ -518,11 +538,11 @@ body{
                     }
 
                     .botonEliminarTarea{
-                        min-width: 3em;
-                        max-width: 3em;
-                        min-height: 2em;
-                        max-height: 2em;
-    
+                        min-width: 2em;
+                        max-width: 2em;
+                        min-height: 1.5em;
+                        max-height: 1.5em;
+
                         border-radius: 5px;
                         border: none;
                         outline: none;
@@ -630,7 +650,6 @@ body{
 
 
 /*___ MEDIA QUERY ___*/
-
 @media (min-width: 300px){
     .macroContenedor{   
         display: flex;

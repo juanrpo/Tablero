@@ -24,8 +24,11 @@ body{
         max-width: 99%;
         gap: 5px;
         margin: 5px;
-    }
 
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+        
         .titulo{
             width: 100%;
             font-size: 30px;
@@ -44,7 +47,6 @@ body{
             font-style: italic;
         }
 
-
         .contenedorControles{
             display:flex;
             flex-direction:row;
@@ -52,12 +54,13 @@ body{
             min-width: 99%;
             max-width: 99%;
             gap: 10px;
-            margin: 5px;
+            margin-left: 5px;
+            margin-right: 5px;
         }
 
-            .botonAgregarContenedor{
-                min-width: 3em;
-                max-width: 3em;
+            .botonAgregarContenedor, .botonCargarTablero, .botonGuardarTablero{
+                min-width: 2em;
+                max-width: 2em;
                 height: 3em;
                 align-content: center;
                 justify-content: center;
@@ -66,33 +69,15 @@ body{
                 outline: none;
             }
 
-            .botonAgregarContenedor:hover{
+            .botonAgregarContenedor:hover, .botonCargarTablero:hover, .botonGuardarTablero:hover{
                 cursor: pointer;
                 background-color: rgb(190, 255, 180);
-            }
-
-            .botonCargarTablero{
-                min-width: 3em;
-                max-width: 3em;
-                height: 3em;
-
-                align-content: center;
-                justify-content: center;
-        
-                border-radius: 5px;
-                border: none;
-                outline: none;
-            }
-
-            .botonCargarTablero:hover{
-                cursor: pointer;
-                background-color: rgb(190, 255, 180);
-            }
+            } 
 
             .inputCargarTablero{
-                min-width: 3em;
-                max-width: 3em;
-                height: 3em;
+                min-width: 2em;
+                max-width: 2em;
+                height: 1.5em;
 
                 align-content: center;
                 justify-content: center;
@@ -102,29 +87,6 @@ body{
                 outline: none;
 
                 display: none;
-            }
-
-            .inputCargarTablero:hover{
-                cursor: pointer;
-                background-color: rgb(180, 180, 255);
-            }
-
-            .botonGuardarTablero{
-                min-width: 3em;
-                max-width: 3em;
-                height: 3em;
-
-                align-content: center;
-                justify-content: center;
-
-                border-radius: 5px;
-                border: none;
-                outline: none;
-            }
-
-            .botonGuardarTablero:hover{
-                cursor: pointer;
-                background-color: rgb(180, 180, 255);
             }
 
     /*___ SUBTITULO ___*/
@@ -138,7 +100,8 @@ body{
         max-height: 99%;
 
         gap: 5px;
-        margin: 5px;
+        margin-left: 5px;
+        margin-right: 5px;
 
         box-sizing: border-box;
 
@@ -168,39 +131,53 @@ body{
                 box-sizing: border-box;
     
                 margin-bottom: 10px;
+                border-radius: 10px;
 
-                border: 2px solid;
-                border-color: rgb(50,50,50);
-
-                gap: 5px;
+                row-gap: 5px;
             }
 
                 .contenedorSubTitulo_l1{
-                    display: flex;
-                    flex-direction: row;
-
                     width: 100%;
-
+                    display: flex;
+                    flex-wrap: nowrap;
+                    justify-content: left;
                     box-sizing: border-box;
-
-                    gap: 5px;
+                    column-gap: 5px;
+                    padding-left: 5px;
+                    padding-right: 5px;
                  }
 
+                    .textoContador{
+                        height: 3vh;
+                        
+                        font-size: 18px;
+                        font-family: Arial, Helvetica, sans-serif;
+                        
+                        text-align: left;
+                        font-weight: bold;
+
+                        justify-content: center;
+                        align-content: center;
+                
+                        margin: 0;
+                        padding: 0;
+                
+                        font-style: italic;
+                    }
+                    
                     .subTitulo{
-                        width: 100%;
+                        min-width: 70%;
+                        max-width: 70%;
                         height: 3vh;
 
-                        font-size: 20px;
+                        font-size: 18px;
                         font-weight: 600;
                         font-family: Arial, Helvetica, sans-serif;
+                        text-align: left;
 
                         border-radius: 10px;
                         border: none;
                         outline: none;
-                        text-align: left;
-
-                        padding-left: 10px;
-                        padding-right: 10px;
 
                         background-color: transparent;
                     }
@@ -211,9 +188,9 @@ body{
 
                 .contenedorSubTitulo_l2{
                     display: flex;
-                    flex-direction: row;
-                    flex-wrap: wrap;
-
+                    flex-wrap: nowrap;
+                    justify-content: left;
+                    
                     width: 100%;
 
                     padding-left: 5px;
@@ -225,69 +202,20 @@ body{
                     gap: 10px;
                 }
 
-                    .botonIzquierda{
-                        min-width: 3em;
-                        max-width: 3em;
+                    .botonIzquierda, .botonDerecha, .botonAgregarTarea,  .botonConfigurarContenedor, .botonEliminarContenedor{
+                        min-width: 2em;
+                        max-width: 2em;
                         height: 3em;
                         border-radius: 5px;
                         border: none;
                         outline: none;
+                        justify-content: center;
+                        align-content: center;
                     }
 
-                    .botonIzquierda:hover{
+                    .botonIzquierda:hover, .botonDerecha:hover, .botonAgregarTarea:hover, .botonConfigurarContenedor:hover{
                         cursor: pointer;
                         background-color: rgb(180, 180, 255);
-                    }
-
-                    .botonDerecha{
-                        min-width: 3em;
-                        max-width: 3em;
-                        height: 3em;
-                        border-radius: 5px;
-                        border: none;
-                        outline: none;
-                    }
-
-                    .botonDerecha:hover{
-                        cursor: pointer;
-                        background-color: rgb(180, 180, 255);
-                    }
-
-                    .botonAgregarTarea{
-                        min-width: 3em;
-                        max-width: 3em;
-                        height: 3em;
-                        border-radius: 5px;
-                        border: none;
-                        outline: none;
-                    }
-
-                    .botonAgregarTarea:hover{
-                        cursor: pointer;
-                        background-color: rgb(190, 255, 180);
-                    }
-
-                    .botonConfigurarContenedor{
-                        min-width: 3em;
-                        max-width: 3em;
-                        height: 3em;
-                        border-radius: 5px;
-                        border: none;
-                        outline: none;
-                    }
-
-                    .botonConfigurarContenedor:hover{
-                        cursor: pointer;
-                        background-color: rgb(180, 180, 255);
-                    }
-            
-                    .botonEliminarContenedor{
-                        min-width: 3em;
-                        max-width: 3em;
-                        height: 3em;
-                        border-radius: 5px;
-                        border: none;
-                        outline: none;
                     }
 
                     .botonEliminarContenedor:hover{
@@ -307,35 +235,15 @@ body{
         overflow-y: auto;
         overflow-x: hidden;
     }
-
-        .textoContador{
-            width: 100%;
-            font-size: 15px;
-            font-family: Arial, Helvetica, sans-serif;
-            text-align: left;
-            font-weight: bold;
-    
-            margin: 0;
-            padding: 0;
-
-            margin-bottom: 10px;
-    
-            font-style: italic;
-        }
-
+        
         .contenedorTareasListadas{   
-            display: flex;
-            flex-direction: column;
-
             width: 100%;
             height: 100%;
-
+            display: flex;
+            flex-direction: column;
             box-sizing: border-box;
-    
             overflow-y: auto;
-
-            gap:5px;
-
+            row-gap:5px;
             }
 
             /*___ TAREA LISTADA ___*/
@@ -349,6 +257,7 @@ body{
                 padding: 10px;
 
                 box-sizing: border-box;
+                border-radius: 10px;
     
                 gap: 5px;
             }
@@ -360,16 +269,15 @@ body{
                 /*___ RENGLON 1 ___*/
                 .tareaListada_l1{
                     width: 100%;
-
                     display: flex;
-                    flex-direction: row;
+                    justify-content: center;
 
                     padding-top: 1px;
                     padding-bottom: 1px;
 
                     box-sizing: border-box;
 
-                    gap: 15px;
+                    gap: 10px;
                 }
 
                     .textoTarea{
@@ -388,11 +296,46 @@ body{
 
                         resize: none;
 
-                        background-color: transparent;
+                        border: none;
+                        /*background-color: transparent;*/
                     }
                 
                 /*___ RENGLON 2 ___*/
                 .tareaListada_l2{
+                    width: 100%;
+
+                    display: flex;
+                    flex-wrap: nowrap;
+                    justify-content: left;
+
+                    box-sizing: border-box;
+                    gap: 10px;
+                }
+
+                    /*___ CONTROL ___*/ 
+                    .botonL, .botonUp, .botonDown, .botonR, .botonConfigTarea, .botonEliminarTarea {
+                        min-width: 2em;
+                        max-width: 2em;
+                        min-height: 2em;
+                        max-height: 2em;
+                        border-radius: 5px;
+                        border: none;
+                        outline: none;
+                        justify-content: center;
+                        align-content: center;
+                    }
+
+                    .botonL:hover, .botonUp:hover, .botonDown:hover, .botonR:hover, .botonConfigTarea:hover {
+                        cursor: pointer;
+                        background-color: rgb(180, 180, 255);   
+                    }
+
+                    .botonEliminarTarea:hover{
+                        cursor: pointer;
+                        background-color: rgb(255, 150, 150);
+                    }
+
+                .tareaListada_l3{
                     width: 100%;
 
                     display: flex;
@@ -408,26 +351,8 @@ body{
                     column-gap: 10px;
                     row-gap: 5px;
                 }
-
-                    /*___ CONTROL ___*/ 
-                    .botonL, .botonUp, .botonDown, .botonR {
-                        min-width: 3em;
-                        max-width: 3em;
-                        min-height: 3em;
-                        max-height: 3em;
-                        border-radius: 5px;
-                        border: none;
-                        outline: none;
-                        justify-content: center;
-                    }
-
-                    .botonL:hover, .botonUp:hover, .botonDown:hover, .botonR:hover {
-                        cursor: pointer;
-                        background-color: rgb(180, 180, 255);   
-                    }
-
-
-                    .pesoTarea{
+                    /*___ DATOS ___*/ 
+                    .pesoTarea, .estado_2, .responsable{
                         min-width: 5em;
                         max-width: 5em;
                         min-height: 1.5em;
@@ -446,112 +371,32 @@ body{
                         font-style: italic;
                     }
 
-                    .estado_2{
-                        min-width: 6em;
-                        max-width: 6em;
-                        min-height: 1.5em;
-                        max-height: 1.5em;
-
-
-                        font-size: 12px;
-                        font-family: Arial, Helvetica, sans-serif;
-
-                        border-radius: 5px;
-                        border: none;
-    
-                        outline: none;
-                        text-align: left;
-                    }
 
                     .estado_2::placeholder {
                         font-style: italic;
-                    }
-
-                    .fechaInicio{
-                        min-width: 5em;
-                        max-width: 5em;
-                        min-height: 1.5em;
-                        max-height: 1.5em;
-
-
-                        font-size: 12px;
-                        font-family: Arial, Helvetica, sans-serif;
-
-                        border-radius: 5px;
-                        border: none;
-    
-                        outline: none;
-                        text-align: left;
-                    }
-
-                    .fechaFin{
-                        min-width: 5em;
-                        max-width: 5em;
-                        min-height: 1.5em;
-                        max-height: 1.5em;
-
-
-                        font-size: 12px;
-                        font-family: Arial, Helvetica, sans-serif;
-
-                        border-radius: 5px;
-                        border: none;
-    
-                        outline: none;
-                        text-align: left;
-                    }
-
-                    .responsable{
-                        min-width: 6em;
-                        max-width: 6em;
-                        min-height: 1.5em;
-                        max-height: 1.5em;
-
-                        font-size: 12px;
-                        font-family: Arial, Helvetica, sans-serif;
-
-                        border-radius: 5px;
-                        border: none;
-    
-                        outline: none;
-                        text-align: left;
                     }
 
                     .responsable::placeholder {
                         font-style: italic;
                     }
 
-                    .botonConfigTarea{
-                        min-width: 3em;
-                        max-width: 3em;
-                        min-height: 3em;
-                        max-height: 3em;
+                    .fechaInicio, .fechaFin{
+                        min-width: 5em;
+                        max-width: 5em;
+                        min-height: 1.5em;
+                        max-height: 1.5em;
+
+
+                        font-size: 12px;
+                        font-family: Arial, Helvetica, sans-serif;
+
+                        border-radius: 5px;
+                        border: none;
     
-                        border-radius: 5px;
-                        border: none;
                         outline: none;
+                        text-align: left;
                     }
 
-                    .botonConfigTarea:hover{
-                        cursor: pointer;
-                        background-color: rgb(180, 180, 255);
-                    }
-
-                    .botonEliminarTarea{
-                        min-width: 3em;
-                        max-width: 3em;
-                        min-height: 3em;
-                        max-height: 3em;
-
-                        border-radius: 5px;
-                        border: none;
-                        outline: none;
-                    }
-
-                    .botonEliminarTarea:hover{
-                        cursor: pointer;
-                        background-color: rgb(255, 150, 150);
-                    }
 
 /*___ VENTANA EMERGENTE ___*/
 .ventanaEmergente{
@@ -588,66 +433,56 @@ body{
         border: none;
         outline: none;
     }
-    .color_1:hover{
-        cursor: pointer;
-    }
+
 
     .color_2{
         min-width: 3em;
         max-width: 3em;
         height: 3em;
-        background-color: rgb(255, 238, 147);
+        background-color: rgb(255, 243, 176);
         border-radius: 20px;
 
         border: none;
         outline: none;
     }
-    .color_2:hover{
-        cursor: pointer;
-    }
+
 
     .color_3{
         min-width: 3em;
         max-width: 3em;
         height: 3em;
-        background-color: rgb(121, 173, 220);
+        background-color: rgb(179, 205, 224);
         border-radius: 20px;
     
         border: none;
         outline: none;
-    }
-    .color_3:hover{
-        cursor: pointer;
     }
 
     .color_4{
         min-width: 3em;
         max-width: 3em;
         height: 3em;
-        background-color: rgb(255, 116, 119);
+        background-color: rgb(255, 182, 193);
         border-radius: 20px; 
 
         border: none;
         outline: none;
-    }
-    .color_4:hover{
-        cursor: pointer;
     }
 
     .color_5{
         min-width: 3em;
         max-width: 3em;
         height: 3em;
-        background-color: rgb(145, 210, 160);
+        background-color: rgb(182, 229, 182);
         border-radius: 20px; 
 
         border: none;
         outline: none;
     }
-    .color_5:hover{
+    
+    .color_1:hover, .color_2:hover, .color_3:hover, .color_4:hover, .color_5:hover{
         cursor: pointer;
     }
-
 
 /*___ MEDIA QUERY ___*/
 @media (min-width: 300px){

@@ -12,7 +12,6 @@ let botonGuardarTablero = document.getElementById("botonGuardarTablero");
     let colorBasePorDefecto = "rgb(245,245,245)";
 
 // FUNCIONES
-
 function funcionAgregarContenedor(){
     let contenedorDeContenedores = document.querySelector(".contenedorDeContenedores");
     
@@ -53,7 +52,7 @@ function funcionDibujarContenedor(
     // LINEA 1
     let contenedorSubtitulo_l1 = document.createElement("div");
     contenedorSubtitulo_l1.classList.add("contenedorSubTitulo_l1");
-        
+
         let subTitulo = document.createElement("input");
         subTitulo.value = $subTitulo.value;
         subTitulo.classList.add("subTitulo");
@@ -71,12 +70,12 @@ function funcionDibujarContenedor(
     contenedorSubtitulo_l2.classList.add("contenedorSubTitulo_l2");
         
         let botonIzquierda = document.createElement("button");
-        botonIzquierda.textContent = "<";
+        botonIzquierda.textContent = "⏴";
         botonIzquierda.classList.add("botonIzquierda");   
         botonIzquierda.addEventListener("click", funcionMoverContenedor);
 
         let botonDerecha = document.createElement("button");
-        botonDerecha.textContent = ">";
+        botonDerecha.textContent = "⏵";
         botonDerecha.classList.add("botonDerecha");   
         botonDerecha.addEventListener("click", funcionMoverContenedor);
  
@@ -110,6 +109,7 @@ function funcionDibujarContenedor(
         contenedorTareasListadas.classList.add("contenedorTareasListadas");
 
     // ENSAMBLAMOS TODO
+    contenedorSubtitulo_l1.appendChild(textoContador);
     contenedorSubtitulo_l1.appendChild(subTitulo);
     contenedorSubtitulo_l2.appendChild(botonIzquierda);
     contenedorSubtitulo_l2.appendChild(botonDerecha);
@@ -120,7 +120,6 @@ function funcionDibujarContenedor(
     contenedorSubtitulo.appendChild(contenedorSubtitulo_l2);
     
     // Ensamblamos el contendor de tareas
-    contenedorTareas.appendChild(textoContador);
     contenedorTareas.appendChild(contenedorTareasListadas);
 
     // Ensamblamos el macroContenedor
@@ -235,27 +234,31 @@ function funcionDibujarTareas(
 
         // Boton Izquierda
         let botonL = document.createElement("button");
-        botonL.textContent = "˂";
+        botonL.textContent = "⏴";
         botonL.classList.add("botonL");
         botonL.addEventListener("click", funcionMoverTarea);
         
         // Boton Arriba
         let botonUp = document.createElement("button");
-        botonUp.textContent = "˄";
+        botonUp.textContent = "⏶";
         botonUp.classList.add("botonUp");
         botonUp.addEventListener("click", funcionMoverTarea);
         
         // Boton Abajo
         let botonDown = document.createElement("button");
-        botonDown.textContent = "˅";
+        botonDown.textContent = "⏷";
         botonDown.classList.add("botonDown");
         botonDown.addEventListener("click", funcionMoverTarea);
         
         // Boton Derecha
         let botonR = document.createElement("button");
-        botonR.textContent = "˃"; 
+        botonR.textContent = "⏵"; 
         botonR.classList.add("botonR"); 
         botonR.addEventListener("click", funcionMoverTarea);
+    
+    // Creamos linea 2 del contenedor tareaListada
+    let tareaListada_l3 = document.createElement("div");
+    tareaListada_l3.classList.add("tareaListada_l3");
 
         // Crear campo de peso
         let pesoTarea = document.createElement("input");
@@ -304,21 +307,23 @@ function funcionDibujarTareas(
     // Ensamblamos
     tareaListada.appendChild(tareaListada_l1);
     tareaListada.appendChild(tareaListada_l2);
+    tareaListada.appendChild(tareaListada_l3);
     
     tareaListada_l1.appendChild(textoTarea);
     
-    tareaListada_l2.appendChild(botonDown);
     tareaListada_l2.appendChild(botonUp);
+    tareaListada_l2.appendChild(botonDown);
     tareaListada_l2.appendChild(botonL);
     tareaListada_l2.appendChild(botonR);
-
-    tareaListada_l2.appendChild(pesoTarea);
-    tareaListada_l2.appendChild(estado_2);
-    tareaListada_l2.appendChild(fechaInicio);
-    tareaListada_l2.appendChild(fechaFin);
-    tareaListada_l2.appendChild(responsable);
     tareaListada_l2.appendChild(botonConfigTarea);
     tareaListada_l2.appendChild(botonEliminarTarea);
+
+    tareaListada_l3.appendChild(pesoTarea);
+    tareaListada_l3.appendChild(estado_2);
+    tareaListada_l3.appendChild(responsable);
+    tareaListada_l3.appendChild(fechaInicio);
+    tareaListada_l3.appendChild(fechaFin);
+    
 
     return tareaListada;
 }

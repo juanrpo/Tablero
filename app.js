@@ -172,6 +172,7 @@ function funcionAgregarTarea(event){
     let id = "tareaListada-"+Date.now();
 
     // Como es una tarea nueva se asignan estos campos vacios
+    let tituloTarea = "";
     let textoInput = "";
     let pesoTarea = "";
     let estado_2 = "";
@@ -183,6 +184,7 @@ function funcionAgregarTarea(event){
 
     let tarea = funcionDibujarTareas(
                     id,
+                    tituloTarea,
                     textoInput, 
                     pesoTarea,
                     estado_2, 
@@ -199,6 +201,7 @@ function funcionAgregarTarea(event){
 
 function funcionDibujarTareas(
     $id_tareaListada,
+    $tituloTarea,
     $textoTarea, 
     $pesoTarea,
     $estado_2, 
@@ -224,10 +227,12 @@ function funcionDibujarTareas(
 
 
         // Crear campo titulo tarea
-        let tituloTarea = document.createElement("input");
+        let tituloTarea = document.createElement("textarea");
+        tituloTarea.textContent= $tituloTarea;
         tituloTarea.classList.add("tituloTarea");
-        tituloTarea.setAttribute("placeholder", "Tarea...") 
-        tituloTarea.setAttribute("maxlength", 50);
+        tituloTarea.setAttribute("rows", 2);
+        tituloTarea.setAttribute("maxlength", "50");
+        tituloTarea.setAttribute("placeholder", "Tarea...");
 
         //Boton ocultar
         let botonMinMax = document.createElement("button");
@@ -596,6 +601,7 @@ function funcionGuardarTablero(event) {
         $tareasListadas.forEach(tarea => {
             let objetoTarea = {
                 id_tareaListada: tarea.id,
+                tituloTarea: tarea.querySelector(".tituloTarea").value,
                 textoTarea: tarea.querySelector(".textoTarea").value,
                 pesoTarea: tarea.querySelector(".pesoTarea").value,
                 estado_2: tarea.querySelector(".estado_2").value,
@@ -657,10 +663,9 @@ function funcionCargarTablero(event){
             );
 
             for(let y = 0 ; y < objetoContenedor[i].tareas.length; y++ ){
-                // console.log(objetoContenedor[i].tareas[y])
-                // dentro de los parentesis los parametros de la funcion.
                  let tarea = funcionDibujarTareas(
                     objetoContenedor[i].tareas[y].id_tareaListada,
+                    objetoContenedor[i].tareas[y].tituloTarea,
                     objetoContenedor[i].tareas[y].textoTarea, 
                     objetoContenedor[i].tareas[y].pesoTarea,
                     objetoContenedor[i].tareas[y].estado_2, 

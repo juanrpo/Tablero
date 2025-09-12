@@ -61,7 +61,7 @@ body{
             .botonAgregarContenedor, .botonCargarTablero, .botonGuardarTablero{
                 min-width: 3em;
                 max-width: 3em;
-                height: 2em;
+                height: 3em;
                 align-content: center;
                 justify-content: center;
                 border-radius: 5px;
@@ -199,7 +199,7 @@ body{
                     .botonIzquierda, .botonDerecha, .botonAgregarTarea,  .botonConfigurarContenedor, .botonEliminarContenedor{
                         min-width: 3em;
                         max-width: 3em;
-                        height: 2em;
+                        height: 3em;
                         border-radius: 5px;
                         border: none;
                         outline: none;
@@ -273,11 +273,12 @@ body{
                         outline: none;
                         border: none;
                         background-color: transparent;
+                        resize: none;
                     }
 
                     .botonConfigTarea, .botonMinMax, .botonEliminarTarea{
-                        min-width: 2em;
-                        max-width: 2em;
+                        min-width: 3em;
+                        max-width: 3em;
                         height: 3em;
                         border-radius: 5px;
                         border: none;

@@ -10,6 +10,7 @@ let botonGuardarTablero = document.getElementById("botonGuardarTablero");
     let listaTareas = [];   
     let objetoContenedor = {};
     let colorBasePorDefecto = "rgb(245,245,245)";
+    let contadorMinMax = 0;
 
 // FUNCIONES
 function funcionAgregarContenedor(){
@@ -221,23 +222,23 @@ function funcionDibujarTareas(
     let tareaListada_l1 = document.createElement("div");
     tareaListada_l1.classList.add("tareaListada_l1");
 
-        //Crear campo textoTarea
-        let textoTarea = document.createElement("textarea");
-        textoTarea.textContent= $textoTarea;
-        textoTarea.classList.add("textoTarea");
-        textoTarea.setAttribute("rows", 3);
-        textoTarea.setAttribute("maxlength", "125");
+
+        // Crear campo titulo tarea
+        let tituloTarea = document.createElement("input");
+        tituloTarea.classList.add("tituloTarea");
+        tituloTarea.setAttribute("placeholder", "Tarea...") 
+        tituloTarea.setAttribute("maxlength", 50);
+
+        //Boton ocultar
+        let botonMinMax = document.createElement("button");
+        botonMinMax.textContent = "+/-"
+        botonMinMax.classList.add("botonMinMax");
+        botonMinMax.addEventListener("click", funcionMinMaxTarea);
    
     // Creamos linea 2 del contenedor tareaListada
     let tareaListada_l2 = document.createElement("div");
     tareaListada_l2.classList.add("tareaListada_l2");
 
-        // Boton Izquierda
-        let botonL = document.createElement("button");
-        botonL.textContent = "⏴";
-        botonL.classList.add("botonL");
-        botonL.addEventListener("click", funcionMoverTarea);
-        
         // Boton Arriba
         let botonUp = document.createElement("button");
         botonUp.textContent = "⏶";
@@ -249,16 +250,41 @@ function funcionDibujarTareas(
         botonDown.textContent = "⏷";
         botonDown.classList.add("botonDown");
         botonDown.addEventListener("click", funcionMoverTarea);
+    
+        // Boton Izquierda
+        let botonL = document.createElement("button");
+        botonL.textContent = "⏴";
+        botonL.classList.add("botonL");
+        botonL.addEventListener("click", funcionMoverTarea);
         
         // Boton Derecha
         let botonR = document.createElement("button");
         botonR.textContent = "⏵"; 
         botonR.classList.add("botonR"); 
         botonR.addEventListener("click", funcionMoverTarea);
+
+        // crear boton configurar
+        let botonConfigTarea = document.createElement("button");
+        botonConfigTarea.textContent = "⛭";
+        botonConfigTarea.classList.add("botonConfigTarea");
+        botonConfigTarea.addEventListener("click", funcionDialogoColoresTareas);
+
+        // crear Boton eliminar
+        let botonEliminarTarea = document.createElement("button");
+        botonEliminarTarea.textContent = "x";
+        botonEliminarTarea.classList.add("botonEliminarTarea");
+        botonEliminarTarea.addEventListener("click", funcionEliminarTarea);
     
-    // Creamos linea 2 del contenedor tareaListada
+    // Creamos linea 3 del contenedor tareaListada
     let tareaListada_l3 = document.createElement("div");
     tareaListada_l3.classList.add("tareaListada_l3");
+
+        //Crear campo textoTarea
+        let textoTarea = document.createElement("textarea");
+        textoTarea.textContent= $textoTarea;
+        textoTarea.classList.add("textoTarea");
+        textoTarea.setAttribute("rows", 4);
+        textoTarea.setAttribute("maxlength", "125");
 
         // Crear campo de peso
         let pesoTarea = document.createElement("input");
@@ -292,40 +318,50 @@ function funcionDibujarTareas(
         responsable.setAttribute("type", "text");
         responsable.setAttribute("placeholder", "responsable");
 
-        // crear boton configurar
-        let botonConfigTarea = document.createElement("button");
-        botonConfigTarea.textContent = "⛭";
-        botonConfigTarea.classList.add("botonConfigTarea");
-        botonConfigTarea.addEventListener("click", funcionDialogoColoresTareas);
-
-        // crear Boton eliminar
-        let botonEliminarTarea = document.createElement("button");
-        botonEliminarTarea.textContent = "x";
-        botonEliminarTarea.classList.add("botonEliminarTarea");
-        botonEliminarTarea.addEventListener("click", funcionEliminarTarea);
 
     // Ensamblamos
     tareaListada.appendChild(tareaListada_l1);
     tareaListada.appendChild(tareaListada_l2);
     tareaListada.appendChild(tareaListada_l3);
     
-    tareaListada_l1.appendChild(textoTarea);
+    tareaListada_l1.appendChild(tituloTarea);
+    tareaListada_l1.appendChild(botonConfigTarea);
+    tareaListada_l1.appendChild(botonMinMax);
+    tareaListada_l1.appendChild(botonEliminarTarea);
     
     tareaListada_l2.appendChild(botonUp);
     tareaListada_l2.appendChild(botonDown);
     tareaListada_l2.appendChild(botonL);
     tareaListada_l2.appendChild(botonR);
-    tareaListada_l2.appendChild(botonConfigTarea);
-    tareaListada_l2.appendChild(botonEliminarTarea);
 
+    tareaListada_l3.appendChild(textoTarea);
     tareaListada_l3.appendChild(pesoTarea);
     tareaListada_l3.appendChild(estado_2);
     tareaListada_l3.appendChild(responsable);
     tareaListada_l3.appendChild(fechaInicio);
     tareaListada_l3.appendChild(fechaFin);
     
+    tareaListada_l2.style.display = "none";
+    tareaListada_l3.style.display = "none";
 
     return tareaListada;
+}
+
+function funcionMinMaxTarea(event){
+    let boton = event.target
+    let tareaListada = boton.closest(".tareaListada");
+    let tareaListada_l2 = tareaListada.querySelector(".tareaListada_l2"); 
+    let tareaListada_l3 = tareaListada.querySelector(".tareaListada_l3");
+
+    if (contadorMinMax === 0) {
+        tareaListada_l2.style.display = "none";
+        tareaListada_l3.style.display = "none";
+        contadorMinMax = 1;
+    } else {
+        tareaListada_l2.style.display = "flex";
+        tareaListada_l3.style.display = "flex";
+        contadorMinMax = 0;
+    }
 }
 
 function funcionEliminarTarea(event){

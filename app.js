@@ -96,7 +96,7 @@ function funcionDibujarContenedor(
         let botonEliminarContenedor = document.createElement("button");
         botonEliminarContenedor.textContent = "x"
         botonEliminarContenedor.classList.add("botonEliminarContenedor");
-        botonEliminarContenedor.addEventListener("click", funcionEliminarContenedor);
+        botonEliminarContenedor.addEventListener("dblclick", funcionEliminarContenedor);
 
     // CONTENEDOR DE TAREAS
     let contenedorTareas = document.createElement("div");
@@ -175,7 +175,7 @@ function funcionAgregarTarea(event){
     let tituloTarea = "";
     let textoInput = "";
     let pesoTarea = "";
-    let estado_2 = "";
+    let etiqueta = "";
     let fechaInicio = "";
     let fechaFin = "";
     let responsable = "";
@@ -187,7 +187,7 @@ function funcionAgregarTarea(event){
                     tituloTarea,
                     textoInput, 
                     pesoTarea,
-                    estado_2, 
+                    etiqueta, 
                     fechaInicio, 
                     fechaFin,
                     responsable,
@@ -204,7 +204,7 @@ function funcionDibujarTareas(
     $tituloTarea,
     $textoTarea, 
     $pesoTarea,
-    $estado_2, 
+    $etiqueta, 
     $fechaInicio, 
     $fechaFin,
     $responsable,
@@ -231,14 +231,26 @@ function funcionDibujarTareas(
         tituloTarea.textContent= $tituloTarea;
         tituloTarea.classList.add("tituloTarea");
         tituloTarea.setAttribute("rows", 2);
-        tituloTarea.setAttribute("maxlength", "50");
+        tituloTarea.setAttribute("maxlength", "100");
         tituloTarea.setAttribute("placeholder", "Tarea...");
 
-        //Boton ocultar
+        // crear boton configurar
+        let botonConfigTarea = document.createElement("button");
+        botonConfigTarea.textContent = "⛭";
+        botonConfigTarea.classList.add("botonConfigTarea");
+        botonConfigTarea.addEventListener("click", funcionDialogoColoresTareas);
+
+        //Boton colapsar y desplegar
         let botonMinMax = document.createElement("button");
         botonMinMax.textContent = "+/-"
         botonMinMax.classList.add("botonMinMax");
         botonMinMax.addEventListener("click", funcionMinMaxTarea);
+
+        // crear Boton eliminar
+        let botonEliminarTarea = document.createElement("button");
+        botonEliminarTarea.textContent = "x";
+        botonEliminarTarea.classList.add("botonEliminarTarea");
+        botonEliminarTarea.addEventListener("dblclick", funcionEliminarTarea);
    
     // Creamos linea 2 del contenedor tareaListada
     let tareaListada_l2 = document.createElement("div");
@@ -267,18 +279,6 @@ function funcionDibujarTareas(
         botonR.textContent = "⏵"; 
         botonR.classList.add("botonR"); 
         botonR.addEventListener("click", funcionMoverTarea);
-
-        // crear boton configurar
-        let botonConfigTarea = document.createElement("button");
-        botonConfigTarea.textContent = "⛭";
-        botonConfigTarea.classList.add("botonConfigTarea");
-        botonConfigTarea.addEventListener("click", funcionDialogoColoresTareas);
-
-        // crear Boton eliminar
-        let botonEliminarTarea = document.createElement("button");
-        botonEliminarTarea.textContent = "x";
-        botonEliminarTarea.classList.add("botonEliminarTarea");
-        botonEliminarTarea.addEventListener("click", funcionEliminarTarea);
     
     // Creamos linea 3 del contenedor tareaListada
     let tareaListada_l3 = document.createElement("div");
@@ -288,8 +288,8 @@ function funcionDibujarTareas(
         let textoTarea = document.createElement("textarea");
         textoTarea.textContent= $textoTarea;
         textoTarea.classList.add("textoTarea");
-        textoTarea.setAttribute("rows", 4);
-        textoTarea.setAttribute("maxlength", "125");
+        textoTarea.setAttribute("rows", 6);
+        textoTarea.setAttribute("maxlength", "200");
 
         // Crear campo de peso
         let pesoTarea = document.createElement("input");
@@ -297,12 +297,12 @@ function funcionDibujarTareas(
         pesoTarea.classList.add("pesoTarea");
         pesoTarea.setAttribute("placeholder", "pesoTarea");
 
-        // Crear campo de estado_2
-        let estado_2 = document.createElement("input");
-        estado_2.value = $estado_2;
-        estado_2.classList.add("estado_2");
-        estado_2.setAttribute("type", "text");
-        estado_2.setAttribute("placeholder", "estado_2");
+        // Crear campo de etiqueta
+        let etiqueta = document.createElement("input");
+        etiqueta.value = $etiqueta;
+        etiqueta.classList.add("etiqueta");
+        etiqueta.setAttribute("type", "text");
+        etiqueta.setAttribute("placeholder", "etiqueta");
 
         // Crear campo de fecha de inicio
         let fechaInicio = document.createElement("input");
@@ -341,7 +341,7 @@ function funcionDibujarTareas(
 
     tareaListada_l3.appendChild(textoTarea);
     tareaListada_l3.appendChild(pesoTarea);
-    tareaListada_l3.appendChild(estado_2);
+    tareaListada_l3.appendChild(etiqueta);
     tareaListada_l3.appendChild(responsable);
     tareaListada_l3.appendChild(fechaInicio);
     tareaListada_l3.appendChild(fechaFin);
@@ -604,7 +604,7 @@ function funcionGuardarTablero(event) {
                 tituloTarea: tarea.querySelector(".tituloTarea").value,
                 textoTarea: tarea.querySelector(".textoTarea").value,
                 pesoTarea: tarea.querySelector(".pesoTarea").value,
-                estado_2: tarea.querySelector(".estado_2").value,
+                etiqueta: tarea.querySelector(".etiqueta").value,
                 fechaInicio: tarea.querySelector(".fechaInicio").value,
                 fechaFin: tarea.querySelector(".fechaFin").value,
                 responsable: tarea.querySelector(".responsable").value,
@@ -668,7 +668,7 @@ function funcionCargarTablero(event){
                     objetoContenedor[i].tareas[y].tituloTarea,
                     objetoContenedor[i].tareas[y].textoTarea, 
                     objetoContenedor[i].tareas[y].pesoTarea,
-                    objetoContenedor[i].tareas[y].estado_2, 
+                    objetoContenedor[i].tareas[y].etiqueta, 
                     objetoContenedor[i].tareas[y].fechaInicio, 
                     objetoContenedor[i].tareas[y].fechaFin,
                     objetoContenedor[i].tareas[y].responsable,

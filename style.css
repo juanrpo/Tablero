@@ -24,6 +24,7 @@ body{
         max-width: 99%;
         gap: 5px;
         margin: 5px;
+        margin-bottom: 10px;
 
         padding-left: 10px;
         padding-right: 10px;
@@ -99,11 +100,12 @@ body{
         min-height: 99%;
         max-height: 99%;
 
-        gap: 5px;
         margin-left: 5px;
         margin-right: 5px;
 
         box-sizing: border-box;
+
+        /*column-gap: 10px;*/
 
         overflow-x: auto;
     }
@@ -191,7 +193,6 @@ body{
                     flex-wrap: wrap;                    
                     padding-left: 5px;
                     padding-right: 5px;
-                    padding-bottom: 5px;
                     box-sizing: border-box;
                     gap: 5px;
                 }
@@ -199,7 +200,7 @@ body{
                     .botonIzquierda, .botonDerecha, .botonAgregarTarea,  .botonConfigurarContenedor, .botonEliminarContenedor{
                         min-width: 3em;
                         max-width: 3em;
-                        height: 3em;
+                        height: 2em;
                         border-radius: 5px;
                         border: none;
                         outline: none;
@@ -261,7 +262,9 @@ body{
                     display: flex;
                     flex-direction: row;
                     box-sizing: border-box;
-                    align-items: stretch;
+                    align-items:stretch;
+                    justify-items: stretch;
+                   
                 }
 
                     .tituloTarea{
@@ -276,9 +279,13 @@ body{
                         resize: none;
                     }
 
+                    .tituloTarea::placeholder {
+                        font-style: italic;
+                    }
+
                     .botonConfigTarea, .botonMinMax, .botonEliminarTarea{
-                        min-width: 3em;
-                        max-width: 3em;
+                        min-width: 2em;
+                        max-width: 2em;
                         height: 3em;
                         border-radius: 5px;
                         border: none;
@@ -341,7 +348,7 @@ body{
                         resize: none;
                     }
 
-                    .pesoTarea, .estado_2, .responsable{
+                    .pesoTarea, .etiqueta, .responsable{
                         min-width: 5em;
                         max-width: 5em;
                         min-height: 1.5em;
@@ -360,7 +367,7 @@ body{
                         font-style: italic;
                     }
 
-                    .estado_2::placeholder {
+                    .etiqueta::placeholder {
                         font-style: italic;
                     }
 

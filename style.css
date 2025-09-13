@@ -312,6 +312,7 @@ body{
                         outline: none;
                         justify-content: center;
                         align-content: center;
+                        background-color: transparent;
                     }
 
                     .botonL:hover, .botonUp:hover, .botonDown:hover, .botonR:hover, .botonConfigTarea:hover, .botonMinMax:hover {

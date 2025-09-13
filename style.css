@@ -284,8 +284,8 @@ body{
                     }
 
                     .botonConfigTarea, .botonMinMax, .botonEliminarTarea{
-                        min-width: 2em;
-                        max-width: 2em;
+                        min-width: 3em;
+                        max-width: 3em;
                         height: 3em;
                         border-radius: 5px;
                         border: none;

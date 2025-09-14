@@ -50,7 +50,7 @@ function funcionDibujarContenedor(
     let colorSubTitulo = $colorSubTitulo;
     contenedorSubtitulo.style.backgroundColor = colorSubTitulo;
 
-    // LINEA 1
+    // LINEA 1 : CONTADOR + TITULO
     let contenedorSubtitulo_l1 = document.createElement("div");
     contenedorSubtitulo_l1.classList.add("contenedorSubTitulo_l1");
 
@@ -66,9 +66,19 @@ function funcionDibujarContenedor(
             subTitulo.value = $subTitulo;
         }
 
-    // LINEA 2
+    // LINEA 2: FILTRO
     let contenedorSubtitulo_l2 = document.createElement("div");
     contenedorSubtitulo_l2.classList.add("contenedorSubTitulo_l2");
+
+        let inputFiltro = document.createElement("input");
+        inputFiltro.classList.add("inputFiltro");
+        inputFiltro.setAttribute("placeholder", "Filtro...");
+        inputFiltro.setAttribute("maxlength", "25");
+        inputFiltro.addEventListener("keyup", funcionFiltrar);
+
+    // LINEA 3: CONTROLES
+    let contenedorSubtitulo_l3 = document.createElement("div");
+    contenedorSubtitulo_l3.classList.add("contenedorSubTitulo_l3");
         
         let botonIzquierda = document.createElement("button");
         botonIzquierda.textContent = "⏴";
@@ -88,15 +98,16 @@ function funcionDibujarContenedor(
 
         // Se asigna el event listener inmediatamente despues de ser creado
         let botonConfigurarContenedor = document.createElement("button");
-        botonConfigurarContenedor .textContent = "⛭"
-        botonConfigurarContenedor .classList.add("botonConfigurarContenedor");
-        botonConfigurarContenedor .addEventListener("click", funcionDialogoColoresContenedores);
+        botonConfigurarContenedor.textContent = "⛭"
+        botonConfigurarContenedor.classList.add("botonConfigurarContenedor");
+        botonConfigurarContenedor.addEventListener("click", funcionDialogoColoresContenedores);
 
         // Se asigna el event listener inmediatamente despues de ser creado
         let botonEliminarContenedor = document.createElement("button");
         botonEliminarContenedor.textContent = "x"
         botonEliminarContenedor.classList.add("botonEliminarContenedor");
         botonEliminarContenedor.addEventListener("dblclick", funcionEliminarContenedor);
+
 
     // CONTENEDOR DE TAREAS
     let contenedorTareas = document.createElement("div");
@@ -112,13 +123,18 @@ function funcionDibujarContenedor(
     // ENSAMBLAMOS TODO
     contenedorSubtitulo_l1.appendChild(textoContador);
     contenedorSubtitulo_l1.appendChild(subTitulo);
-    contenedorSubtitulo_l2.appendChild(botonIzquierda);
-    contenedorSubtitulo_l2.appendChild(botonDerecha);
-    contenedorSubtitulo_l2.appendChild(botonAgregarTarea);
-    contenedorSubtitulo_l2.appendChild(botonConfigurarContenedor)
-    contenedorSubtitulo_l2.appendChild(botonEliminarContenedor);
+    
+    contenedorSubtitulo_l2.appendChild(inputFiltro)
+
+    contenedorSubtitulo_l3.appendChild(botonIzquierda);
+    contenedorSubtitulo_l3.appendChild(botonDerecha);
+    contenedorSubtitulo_l3.appendChild(botonAgregarTarea);
+    contenedorSubtitulo_l3.appendChild(botonConfigurarContenedor)
+    contenedorSubtitulo_l3.appendChild(botonEliminarContenedor);
+
     contenedorSubtitulo.appendChild(contenedorSubtitulo_l1);
     contenedorSubtitulo.appendChild(contenedorSubtitulo_l2);
+    contenedorSubtitulo.appendChild(contenedorSubtitulo_l3);
     
     // Ensamblamos el contendor de tareas
     contenedorTareas.appendChild(contenedorTareasListadas);
@@ -159,11 +175,33 @@ function funcionMoverContenedor(event){
     }
 }
 
+function funcionFiltrar(event){
+    let filtro = event.target;
+    let macroContenedor = filtro.closest(".macroContenedor");
+    let contenedorTareas = macroContenedor.querySelector(".contenedorTareas");
+    let contenedorTareasListadas = contenedorTareas.querySelector(".contenedorTareasListadas");
+    let tareasListadas = contenedorTareasListadas.querySelectorAll(".tareaListada");
+    
+    let textoFiltro = filtro.value.toLowerCase();
+    
+    // este filtro funciona debido a que .includes("") devuelve true y por eso todos los elementos vuelven a ser visibles
+    tareasListadas.forEach(element => {
+        let tituloTarea = element.querySelector(".tituloTarea");
+        let tituloFiltrar = tituloTarea.value.toLowerCase();
+        let tareaListada = tituloTarea.closest(".tareaListada");
+        if(tituloFiltrar.includes(textoFiltro)){
+            tareaListada.style.display = "block";
+        } else {
+            tareaListada.style.display = "none";
+        }
+    });
+}
+
 function funcionAgregarTarea(event){
     // Se utiliza el objeto event para usar la propiedad target
     // Aca identificamos en que macroContenedor se da la accion
     let boton = event.target;
-    let macroContenedor = boton.closest(".macroContenedor")
+    let macroContenedor = boton.closest(".macroContenedor");
 
     // Indentificamos a que contendeor debe ir la tarea
     let contenedorTareasListadas = macroContenedor.querySelector(".contenedorTareasListadas");

@@ -60,9 +60,9 @@ body{
         }
 
             .botonAgregarContenedor, .botonCargarTablero, .botonGuardarTablero{
-                min-width: 3em;
-                max-width: 3em;
-                height: 3em;
+                min-width: 5em;
+                max-width: 5em;
+                height: 2em;
                 align-content: center;
                 justify-content: center;
                 border-radius: 5px;
@@ -76,9 +76,9 @@ body{
             } 
 
             .inputCargarTablero{
-                min-width: 3em;
-                max-width: 3em;
-                height: 3em;
+                min-width: 5em;
+                max-width: 5em;
+                height: 2em;
 
                 align-content: center;
                 justify-content: center;
@@ -111,8 +111,8 @@ body{
             display: flex;
             flex-direction: column;
 
-            min-width: 24%;
-            max-width: 24%;
+            min-width: 21em;
+            max-width: 21em;
 
             box-sizing: border-box;
             
@@ -132,7 +132,7 @@ body{
                 margin-bottom: 10px;
                 border-radius: 10px;
 
-                row-gap: 5px;
+                row-gap: 10px;
             }
 
 
@@ -166,8 +166,8 @@ body{
                     }
                     
                     .subTitulo{
-                        min-width: 70%;
-                        max-width: 70%;
+                        min-width: 80%;
+                        max-width: 80%;
 
                         font-size: 20px;
                         font-weight: 600;
@@ -178,7 +178,6 @@ body{
 
                         border: none;
                         outline: none;
-
                         background-color: transparent;
                     }
 
@@ -189,11 +188,11 @@ body{
 
                 .contenedorSubTitulo_l2{
                     display: flex;
-                    flex-wrap: wrap;                    
+                    padding-top: 5px;                 
                     padding-left: 5px;
                     padding-right: 5px;
                     box-sizing: border-box;
-                    gap: 5px;
+
                 }
 
                     .inputFiltro{
@@ -226,7 +225,6 @@ body{
                     padding-left: 5px;
                     padding-right: 5px;
                     box-sizing: border-box;
-                    gap: 5px;
                 }
 
                     .botonIzquierda, .botonDerecha, .botonAgregarTarea,  .botonConfigurarContenedor, .botonEliminarContenedor{
@@ -283,8 +281,9 @@ body{
                         padding: 10px;
                         box-sizing: border-box;
                         border-radius: 10px;
-                        row-gap: 10px;
+                        row-gap: 5px;
                     }
+
 
                     .tareaListada:hover{
                         cursor: pointer;
@@ -316,27 +315,15 @@ body{
                                 font-style: italic;
                             }
 
-                            .botonConfigTarea, .botonMinMax, .botonEliminarTarea{
-                                min-width: 3em;
-                                max-width: 3em;
-                                height: 3em;
-                                border-radius: 5px;
-                                border: none;
-                                outline: none;
-                                background-color: transparent;
-                                cursor: pointer;
-                            }
-
                         /*___ RENGLON 2 ___*/
                         .tareaListada_l2{
                             display: flex;
                             flex-wrap: wrap;
                             box-sizing: border-box;
-                            gap: 5px;
                         }
 
                             /*___ CONTROL ___*/ 
-                            .botonL, .botonUp, .botonDown, .botonR {
+                            .botonL, .botonUp, .botonDown, .botonR, .botonConfigTarea, .botonMinMax, .botonEliminarTarea {
                                 min-width: 3em;
                                 max-width: 3em;
                                 height: 2em;
@@ -346,16 +333,19 @@ body{
                                 justify-content: center;
                                 align-content: center;
                                 background-color: transparent;
+                                color: rgb(150,150,150);
                             }
 
                             .botonL:hover, .botonUp:hover, .botonDown:hover, .botonR:hover, .botonConfigTarea:hover, .botonMinMax:hover {
                                 cursor: pointer;
-                                background-color: rgb(180, 180, 255);   
+                                background-color: rgb(180, 180, 255);
+                                color: rgb(0,0,0);   
                             }
 
                             .botonEliminarTarea:hover{
                                 cursor: pointer;
                                 background-color: rgb(255, 150, 150);
+                                color: rgb(0,0,0);
                             }
 
                         .tareaListada_l3{
@@ -514,13 +504,13 @@ body{
     }
 
 /*___ MEDIA QUERY ___*/
-@media (min-width: 300px){
+@media (min-width: 0px) and (max-width: 479px){
     .macroContenedor{   
         display: flex;
         flex-direction: column;
 
-        max-width: 80%;
-        min-width: 80%;
+        max-width: 18em;
+        min-width: 18em;
 
         box-sizing: border-box;
 
@@ -530,13 +520,13 @@ body{
 }
 
 
-@media (min-width: 480px){
+@media (min-width: 480px) and (max-width: 719px){
     .macroContenedor{   
         display: flex;
         flex-direction: column;
 
-        max-width: 60%;
-        min-width: 60%;
+        max-width: 19em;
+        min-width: 19em;
 
         box-sizing: border-box;
 
@@ -545,13 +535,13 @@ body{
     }
 }
 
-@media (min-width: 720px){
+@media (min-width: 720px) and (max-width: 1079px){
     .macroContenedor{   
         display: flex;
         flex-direction: column;
 
-        max-width: 40%;
-        min-width: 40%;
+        max-width: 20em;
+        min-width: 20em;
 
         box-sizing: border-box;
 
@@ -565,8 +555,8 @@ body{
         display: flex;
         flex-direction: column;
 
-        max-width: 24%;
-        min-width: 24%;
+        max-width: 21em;
+        min-width: 21em;
 
         box-sizing: border-box;
 

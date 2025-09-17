@@ -254,6 +254,7 @@ function funcionDibujarTareas(
     tareaListada.id = $id_tareaListada;
     tareaListada.classList.add("tareaListada");
     tareaListada.setAttribute("draggable", true);
+    tareaListada.addEventListener("dblclick", funcionMinMaxTarea);
 
     // asignar color
     let colorTareaListada = $color;
@@ -271,6 +272,7 @@ function funcionDibujarTareas(
         tituloTarea.setAttribute("rows", 2);
         tituloTarea.setAttribute("maxlength", "60");
         tituloTarea.setAttribute("placeholder", "Tarea...");
+
 
         // crear boton configurar
         let botonConfigTarea = document.createElement("button");
@@ -368,14 +370,14 @@ function funcionDibujarTareas(
     tareaListada.appendChild(tareaListada_l3);
     
     tareaListada_l1.appendChild(tituloTarea);
-    tareaListada_l1.appendChild(botonConfigTarea);
-    tareaListada_l1.appendChild(botonMinMax);
-    tareaListada_l1.appendChild(botonEliminarTarea);
     
     tareaListada_l2.appendChild(botonUp);
     tareaListada_l2.appendChild(botonDown);
     tareaListada_l2.appendChild(botonL);
     tareaListada_l2.appendChild(botonR);
+    tareaListada_l2.appendChild(botonConfigTarea);
+    tareaListada_l2.appendChild(botonMinMax);
+    tareaListada_l2.appendChild(botonEliminarTarea);
 
     tareaListada_l3.appendChild(textoTarea);
     tareaListada_l3.appendChild(pesoTarea);
@@ -383,28 +385,56 @@ function funcionDibujarTareas(
     tareaListada_l3.appendChild(responsable);
     tareaListada_l3.appendChild(fechaInicio);
     tareaListada_l3.appendChild(fechaFin);
+
+    // SE AGREGA POR DEFECTO LA EL EVENT LISTENER PARA MOSTRAR U OCULTAR BOTONES DE ACCION EN LA TAREA LISTADA
+    tareaListada.addEventListener("mouseover", function(){
+        tareaListada_l2.style.visibility = "visible";
+    })
+            
+    tareaListada.addEventListener("mouseout", function(){
+        tareaListada_l2.style.visibility = "hidden";
+    })
     
-    tareaListada_l2.style.display = "none";
+    tareaListada_l2.style.visibility= "hidden";
     tareaListada_l3.style.display = "none";
 
     return tareaListada;
 }
 
+
 function funcionMinMaxTarea(event){
     let boton = event.target
     let tareaListada = boton.closest(".tareaListada");
-    let tareaListada_l2 = tareaListada.querySelector(".tareaListada_l2"); 
+    let tareaListada_l2 = tareaListada.querySelector(".tareaListada_l2");
     let tareaListada_l3 = tareaListada.querySelector(".tareaListada_l3");
-
+     
     if (contadorMinMax === 0) {
-        tareaListada_l2.style.display = "none";
-        tareaListada_l3.style.display = "none";
+        
+        //SE MODIFICA EL COMPORTAMIENTO DE LOS EVENT LISTENER EN LA TAREA LISTADA, SEGUN SI ESTA DESPLEGADA O MINIMIZADA
+        tareaListada.addEventListener("mouseover", function(){
+            tareaListada_l2.style.visibility = "visible";
+        }) 
+        tareaListada.addEventListener("mouseout", function(){
+            tareaListada_l2.style.visibility = "visible";
+        })
+
+        tareaListada_l3.style.display = "flex";
         contadorMinMax = 1;
     } else {
-        tareaListada_l2.style.display = "flex";
-        tareaListada_l3.style.display = "flex";
+        
+        //SE MODIFICA EL COMPORTAMIENTO DE LOS EVENT LISTENER EN LA TAREA LISTADA, SEGUN SI ESTA DESPLEGADA O MINIMIZADA
+        tareaListada.addEventListener("mouseover", function(){
+            tareaListada_l2.style.visibility = "visible";
+        }) 
+        tareaListada.addEventListener("mouseout", function(){
+            tareaListada_l2.style.visibility = "hidden";
+        })
+
+        tareaListada_l3.style.display = "none";
         contadorMinMax = 0;
     }
+
+    return contadorMinMax;
 }
 
 function funcionEliminarTarea(event){
@@ -682,7 +712,6 @@ function funcionCargarTablero(event){
         elemento.remove();
     });
     
-    console.log("CARGAR");
     let archivo = event.target.files[0];
     if (!archivo) return;
     
@@ -732,7 +761,6 @@ function funcionCargarTablero(event){
     inputCargarTablero.value = "";
 
     // Tomamos el nombre del archivo para el inputTitulo
-    console.log(archivo.name);
     inputTitulo.value = archivo.name.slice(0,-5);
 }
 

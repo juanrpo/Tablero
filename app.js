@@ -86,7 +86,7 @@ function funcionDibujarContenedor(
         });
 
             let opt_00 = document.createElement("option");
-            opt_00.textContent = "-- textoCampo --"
+            opt_00.textContent = "-- Campo --"
             
             let opt_01 = document.createElement("option");
             opt_01.textContent = _tituloTarea;
@@ -116,7 +116,7 @@ function funcionDibujarContenedor(
 
         let inputFiltro = document.createElement("input");
         inputFiltro.classList.add("inputFiltro");
-        inputFiltro.setAttribute("placeholder", "-- textoFiltro --")
+        inputFiltro.setAttribute("placeholder", "-- Filtro --")
         inputFiltro.setAttribute("maxlength", "25");
         inputFiltro.addEventListener("keyup", funcionFiltrar);
 

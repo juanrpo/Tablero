@@ -6,11 +6,20 @@ let inputCargarTablero = document.getElementById("inputArchivo");
 let botonGuardarTablero = document.getElementById("botonGuardarTablero");
 
 // ELEMTOS GENERALES
-    let listaContenedores = [];
-    let listaTareas = [];   
-    let objetoContenedor = {};
-    let colorBasePorDefecto = "rgb(245,245,245)";
-    let contadorMinMax = 0;
+let listaContenedores = [];
+let listaTareas = [];   
+let objetoContenedor = {};
+let colorBasePorDefecto = "rgb(245,245,245)";
+let contadorMinMax = 0;
+
+// CAMPOS DE FILTRADO
+let _tituloTarea = "tituloTarea";
+let _pesoTarea = "pesoTarea";
+let _etiqueta = "etiqueta";
+let _fechaInicio = "fechaInicio";
+let _fechaFin = "fechaFin";
+let _responsable = "responable";
+
 
 // FUNCIONES
 function funcionAgregarContenedor(){
@@ -70,9 +79,44 @@ function funcionDibujarContenedor(
     let contenedorSubtitulo_l2 = document.createElement("div");
     contenedorSubtitulo_l2.classList.add("contenedorSubTitulo_l2");
 
+        let campoFiltro = document.createElement("select");
+        campoFiltro.classList.add("campoFiltro");
+        campoFiltro.addEventListener("change", function(){
+            inputFiltro.value = null;
+        });
+
+            let opt_00 = document.createElement("option");
+            opt_00.textContent = "-- textoCampo --"
+            
+            let opt_01 = document.createElement("option");
+            opt_01.textContent = _tituloTarea;
+           
+            let opt_02 = document.createElement("option");
+            opt_02.textContent = _pesoTarea;
+            
+            let opt_03 = document.createElement("option");
+            opt_03.textContent = _etiqueta;
+
+            let opt_04 = document.createElement("option");
+            opt_04.textContent = _fechaInicio;
+            
+            let opt_05 = document.createElement("option");
+            opt_05.textContent = _fechaFin
+
+            let opt_06 = document.createElement("option");
+            opt_06.textContent = _responsable
+            
+            campoFiltro.appendChild(opt_00);
+            campoFiltro.appendChild(opt_01);
+            campoFiltro.appendChild(opt_02);
+            campoFiltro.appendChild(opt_03);
+            campoFiltro.appendChild(opt_04);
+            campoFiltro.appendChild(opt_05);
+            campoFiltro.appendChild(opt_06);
+
         let inputFiltro = document.createElement("input");
         inputFiltro.classList.add("inputFiltro");
-        inputFiltro.setAttribute("placeholder", "Filtro...");
+        inputFiltro.setAttribute("placeholder", "-- textoFiltro --")
         inputFiltro.setAttribute("maxlength", "25");
         inputFiltro.addEventListener("keyup", funcionFiltrar);
 
@@ -124,7 +168,8 @@ function funcionDibujarContenedor(
     contenedorSubtitulo_l1.appendChild(textoContador);
     contenedorSubtitulo_l1.appendChild(subTitulo);
     
-    contenedorSubtitulo_l2.appendChild(inputFiltro)
+    contenedorSubtitulo_l2.appendChild(campoFiltro);
+    contenedorSubtitulo_l2.appendChild(inputFiltro);
 
     contenedorSubtitulo_l3.appendChild(botonIzquierda);
     contenedorSubtitulo_l3.appendChild(botonDerecha);
@@ -178,23 +223,94 @@ function funcionMoverContenedor(event){
 function funcionFiltrar(event){
     let filtro = event.target;
     let macroContenedor = filtro.closest(".macroContenedor");
+    let campoFiltro = macroContenedor.querySelector(".campoFiltro");
+    let inputFiltro = macroContenedor.querySelector(".inputFiltro");
     let contenedorTareas = macroContenedor.querySelector(".contenedorTareas");
     let contenedorTareasListadas = contenedorTareas.querySelector(".contenedorTareasListadas");
     let tareasListadas = contenedorTareasListadas.querySelectorAll(".tareaListada");
     
+    let textoCampo = campoFiltro.value;
     let textoFiltro = filtro.value.toLowerCase();
     
     // este filtro funciona debido a que .includes("") devuelve true y por eso todos los elementos vuelven a ser visibles
-    tareasListadas.forEach(element => {
-        let tituloTarea = element.querySelector(".tituloTarea");
-        let tituloFiltrar = tituloTarea.value.toLowerCase();
-        let tareaListada = tituloTarea.closest(".tareaListada");
-        if(tituloFiltrar.includes(textoFiltro)){
-            tareaListada.style.display = "block";
-        } else {
-            tareaListada.style.display = "none";
-        }
-    });
+    if (textoCampo === _tituloTarea) {
+        tareasListadas.forEach(element => { 
+            let tituloTarea = element.querySelector(".tituloTarea");
+            let textoFiltrar = tituloTarea.value.toLowerCase();
+            let tareaListada = tituloTarea.closest(".tareaListada");
+            if(textoFiltrar.includes(textoFiltro)){
+                tareaListada.style.display = "flex";
+            } else {
+                tareaListada.style.display = "none";
+            }
+        });
+    } 
+
+    if (textoCampo === _pesoTarea) {
+        tareasListadas.forEach(element => { 
+            let pesoTarea = element.querySelector(".pesoTarea");
+            let textoFiltrar = pesoTarea.value.toLowerCase();
+            let tareaListada = pesoTarea.closest(".tareaListada");
+            if(textoFiltrar.includes(textoFiltro)){
+                tareaListada.style.display = "flex";
+            } else {
+                tareaListada.style.display = "none";
+            }
+        });
+    } 
+
+    if (textoCampo === _etiqueta) {
+        tareasListadas.forEach(element => { 
+            let etiqueta = element.querySelector(".etiqueta");
+            let textoFiltrar = etiqueta.value.toLowerCase();
+            let tareaListada = etiqueta.closest(".tareaListada");
+            if(textoFiltrar.includes(textoFiltro)){
+                tareaListada.style.display = "flex";
+            } else {
+                tareaListada.style.display = "none";
+            }
+        });
+    } 
+
+    if (textoCampo === _responsable) {
+        tareasListadas.forEach(element => { 
+            let responsable = element.querySelector(".responsable");
+            let textoFiltrar = responsable.value.toLowerCase();
+            let tareaListada = responsable.closest(".tareaListada");
+            if(textoFiltrar.includes(textoFiltro)){
+                tareaListada.style.display = "flex";
+            } else {
+                tareaListada.style.display = "none";
+            }
+        });
+    } 
+
+    if (textoCampo === _fechaInicio) {
+        tareasListadas.forEach(element => { 
+            let fechaInicio = element.querySelector(".fechaInicio");
+            let textoFiltrar = fechaInicio.value;
+            let tareaListada = fechaInicio.closest(".tareaListada");
+            if(textoFiltrar.includes(textoFiltro)){
+                tareaListada.style.display = "flex";
+            } else {
+                tareaListada.style.display = "none";
+            }
+        });
+    } 
+
+    if (textoCampo === _fechaFin) {
+        tareasListadas.forEach(element => { 
+            let fechaFin = element.querySelector(".fechaFin");
+            let textoFiltrar = fechaFin.value;
+            let tareaListada = fechaFin.closest(".tareaListada");
+            if(textoFiltrar.includes(textoFiltro)){
+                tareaListada.style.display = "flex";
+            } else {
+                tareaListada.style.display = "none";
+            }
+        });
+    } 
+
 }
 
 function funcionAgregarTarea(event){
@@ -272,25 +388,6 @@ function funcionDibujarTareas(
         tituloTarea.setAttribute("rows", 2);
         tituloTarea.setAttribute("maxlength", "60");
         tituloTarea.setAttribute("placeholder", "Tarea...");
-
-
-        // crear boton configurar
-        let botonConfigTarea = document.createElement("button");
-        botonConfigTarea.textContent = "⛭";
-        botonConfigTarea.classList.add("botonConfigTarea");
-        botonConfigTarea.addEventListener("click", funcionDialogoColoresTareas);
-
-        //Boton colapsar y desplegar
-        let botonMinMax = document.createElement("button");
-        botonMinMax.textContent = "+/-"
-        botonMinMax.classList.add("botonMinMax");
-        botonMinMax.addEventListener("click", funcionMinMaxTarea);
-
-        // crear Boton eliminar
-        let botonEliminarTarea = document.createElement("button");
-        botonEliminarTarea.textContent = "x";
-        botonEliminarTarea.classList.add("botonEliminarTarea");
-        botonEliminarTarea.addEventListener("dblclick", funcionEliminarTarea);
    
     // Creamos linea 2 del contenedor tareaListada
     let tareaListada_l2 = document.createElement("div");
@@ -319,6 +416,24 @@ function funcionDibujarTareas(
         botonR.textContent = "⏵"; 
         botonR.classList.add("botonR"); 
         botonR.addEventListener("click", funcionMoverTarea);
+
+         // crear boton configurar
+        let botonConfigTarea = document.createElement("button");
+        botonConfigTarea.textContent = "⛭";
+        botonConfigTarea.classList.add("botonConfigTarea");
+        botonConfigTarea.addEventListener("click", funcionDialogoColoresTareas);
+
+        //Boton colapsar y desplegar
+        let botonMinMax = document.createElement("button");
+        botonMinMax.textContent = "+/-"
+        botonMinMax.classList.add("botonMinMax");
+        botonMinMax.addEventListener("click", funcionMinMaxTarea);
+
+        // crear Boton eliminar
+        let botonEliminarTarea = document.createElement("button");
+        botonEliminarTarea.textContent = "x";
+        botonEliminarTarea.classList.add("botonEliminarTarea");
+        botonEliminarTarea.addEventListener("dblclick", funcionEliminarTarea);
     
     // Creamos linea 3 del contenedor tareaListada
     let tareaListada_l3 = document.createElement("div");
@@ -329,7 +444,7 @@ function funcionDibujarTareas(
         textoTarea.textContent= $textoTarea;
         textoTarea.classList.add("textoTarea");
         textoTarea.setAttribute("rows", 6);
-        textoTarea.setAttribute("maxlength", "180");
+        textoTarea.setAttribute("maxlength", "240");
 
         // Crear campo de peso
         let pesoTarea = document.createElement("input");
@@ -400,7 +515,6 @@ function funcionDibujarTareas(
 
     return tareaListada;
 }
-
 
 function funcionMinMaxTarea(event){
     let boton = event.target

@@ -68,11 +68,12 @@ body{
                 border-radius: 5px;
                 border: none;
                 outline: none;
+                color: rgb(0,0,0);
             }
 
             .botonAgregarContenedor:hover, .botonCargarTablero:hover, .botonGuardarTablero:hover{
                 cursor: pointer;
-                background-color: rgb(190, 255, 180);
+                background-color: rgba(0,0,0,0.1)
             } 
 
             .inputCargarTablero{

@@ -20,7 +20,6 @@ let _fechaInicio = "fechaInicio";
 let _fechaFin = "fechaFin";
 let _responsable = "responable";
 
-
 // FUNCIONES
 function funcionAgregarContenedor(){
     let contenedorDeContenedores = document.querySelector(".contenedorDeContenedores");

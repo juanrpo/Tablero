@@ -523,7 +523,6 @@ function funcionMinMaxTarea(event){
     let tareaListada_l3 = tareaListada.querySelector(".tareaListada_l3");
      
     if (contadorMinMax === 0) {
-        
         //SE MODIFICA EL COMPORTAMIENTO DE LOS EVENT LISTENER EN LA TAREA LISTADA, SEGUN SI ESTA DESPLEGADA O MINIMIZADA
         tareaListada.addEventListener("mouseover", function(){
             tareaListada_l2.style.visibility = "visible";
@@ -535,7 +534,6 @@ function funcionMinMaxTarea(event){
         tareaListada_l3.style.display = "flex";
         contadorMinMax = 1;
     } else {
-        
         //SE MODIFICA EL COMPORTAMIENTO DE LOS EVENT LISTENER EN LA TAREA LISTADA, SEGUN SI ESTA DESPLEGADA O MINIMIZADA
         tareaListada.addEventListener("mouseover", function(){
             tareaListada_l2.style.visibility = "visible";

@@ -27,10 +27,14 @@ let tipoVista = document.getElementById("tipoVista")
 // FUNCIONES
 function funcionVistaKanban(){
     tipoVista.setAttribute("href", "Kanban.css")
+    botonKanban.style.border = "1px solid rgb(0,0,0)"
+    botonLista.style.border = "0px solid rgb(0,0,0)"
 }
 
 function funcionVistaLista(){
     tipoVista.setAttribute("href", "lista.css")
+    botonLista.style.border = "1px solid rgb(0,0,0)"
+    botonKanban.style.border = "0px solid rgb(0,0,0)"
 }
 
 

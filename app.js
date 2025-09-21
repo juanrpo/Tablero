@@ -24,17 +24,31 @@ let _responsable = "responable";
 
 let tipoVista = document.getElementById("tipoVista")
 
+if (tipoVista.getAttribute("href") === "style.css"){
+    botonAgregarContenedor.disabled = true;
+    botonCargarTablero.disabled = true;
+    botonGuardarTablero.disabled = true;  
+} 
+
 // FUNCIONES
 function funcionVistaKanban(){
-    tipoVista.setAttribute("href", "Kanban.css")
-    botonKanban.style.border = "1px solid rgb(0,0,0)"
-    botonLista.style.border = "0px solid rgb(0,0,0)"
+    tipoVista.setAttribute("href", "Kanban.css");
+    botonKanban.style.border = "1px solid rgb(0,0,0)";
+    botonLista.style.border = "0px solid rgb(0,0,0)";
+
+    botonAgregarContenedor.disabled = false;
+    botonCargarTablero.disabled = false;
+    botonGuardarTablero.disabled = false;  
 }
 
 function funcionVistaLista(){
-    tipoVista.setAttribute("href", "lista.css")
     botonLista.style.border = "1px solid rgb(0,0,0)"
     botonKanban.style.border = "0px solid rgb(0,0,0)"
+
+    console.log("Botones Abilitados")
+    botonAgregarContenedor.disabled = false;
+    botonCargarTablero.disabled = false;
+    botonGuardarTablero.disabled = false;  
 }
 
 

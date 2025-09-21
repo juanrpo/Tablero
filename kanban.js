@@ -151,10 +151,6 @@ function funcionDibujarContenedor(
         botonEliminarContenedor.classList.add("botonEliminarContenedor");
         botonEliminarContenedor.addEventListener("dblclick", funcionEliminarContenedor);
 
-
-    // CONTENEDOR DE TAREAS
-    let contenedorTareas = document.createElement("div");
-    contenedorTareas.classList.add("contenedorTareas");
         // Creamos el texto contador
         let textoContador = document.createElement("p");
         textoContador.innerHTML = "[ "+" ]";
@@ -179,13 +175,10 @@ function funcionDibujarContenedor(
     contenedorSubtitulo.appendChild(contenedorSubtitulo_l1);
     contenedorSubtitulo.appendChild(contenedorSubtitulo_l2);
     contenedorSubtitulo.appendChild(contenedorSubtitulo_l3);
-    
-    // Ensamblamos el contendor de tareas
-    contenedorTareas.appendChild(contenedorTareasListadas);
 
     // Ensamblamos el macroContenedor
     macroContenedor.appendChild(contenedorSubtitulo);
-    macroContenedor.appendChild(contenedorTareas);
+    macroContenedor.appendChild(contenedorTareasListadas);
 
     // Contenedor de contenedores recibe el macroContenedor
     contenedorDeContenedores.appendChild(macroContenedor);
@@ -224,8 +217,7 @@ function funcionFiltrar(event){
     let macroContenedor = filtro.closest(".macroContenedor");
     let campoFiltro = macroContenedor.querySelector(".campoFiltro");
     let inputFiltro = macroContenedor.querySelector(".inputFiltro");
-    let contenedorTareas = macroContenedor.querySelector(".contenedorTareas");
-    let contenedorTareasListadas = contenedorTareas.querySelector(".contenedorTareasListadas");
+    let contenedorTareasListadas = macroContenedor.querySelector(".contenedorTareasListadas");
     let tareasListadas = contenedorTareasListadas.querySelectorAll(".tareaListada");
     
     let textoCampo = campoFiltro.value;

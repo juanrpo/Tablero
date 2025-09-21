@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Kanban</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel = "stylesheet" href="kanban.css">
+    <link id = "tipoVista" rel = "stylesheet" href="kanban.css">
 </head>
 <body>
 
@@ -17,12 +17,14 @@
                     <button id = "botonGuardarTablero" class = botonGuardarTablero>Sv</button> 
                     <button id = "botonCargarTablero" class = botonCargarTablero>Ld</button> 
                     <input type="file" id="inputArchivo" class = "inputCargarTablero">
+                    <button id = "kanbanView" class = "kanbanView">Kanban</button>
+                    <button id = "listView" class = listView>Lista</button>
                 </div>
             </div>
             <div class = "contenedorDeContenedores" id = "contenedorDeContenedores"></div>
         </div>
             
-    <script src = "kanban.js"></script>
+    <script src = "app.js"></script>
 
 </body>
 

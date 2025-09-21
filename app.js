@@ -4,6 +4,8 @@ let botonAgregarContenedor = document.getElementById("botonAgregarContenedor");
 let botonCargarTablero = document.getElementById("botonCargarTablero")
 let inputCargarTablero = document.getElementById("inputArchivo");
 let botonGuardarTablero = document.getElementById("botonGuardarTablero");
+let botonKanban = document.getElementById("kanbanView");
+let botonLista = document.getElementById("listView");
 
 // ELEMTOS GENERALES
 let listaContenedores = [];
@@ -20,7 +22,18 @@ let _fechaInicio = "fechaInicio";
 let _fechaFin = "fechaFin";
 let _responsable = "responable";
 
+let tipoVista = document.getElementById("tipoVista")
+
 // FUNCIONES
+function funcionVistaKanban(){
+    tipoVista.setAttribute("href", "Kanban.css")
+}
+
+function funcionVistaLista(){
+    tipoVista.setAttribute("href", "lista.css")
+}
+
+
 function funcionAgregarContenedor(){
     let contenedorDeContenedores = document.querySelector(".contenedorDeContenedores");
     
@@ -117,7 +130,7 @@ function funcionDibujarContenedor(
         inputFiltro.classList.add("inputFiltro");
         inputFiltro.setAttribute("placeholder", "-- Filtro --")
         inputFiltro.setAttribute("maxlength", "25");
-        inputFiltro.addEventListener("keyup", funcionFiltrar);
+        inputFiltro.addEventListener("keyup", funcionFiltrarTarea);
 
     // LINEA 3: CONTROLES
     let contenedorSubtitulo_l3 = document.createElement("div");
@@ -146,6 +159,12 @@ function funcionDibujarContenedor(
         botonConfigurarContenedor.addEventListener("click", funcionDialogoColoresContenedores);
 
         // Se asigna el event listener inmediatamente despues de ser creado
+        let botonMinMaxContenedor = document.createElement("button");
+        botonMinMaxContenedor.textContent = "+/-"
+        botonMinMaxContenedor.classList.add("botonMinMaxContenedor");
+        botonMinMaxContenedor.addEventListener("click", funcionMinMaxContenedor);
+
+        // Se asigna el event listener inmediatamente despues de ser creado
         let botonEliminarContenedor = document.createElement("button");
         botonEliminarContenedor.textContent = "x"
         botonEliminarContenedor.classList.add("botonEliminarContenedor");
@@ -170,6 +189,7 @@ function funcionDibujarContenedor(
     contenedorSubtitulo_l3.appendChild(botonDerecha);
     contenedorSubtitulo_l3.appendChild(botonAgregarTarea);
     contenedorSubtitulo_l3.appendChild(botonConfigurarContenedor)
+    contenedorSubtitulo_l3.appendChild(botonMinMaxContenedor);
     contenedorSubtitulo_l3.appendChild(botonEliminarContenedor);
 
     contenedorSubtitulo.appendChild(contenedorSubtitulo_l1);
@@ -212,7 +232,20 @@ function funcionMoverContenedor(event){
     }
 }
 
-function funcionFiltrar(event){
+function funcionMinMaxContenedor(event){
+    let boton = event.target
+    let macroContenedor = boton.closest(".macroContenedor");
+    let contenedorTareasListadas = macroContenedor.querySelector(".contenedorTareasListadas");
+     
+    if (contenedorTareasListadas.style.display === "flex") {
+        contenedorTareasListadas.style.display = "none";
+    } 
+    else {
+        contenedorTareasListadas.style.display = "flex";  
+    }
+}
+
+function funcionFiltrarTarea(event){
     let filtro = event.target;
     let macroContenedor = filtro.closest(".macroContenedor");
     let campoFiltro = macroContenedor.querySelector(".campoFiltro");
@@ -312,6 +345,7 @@ function funcionAgregarTarea(event){
 
     // Indentificamos a que contendeor debe ir la tarea
     let contenedorTareasListadas = macroContenedor.querySelector(".contenedorTareasListadas");
+    contenedorTareasListadas.style.display = "flex";
     
     // Asignamos el ID
     let id = "tareaListada-"+Date.now();
@@ -417,7 +451,7 @@ function funcionDibujarTareas(
         //Boton colapsar y desplegar
         let botonMinMax = document.createElement("button");
         botonMinMax.textContent = "+/-"
-        botonMinMax.classList.add("botonMinMax");
+        botonMinMax.classList.add("botonMinMaxTarea");
         botonMinMax.addEventListener("click", funcionMinMaxTarea);
 
         // crear Boton eliminar
@@ -884,3 +918,6 @@ inputCargarTablero.addEventListener("change", funcionCargarTablero);
 botonCargarTablero.addEventListener("click", () =>{
     document.getElementById("inputArchivo").click();
 });
+
+botonKanban.addEventListener("click", funcionVistaKanban);
+botonLista.addEventListener("click", funcionVistaLista);

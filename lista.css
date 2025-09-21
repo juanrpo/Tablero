@@ -15,6 +15,7 @@ body{
         padding: 5px;
     }
 
+
     /*___ TITULO ___*/
     .contenedorTitulo{
         display:flex;
@@ -59,7 +60,7 @@ body{
             margin-right: 5px;
         }
 
-            .botonAgregarContenedor, 
+            .botonAgregarContenedor,
             .botonCargarTablero, 
             .botonGuardarTablero,
             .kanbanView,
@@ -78,7 +79,7 @@ body{
             .botonAgregarContenedor:hover, 
             .botonCargarTablero:hover, 
             .botonGuardarTablero:hover,
-            .kanbanView:hover,
+            .kanbanView:hover
             .listView:hover{
                 cursor: pointer;
                 background-color: rgba(0,0,0,0.1)
@@ -101,8 +102,7 @@ body{
 
     /*___ SUBTITULO ___*/
     .contenedorDeContenedores{
-        display: flex;
-        flex-direction: row;
+        display: block;
     
         min-width: 100%;
         max-width: 100%;
@@ -114,14 +114,12 @@ body{
 
         box-sizing: border-box;
         overflow-x: auto;
+        overflow-y: auto;
     }
 
         .macroContenedor{   
             display: flex;
             flex-direction: column;
-
-            min-width: 21em;
-            max-width: 21em;
 
             box-sizing: border-box;
             
@@ -131,7 +129,7 @@ body{
 
             .contenedorSubTitulo{
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
 
                 width: 100%;
                 padding: 5px;
@@ -140,10 +138,9 @@ body{
     
                 margin-bottom: 10px;
                 border-radius: 10px;
+                border: 1px solid rgb(0,0,0);
 
                 row-gap: 5px;
-
-                border: 1px solid rgb(0,0,0);
             }
 
 
@@ -156,7 +153,7 @@ body{
                  }
 
                     .textoContador{
-                        width: 15%;                        
+                        width: 25%;                        
                         font-size: 20px;
                         font-family: Arial, Helvetica, sans-serif;
                         text-align: left;
@@ -168,7 +165,7 @@ body{
                     }
                     
                     .subTitulo{
-                        width: 85%;
+                        width: 75%;
 
                         font-size: 20px;
                         font-weight: 600;
@@ -252,7 +249,8 @@ body{
 
                     }
 
-                    .campoFiltro::placeholder, .inputFiltro::placeholder {
+                    .campoFiltro::placeholder, 
+                    .inputFiltro::placeholder {
                         color: rgb(120,120,120);
                     }
 
@@ -277,8 +275,8 @@ body{
                     .botonIzquierda, 
                     .botonDerecha, 
                     .botonAgregarTarea,  
-                    .botonConfigurarContenedor,
-                    .botonMinMaxContenedor, 
+                    .botonConfigurarContenedor, 
+                    .botonMinMaxContenedor,
                     .botonEliminarContenedor{
                         min-width: 3em;
                         max-width: 3em;
@@ -307,19 +305,7 @@ body{
                     }
 
 
-            /*___ CONTENEDORES DE TAREAS ___*/
-            .contenedorTareas{
-                display: flex;
-                flex-direction: column;
-
-                width: 100%;
-                height: 100%;
-
-                box-sizing: border-box;
-                overflow-y: auto;
-                overflow-x: hidden;
-            }
-                
+            /*___ CONTENEDORES DE TAREAS ___*/     
                 .contenedorTareasListadas{   
                     width: 100%;
                     height: 100%;
@@ -332,13 +318,17 @@ body{
 
                     /*___ TAREA LISTADA ___*/
                     .tareaListada{
-                        width: 100%;
+                        margin-left:3%;
+                        
+                        width: 97%;
                         display: flex;
-                        flex-direction: column;
+                        flex-direction: row;
+                        flex-wrap: wrap;
                         padding: 10px;
                         box-sizing: border-box;
                         border-radius: 10px;
                         row-gap: 5px;
+                        align-items: stretch;
                     }
 
 
@@ -348,11 +338,14 @@ body{
 
                         /*___ RENGLON 1 ___*/
                         .tareaListada_l1{
+                            height: 2em;
+                            width: 70%;
+
                             display: flex;
                             flex-direction: row;
+                            flex-wrap: nowrap;
+
                             box-sizing: border-box;
-                            align-items:stretch;
-                            justify-items: stretch;
                         
                         }
 
@@ -368,6 +361,7 @@ body{
                                 resize: none;
                                 padding: 5px;
                                 border-radius: 7px;
+                                column-gap: 10px;
                             }
 
                             .tituloTarea:hover{
@@ -380,8 +374,14 @@ body{
 
                         /*___ RENGLON 2 ___*/
                         .tareaListada_l2{
+                            height: 2em;
+                            width: 30%;
+                            
                             display: flex;
-                            flex-wrap: wrap;
+                            align-items: center;
+                            justify-content: flex-end;  
+
+                        
                             box-sizing: border-box;
                         }
 
@@ -423,9 +423,13 @@ body{
                             }
 
                         .tareaListada_l3{
+                            height: 2em;
                             width: 100%;
+                            
                             display: flex;
-                            flex-wrap: wrap;
+                            flex-direction: row;
+                            flex-wrap: nowrap;
+
                             padding-top: 1px;
                             padding-bottom: 1px;
                             box-sizing: border-box;
@@ -433,9 +437,11 @@ body{
                             row-gap: 10px;
                             align-items: stretch;
                         }
+
                             /*___ DATOS ___*/ 
                             .textoTarea{
-                                width: 100%;
+                                padding: 5px;
+                                width: 70%;
                                 font-size: 15px;
                                 font-family: Arial, Helvetica, sans-serif;
                                 font-weight: 300;
@@ -444,16 +450,12 @@ body{
                                 outline: none;
                                 border: none;
                                 resize: none;
-                                padding: 5px;
                             }
 
                             .pesoTarea, .etiqueta, .responsable{
-                                min-width: 6em;
-                                max-width: 6em;
-                                min-height: 1.5em;
-                                max-height: 1.5em;
-
+                                width: 5em;
                                 font-size: 15px;
+
                                 font-family: Arial, Helvetica, sans-serif;
 
                                 border-radius: 5px;
@@ -475,13 +477,9 @@ body{
                             }
 
                             .fechaInicio, .fechaFin{
-                                min-width: 6em;
-                                max-width: 6em;
-                                min-height: 1.5em;
-                                max-height: 1.5em;
-
-
+                                width: 5em;
                                 font-size: 15px;
+
                                 font-family: Arial, Helvetica, sans-serif;
 
                                 border-radius: 5px;
@@ -576,67 +574,6 @@ body{
     .color_1:hover, .color_2:hover, .color_3:hover, .color_4:hover, .color_5:hover{
         cursor: pointer;
     }
-
-/*___ MEDIA QUERY ___*/
-@media (min-width: 0px) and (max-width: 479px){
-    .macroContenedor{   
-        display: flex;
-        flex-direction: column;
-
-        max-width: 18em;
-        min-width: 18em;
-
-        box-sizing: border-box;
-
-        padding: 5px;
-        overflow-x: hidden;
-    }
-}
-
-@media (min-width: 480px) and (max-width: 719px){
-    .macroContenedor{   
-        display: flex;
-        flex-direction: column;
-
-        max-width: 19em;
-        min-width: 19em;
-
-        box-sizing: border-box;
-
-        padding: 5px;
-        overflow-x: hidden;
-    }
-}
-
-@media (min-width: 720px) and (max-width: 1079px){
-    .macroContenedor{   
-        display: flex;
-        flex-direction: column;
-
-        max-width: 20em;
-        min-width: 20em;
-
-        box-sizing: border-box;
-
-        padding: 5px;
-        overflow-x: hidden;
-    }
-}
-
-@media (min-width: 1080px){
-    .macroContenedor{   
-        display: flex;
-        flex-direction: column;
-
-        max-width: 21em;
-        min-width: 21em;
-
-        box-sizing: border-box;
-
-        padding: 5px;
-        overflow-x: hidden;
-    }
-}
 
 
 

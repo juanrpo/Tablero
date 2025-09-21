@@ -38,10 +38,13 @@ function funcionVistaKanban(){
 
     botonAgregarContenedor.disabled = false;
     botonCargarTablero.disabled = false;
-    botonGuardarTablero.disabled = false;  
+    botonGuardarTablero.disabled = false; 
+    
+    return tipoVista;
 }
 
 function funcionVistaLista(){
+    tipoVista.setAttribute("href", "Lista.css");
     botonLista.style.border = "1px solid rgb(0,0,0)"
     botonKanban.style.border = "0px solid rgb(0,0,0)"
 
@@ -49,6 +52,8 @@ function funcionVistaLista(){
     botonAgregarContenedor.disabled = false;
     botonCargarTablero.disabled = false;
     botonGuardarTablero.disabled = false;  
+
+    return tipoVista;
 }
 
 

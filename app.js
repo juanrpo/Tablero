@@ -32,7 +32,7 @@ if (tipoVista.getAttribute("href") === "style.css"){
 
 // FUNCIONES
 function funcionVistaKanban(){
-    tipoVista.setAttribute("href", "Kanban.css");
+    tipoVista.setAttribute("href", "kanban.css");
     botonKanban.style.border = "1px solid rgb(0,0,0)";
     botonLista.style.border = "0px solid rgb(0,0,0)";
 
@@ -44,7 +44,7 @@ function funcionVistaKanban(){
 }
 
 function funcionVistaLista(){
-    tipoVista.setAttribute("href", "Lista.css");
+    tipoVista.setAttribute("href", "lista.css");
     botonLista.style.border = "1px solid rgb(0,0,0)"
     botonKanban.style.border = "0px solid rgb(0,0,0)"
     

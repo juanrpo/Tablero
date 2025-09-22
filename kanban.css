@@ -55,7 +55,7 @@ body{
 
         .contenedorControles{
             display:flex;
-            height: 3em;
+            flex-wrap: wrap;
             flex-direction:row;
             box-sizing: border-box;
             min-width: 100%;
@@ -66,20 +66,6 @@ body{
             align-items: stretch;
         }
 
-            
-        .paso{
-            height: 2em;
-            font-size: 20px;
-            font-family: Arial, Helvetica, sans-serif;
-            align-self: center;
-        }
-
-        .braquet{
-            height: 2em;
-            font-size: 20px;
-            font-family: Arial, Helvetica, sans-serif;
-            align-self: center;
-        }
 
             .botonAgregarContenedor, 
             .botonCargarTablero, 

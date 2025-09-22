@@ -24,10 +24,8 @@ let _responsable = "responable";
 
 let tipoVista = document.getElementById("tipoVista")
 
-if (tipoVista.getAttribute("href") === "style.css"){
-    botonAgregarContenedor.disabled = true;
-    botonCargarTablero.disabled = true;
-    botonGuardarTablero.disabled = true;  
+if (tipoVista.getAttribute("href") === "kanban.css"){
+    botonKanban.style.border = "1px solid rgb(0,0,0)";
 } 
 
 // FUNCIONES

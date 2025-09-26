@@ -59,7 +59,7 @@ body{
             box-sizing: border-box;
             min-width: 100%;
             max-width: 100%;
-            gap: 15px;
+            gap: 10px;
             margin-left: 5px;
             margin-right: 5px;
             align-items: stretch;
@@ -137,8 +137,7 @@ body{
 
             .contenedorSubTitulo{
                 display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
+                flex-direction: column;
 
                 width: 100%;
                 padding: 5px;
@@ -156,7 +155,7 @@ body{
 
                 .contenedorSubTitulo_l1{
                     display: flex; 
-                    width: 60%;             
+                    width: 100%;             
                     padding-left: 5px;
                     padding-right: 5px;
                     box-sizing: border-box;
@@ -200,8 +199,7 @@ body{
                     }
 
                 .contenedorSubTitulo_l2{
-                    width: 40%;
-                    justify-content: right;
+                    width: 100%;
                     display: flex;               
                     padding-left: 5px;
                     padding-right: 5px;
@@ -519,7 +517,6 @@ body{
         outline: none;
     }
 
-
     .color_2{
         min-width: 3em;
         max-width: 3em;
@@ -530,7 +527,6 @@ body{
         border: none;
         outline: none;
     }
-
 
     .color_3{
         min-width: 3em;

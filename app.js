@@ -430,8 +430,7 @@ function funcionDibujarTareas(
         let tituloTarea = document.createElement("textarea");
         tituloTarea.textContent= $tituloTarea;
         tituloTarea.classList.add("tituloTarea");
-        tituloTarea.setAttribute("rows", 2);
-        tituloTarea.setAttribute("maxlength", "60");
+        tituloTarea.setAttribute("rows", 3);
         tituloTarea.setAttribute("placeholder", "Tarea...");
    
     // Creamos linea 2 del contenedor tareaListada
@@ -489,7 +488,6 @@ function funcionDibujarTareas(
         textoTarea.textContent= $textoTarea;
         textoTarea.classList.add("textoTarea");
         textoTarea.setAttribute("rows", 6);
-        textoTarea.setAttribute("maxlength", "240");
 
         // Crear campo de peso
         let pesoTarea = document.createElement("input");

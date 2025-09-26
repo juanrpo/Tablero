@@ -5,471 +5,108 @@ body{
     overflow-x: hidden;
 }
 
-.superdiv{
-    align-self: center;
-    justify-self: center;
-    height: 85vh;
-    width: 95%;
-    margin: 5px;
-    padding: 5px;
-}
-
-/*___ TITULO ___*/
-.contenedorTitulo{
-    display:flex;
-    flex-direction:column;
-    box-sizing: border-box;
-        
-    min-width: 100%;
-    max-width: 100%;
-        
-    gap: 5px;
-    column-gap: 10px;
-    row-gap: 10px;
-        
-    margin: 5px;
-    margin-bottom: 10px;
-
-    padding-left: 10px;
-    padding-right: 10px;
-}
-        
-.titulo{
-    width: 100%;
-    font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 1000;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    text-align: left;
-    background-color: transparent;
-    padding-right: 5px;
-    padding-left: 5px;
-}
-
-.titulo::placeholder {
-    font-style: italic;
-}
-
-.contenedorControles{
-    display:flex;
-    flex-direction:row;
-    flex-wrap: wrap;
-    box-sizing: border-box;
-    min-width: 100%;
-    max-width: 100%;
-    gap: 15px;
-    margin-left: 5px;
-    margin-right: 5px;
-    align-items: stretch;
-}
-
-.botonAgregarContenedor,
-.botonCargarTablero, 
-.botonGuardarTablero,
-.kanbanView,
-.listView{
-    min-width: 5em;
-    max-width: 5em;
-    height: 2em;
-    align-content: center;
-    justify-content: center;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    color: rgb(0,0,0);
-}
-
-.botonAgregarContenedor:hover, 
-.botonCargarTablero:hover, 
-.botonGuardarTablero:hover,
-.kanbanView:hover
-.listView:hover{
-    cursor: pointer;
-    background-color: rgba(0,0,0,0.1)
-} 
-
-.inputCargarTablero{
-    min-width: 5em;
-    max-width: 5em;
-    height: 2em;
-
-    align-content: center;
-    justify-content: center;
-        
-    border-radius: 5px;
-    border: none;
-    outline: none;
-
-    display: none;
-}
-
-/*___ SUBTITULO ___*/
-
-.subTitulo::placeholder {
-    font-style: italic;
-}
-
-.subTitulo:hover{
-    background-color: rgba(0,0,0,0.05);
-}
-
-.campoFiltro::placeholder, 
-.inputFiltro::placeholder {
-    color: rgb(120,120,120);
-}
-
-.inputFiltro:hover{
-    background-color: rgba(0,0,0,0.05);
-}
-
-.campoFiltro:hover{
-    background-color: rgba(0,0,0,0.05);
-    cursor: pointer;
-}
-
-.botonIzquierda:hover, 
-.botonDerecha:hover, 
-.botonAgregarTarea:hover, 
-.botonConfigurarContenedor:hover,
-.botonMinMaxContenedor:hover{
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
-.botonEliminarContenedor:hover{
-    cursor: pointer;
-    background-color: rgb(255, 150, 150);
-}
-                    
-/*___ CONTENEDORES DE TAREAS ___*/     
-.tareaListada:hover{
-    cursor: pointer;
-}
-
-/*___ RENGLON 1 ___*/
-.tituloTarea:hover{
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
-.tituloTarea::placeholder {
-    font-style: italic;
-}
-
-/*___ RENGLON 2 ___*/
-.botonL:hover, 
-.botonUp:hover, 
-.botonDown:hover, 
-.botonR:hover, 
-.botonConfigTarea:hover, 
-.botonMinMaxTarea:hover {
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.05);
-    color: rgb(0,0,0);   
-}
-
-.botonEliminarTarea:hover{
-    cursor: pointer;
-    background-color: rgb(255, 150, 150);
-    color: rgb(0,0,0);
-}
-
-.pesoTarea::placeholder, 
-.etiqueta::placeholder, 
-.responsable::placeholder {
-    font-style: italic;
-}
-
-@media (min-width: 360px) and (max-width: 719px){
-    .contenedorDeContenedores{
-        display: block;
-    
-        width: 100%;
-        height: 100%;
-
-        margin-left: 5px;
-        margin-right: 5px;
-
-        box-sizing: border-box;
-        overflow-x: auto;
-        overflow-y: auto;
-    }
-
-    .macroContenedor{ 
-        width: 100%;  
-        display: block;
-
-        box-sizing: border-box;
-            
+ .superdiv{
+        align-self: center;
+        justify-self: center;
+        height: 85vh;
+        width: 95%;
+        margin: 5px;
         padding: 5px;
-        overflow-x: hidden;
     }
 
-    /*___ SUBTITULO ___*/ 
-    .contenedorSubTitulo{
-        display: flex;
-        flex-direction: column;
-
-        width: 100%;
-        padding: 5px;
-
+    /*___ TITULO ___*/
+   .contenedorTitulo{
+        display:flex;
+        flex-direction:column;
         box-sizing: border-box;
-    
-        margin-bottom: 10px;
-        border-radius: 10px;
-        border: 1px solid rgb(0,0,0);
-
-        row-gap: 5px;
-    }
-
-    .contenedorSubTitulo_l1{
-        display: flex;               
-        padding-left: 5px;
-        padding-right: 5px;
-        box-sizing: border-box;
-        column-gap: 5px;
-    }
-
-    .textoContador{
-        width: 25%;                        
-        font-size: 20px;
-        font-family: Arial, Helvetica, sans-serif;
-        text-align: left;
-        font-weight: bold;
-        margin: 0;
-        padding: 3px;
-        font-style: italic;
-        border-radius: 5px;
-    }
-                    
-    .subTitulo{
-        width: 75%;
-
-        font-size: 20px;
-        font-weight: 600;
-        font-family: Arial, Helvetica, sans-serif;
-        text-align: left;
-
-        align-content: center;
-
-        border: none;
-        outline: none;
-        background-color: transparent;
-        border-radius: 5px;
-        padding: 3px;
-    }
-
-    /*___ FILTRO ___*/ 
-    .contenedorSubTitulo_l2{
-        display: flex;               
-        padding-left: 5px;
-        padding-right: 5px;
-        box-sizing: border-box;
-        column-gap: 10px;
-    }
-
-    .campoFiltro{
-        width: 40%;
-
-        margin: 0px;
-        padding: 3px;
-
-        font-size: 14px;
-        font-weight: 300;
-        font-family: Arial, Helvetica, sans-serif;
-        text-align: left;
-        font-style: italic;
-        color:rgb(120,120,120);
-
-        justify-content: center;
-        align-content: center;
-
-        border-radius: 5px;
-        border: none;
-        outline: none;
-
-        background-color: transparent;
-    }
-
-    .inputFiltro{
-        width: 60%;
-
-        margin: 0px;
-        padding: 3px;
-
-        font-size: 14px;
-        font-weight: 300;
-        font-family: Arial, Helvetica, sans-serif;
-        text-align: left;
-        font-style: italic;
-        color:rgb(120,120,120);
-
-        justify-content: center;
-        align-content: center;
-
-        border-radius: 5px;
-        border: 0px solid rgb(200,200,200);
-        outline: none;
-
-        background-color: transparent;
-    }
-
-    .contenedorSubTitulo_l3{
-        display: flex;
-        flex-wrap: wrap;                    
-        padding-left: 5px;
-        padding-right: 5px;
-        box-sizing: border-box;
-    }
-
-    /*___ CONTROLES CONTENEDOR ___*/ 
-    .botonIzquierda, 
-    .botonDerecha, 
-    .botonAgregarTarea,  
-    .botonConfigurarContenedor, 
-    .botonMinMaxContenedor,
-    .botonEliminarContenedor{
-        min-width: 3em;
-        max-width: 3em;
-        height: 2em;
-        border-radius: 5px;
-        border: none;
-        outline: none;
-        justify-content: center;
-        align-content: center;
-        background-color: transparent;
-        color: rgb(0,0,0);
-    }
-
-    /*___ CONTENEDOR TAREAS ___*/ 
-    .contenedorTareasListadas{   
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        box-sizing: border-box;
-        overflow-y: auto;
-        row-gap:10px;
-    }
-
-    /*___ CONTENEDOR TAREA LISTADA ___*/ 
-    .tareaListada{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        padding: 10px;
-        box-sizing: border-box;
-        border-radius: 10px;
-        row-gap: 5px;
-        align-items: stretch;
-    }
-
-     /*___ TITULO TAREA ___*/ 
-    .tareaListada_l1{
-        height: 2em;
-        display: flex;
-        width: 100%;
-        box-sizing: border-box;                    
-    }
-
-    .tituloTarea{
-        width: 100%;
-        font-size: 15px;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: bold;
-        text-align: left;
-        outline: none;
-        border: none;
-        background-color: transparent;
-        resize: none;
-        padding: 5px;
-        border-radius: 7px;
-        column-gap: 10px;
-    }
-
-     /*___ CONTROL ___*/ 
-    .tareaListada_l2{
-        height: 2em;
-        width: 100%;      
-        display: flex;
-        box-sizing: border-box;
-    }
-
-    .botonL, 
-    .botonUp, 
-    .botonDown, 
-    .botonR, 
-    .botonConfigTarea, 
-    .botonMinMaxTarea, 
-    .botonEliminarTarea {
-        min-width: 3em;
-        max-width: 3em;
-        height: 2em;
-        border-radius: 5px;
-        border: none;
-        outline: none;
-        justify-content: center;
-        align-content: center;
-        background-color: transparent;
-        color: rgb(150,150,150);
-    }
-
-    /*___ DATOS ___*/ 
-    .tareaListada_l3{
-        width: 100%;
-                            
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-
-        padding-top: 1px;
-        padding-bottom: 1px;
-        box-sizing: border-box;
+        
+        min-width: 100%;
+        max-width: 100%;
+        
+        gap: 5px;
         column-gap: 10px;
         row-gap: 10px;
-        align-items: stretch;
+        
+        margin: 5px;
+        margin-bottom: 10px;
+
+        padding-left: 10px;
+        padding-right: 10px;
     }
+        
+        .titulo{
+            width: 100%;
+            font-size: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 1000;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            text-align: left;
+            background-color: transparent;
+            padding-right: 5px;
+            padding-left: 5px;
+        }
 
-    .textoTarea{
-        padding: 5px;
-        width: 100%;
-        font-size: 15px;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: 300;
-        border-radius: 5px;
-        text-align: left;
-        outline: none;
-        border: none;
-        resize: none;
-    }
+        .titulo::placeholder {
+            font-style: italic;
+        }
 
-    .pesoTarea, .etiqueta, .responsable{
-        width: 5em;
-        font-size: 15px;
-        font-family: Arial, Helvetica, sans-serif;
+        .contenedorControles{
+            display:flex;
+            flex-wrap: wrap;
+            flex-direction:row;
+            box-sizing: border-box;
+            min-width: 100%;
+            max-width: 100%;
+            gap: 15px;
+            margin-left: 5px;
+            margin-right: 5px;
+            align-items: stretch;
+        }
 
-        border-radius: 5px;
-        border: none;
-        outline: none;
-    }
 
-    .fechaInicio, .fechaFin{
-        width: 5em;
-        font-size: 15px;
+            .botonAgregarContenedor, 
+            .botonCargarTablero, 
+            .botonGuardarTablero,
+            .kanbanView,
+            .listView{
+                min-width: 5em;
+                max-width: 5em;
+                height: 2em;
+                align-content: center;
+                justify-content: center;
+                border-radius: 5px;
+                border: none;
+                outline: none;
+                color: rgb(0,0,0);
+            }
 
-        font-family: Arial, Helvetica, sans-serif;
+            .botonAgregarContenedor:hover, 
+            .botonCargarTablero:hover, 
+            .botonGuardarTablero:hover,
+            .kanbanView:hover,
+            .listView:hover{
+                cursor: pointer;
+                background-color: rgba(0,0,0,0.1)
+            } 
 
-        border-radius: 5px;
-        border: none;
-            
-        outline: none;
-        text-align: left;
-    }
-}
+            .inputCargarTablero{
+                min-width: 5em;
+                max-width: 5em;
+                height: 2em;
 
-@media (min-width: 720px) and (max-width: 1079px){
+                align-content: center;
+                justify-content: center;
+        
+                border-radius: 5px;
+                border: none;
+                outline: none;
+
+                display: none;
+            }
+
+    /*___ SUBTITULO ___*/
     .contenedorDeContenedores{
         display: block;
     
@@ -483,599 +120,369 @@ body{
 
         box-sizing: border-box;
         overflow-x: auto;
-        overflow-y: auto;
     }
 
-    .macroContenedor{   
-        display: flex;
-        flex-direction: column;
+            .macroContenedor{   
+            display: flex;
+            flex-direction: column;
 
-        box-sizing: border-box;
+            min-width: 100%;
+            max-width: 100%;
+
+            box-sizing: border-box;
             
-        padding: 5px;
-        overflow-x: hidden;
-    }
+            padding: 5px;
+            overflow-x: hidden;
+        }
 
-    /*___ SUBTITULO ___*/ 
-    .contenedorSubTitulo{
-        display: flex;
-        flex-direction: row;
+            .contenedorSubTitulo{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
 
-        width: 100%;
-        padding: 5px;
+                width: 100%;
+                padding: 5px;
 
-        box-sizing: border-box;
+                box-sizing: border-box;
     
-        margin-bottom: 10px;
-        border-radius: 10px;
-        border: 1px solid rgb(0,0,0);
+                margin-bottom: 10px;
+                border-radius: 10px;
 
-        row-gap: 5px;
-    }
+                row-gap: 5px;
 
-    .contenedorSubTitulo_l1{
-        display: flex;
-        width: 40%;               
-        padding-left: 5px;
-        padding-right: 5px;
-        box-sizing: border-box;
-        column-gap: 5px;
-        align-items: stretch;
-        align-items: center;
-    }
+                border: 1px solid rgb(0,0,0);
+            }
 
-    .textoContador{
-        width: 20%;                        
-        font-size: 20px;
-        font-family: Arial, Helvetica, sans-serif;
-        text-align: left;
-        font-weight: bold;
-        margin: 0;
-        padding: 3px;
-        font-style: italic;
-        border-radius: 5px;
-    }
+                .contenedorSubTitulo_l1{
+                    display: flex; 
+                    width: 60%;             
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    box-sizing: border-box;
+                    column-gap: 5px;
+                 }
+
+                    .textoContador{
+                        width: 3em;                        
+                        font-size: 20px;
+                        font-family: Arial, Helvetica, sans-serif;
+                        text-align: left;
+                        font-weight: bold;
+                        margin: 0;
+                        font-style: italic;
+                        border-radius: 5px;
+                        padding: 3px;
+                    }
                     
-    .subTitulo{
-        width: 100%;
+                    .subTitulo{
+                        width: 100%;
+                        font-size: 20px;
+                        font-weight: 600;
+                        font-family: Arial, Helvetica, sans-serif;
+                        text-align: left;
 
-        font-size: 20px;
-        font-weight: 600;
-        font-family: Arial, Helvetica, sans-serif;
-        text-align: left;
+                        align-content: center;
 
-        align-content: center;
+                        border: none;
+                        outline: none;
+                        background-color: transparent;
+                        border-radius: 5px;
+                        padding: 3px;
+                    }
 
-        border: none;
-        outline: none;
-        background-color: transparent;
-        border-radius: 5px;
-        padding: 3px;
-    }
+                    .subTitulo::placeholder {
+                        font-style: italic;
+                    }
 
-    /*___ FILTRO ___*/ 
-    .contenedorSubTitulo_l2{
-        width: 25%;
-        display: flex;               
-        padding-left: 5px;
-        padding-right: 5px;
-        box-sizing: border-box;
-        column-gap: 10px;
-    }
+                    .subTitulo:hover{
+                        background-color: rgba(0,0,0,0.05);
+                    }
 
-    .campoFiltro{
-        width: 40%;
+                .contenedorSubTitulo_l2{
+                    width: 40%;
+                    justify-content: right;
+                    display: flex;               
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    box-sizing: border-box;
+                    column-gap: 10px;
+                }
 
-        margin: 0px;
-        padding: 3px;
+                    .campoFiltro{
+                        margin: 0px;
+                        padding: 3px;
 
-        font-size: 14px;
-        font-weight: 300;
-        font-family: Arial, Helvetica, sans-serif;
-        text-align: left;
-        font-style: italic;
-        color:rgb(120,120,120);
+                        font-size: 14px;
+                        font-weight: 300;
+                        font-family: Arial, Helvetica, sans-serif;
+                        text-align: left;
+                        font-style: italic;
+                        color:rgb(120,120,120);
 
-        justify-content: center;
-        align-content: center;
+                        justify-content: center;
+                        align-content: center;
 
-        border-radius: 5px;
-        border: none;
-        outline: none;
+                        /* border: none; */
+                        border-radius: 5px;
+                        border: none;
+                        outline: none;
 
-        background-color: transparent;
-    }
+                        background-color: transparent;
 
-    .inputFiltro{
-        width: 60%;
+                    }
 
-        margin: 0px;
-        padding: 3px;
+                    .inputFiltro{
+                        margin: 0px;
+                        padding: 3px;
 
-        font-size: 14px;
-        font-weight: 300;
-        font-family: Arial, Helvetica, sans-serif;
-        text-align: left;
-        font-style: italic;
-        color:rgb(120,120,120);
+                        font-size: 14px;
+                        font-weight: 300;
+                        font-family: Arial, Helvetica, sans-serif;
+                        text-align: left;
+                        font-style: italic;
+                        color:rgb(120,120,120);
 
-        justify-content: center;
-        align-content: center;
+                        justify-content: center;
+                        align-content: center;
 
-        border-radius: 5px;
-        border: 0px solid rgb(200,200,200);
-        outline: none;
+                        border-radius: 5px;
+                        border: 0px solid rgb(200,200,200);
+                        outline: none;
 
-        background-color: transparent;
-    }
+                        background-color: transparent;
+                    }
 
-     /*___ CONTROLES CONTENEDOR ___*/ 
-    .contenedorSubTitulo_l3{
-        width: 25%;
-        display: flex;
-        flex-wrap: nowrap;                    
-        padding-left: 5px;
-        padding-right: 5px;
-        box-sizing: border-box;
-        align-items: flex-end;
-    }
+                    .campoFiltro::placeholder, .inputFiltro::placeholder {
+                        color: rgb(120,120,120);
+                    }
 
-    .botonIzquierda, 
-    .botonDerecha, 
-    .botonAgregarTarea,  
-    .botonConfigurarContenedor, 
-    .botonMinMaxContenedor,
-    .botonEliminarContenedor{
-        min-width: 3em;
-        max-width: 3em;
-        height: 2em;
-        border-radius: 5px;
-        border: none;
-        outline: none;
-        justify-content: center;
-        align-content: center;
-        background-color: transparent;
-        color: rgb(0,0,0);
-    }
+                    .inputFiltro:hover{
+                        background-color: rgba(0,0,0,0.05);
+                    }
 
-    /*___ CONTENEDOR TAREAS ___*/ 
-    .contenedorTareasListadas{   
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        box-sizing: border-box;
-        overflow-y: auto;
-        row-gap:10px;
-    }
+                    .campoFiltro:hover{
+                        background-color: rgba(0,0,0,0.05);
+                        cursor: pointer;
+                    }
 
-    /*___ CONTENEDOR TAREA LISTADA ___*/ 
-    .tareaListada{
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        padding: 10px;
-        box-sizing: border-box;
-        border-radius: 10px;
-        row-gap: 5px;
-        align-items: stretch;
-    }
 
-     /*___ TITULO TAREA ___*/ 
-    .tareaListada_l1{
-        height: 2em;
-        width: 60%;
+                .contenedorSubTitulo_l3{
+                    width: 100%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-content: start;                    
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    box-sizing: border-box;
+                }
 
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
+                    .botonIzquierda, 
+                    .botonDerecha, 
+                    .botonAgregarTarea,  
+                    .botonConfigurarContenedor,
+                    .botonMinMaxContenedor, 
+                    .botonEliminarContenedor{
+                        min-width: 3em;
+                        max-width: 3em;
+                        height: 2em;
+                        border-radius: 5px;
+                        border: none;
+                        outline: none;
+                        justify-content: center;
+                        align-content: center;
+                        background-color: transparent;
+                        color: rgb(0,0,0);
+                    }
 
-        box-sizing: border-box;                    
-    }
+                    .botonIzquierda:hover, 
+                    .botonDerecha:hover, 
+                    .botonAgregarTarea:hover, 
+                    .botonConfigurarContenedor:hover,
+                    .botonMinMaxContenedor:hover{
+                        cursor: pointer;
+                        background-color: rgba(0, 0, 0, 0.05);
+                    }
 
-    .tituloTarea{
-        width: 100%;
-        font-size: 15px;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: bold;
-        text-align: left;
-        outline: none;
-        border: none;
-        background-color: transparent;
-        resize: none;
-        padding: 5px;
-        border-radius: 7px;
-        column-gap: 10px;
-    }
-
-     /*___ CONTROL ___*/ 
-    .tareaListada_l2{
-        height: 2em;
-        width: 30%;
-                            
-        display: flex;
-        align-items: flex-end; 
-
-        box-sizing: border-box;
-    }
-
-    .botonL, 
-    .botonUp, 
-    .botonDown, 
-    .botonR, 
-    .botonConfigTarea, 
-    .botonMinMaxTarea, 
-    .botonEliminarTarea {
-        min-width: 3em;
-        max-width: 3em;
-        height: 2em;
-        border-radius: 5px;
-        border: none;
-        outline: none;
-        justify-content: center;
-        align-content: center;
-        background-color: transparent;
-        color: rgb(150,150,150);
-    }
-
-    /*___ DATOS ___*/ 
-    .tareaListada_l3{
-        width: 100%;
-                            
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-
-        padding-top: 1px;
-        padding-bottom: 1px;
-        box-sizing: border-box;
-        column-gap: 10px;
-        row-gap: 10px;
-        align-items: stretch;
-    }
-
-    .textoTarea{
-        padding: 5px;
-        width: 100%;
-        font-size: 15px;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: 300;
-        border-radius: 5px;
-        text-align: left;
-        outline: none;
-        border: none;
-        resize: none;
-    }
-
-    .pesoTarea, .etiqueta, .responsable{
-        width: 5em;
-        font-size: 15px;
-        font-family: Arial, Helvetica, sans-serif;
-
-        border-radius: 5px;
-        border: none;
-        outline: none;
-    }
-
-    .fechaInicio, .fechaFin{
-        width: 5em;
-        font-size: 15px;
-
-        font-family: Arial, Helvetica, sans-serif;
-
-        border-radius: 5px;
-        border: none;
+                    .botonEliminarContenedor:hover{
+                        cursor: pointer;
+                        background-color: rgb(255, 150, 150);
+                    }
             
-        outline: none;
-        text-align: left;
-    }
-}
+            /*___ CONTENEDORES DE TAREAS ___*/
+            .contenedorTareasListadas{   
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                box-sizing: border-box;
+                overflow-y: auto;
+                row-gap:10px;
+            }
 
-@media (min-width: 1080px){
-    .contenedorDeContenedores{
-        display: block;
+                    /*___ TAREA LISTADA ___*/
+                    .tareaListada{
+                        width: 100%;
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        padding: 10px;
+                        box-sizing: border-box;
+                        border-radius: 10px;
+                        row-gap: 5px;
+                    }
+
+                        .tareaListada:hover{
+                        cursor: pointer;
+                    }
     
-        min-width: 100%;
-        max-width: 100%;
-        min-height: 100%;
-        max-height: 100%;
+                        /*___ RENGLON 1 ___*/
+                        .tareaListada_l1{
+                            display: flex;
+                            flex-direction: row;
+                            box-sizing: border-box;
+                            align-items:stretch;
+                            justify-items: stretch;
+                            width: 70%;
+                        
+                        }
 
-        margin-left: 5px;
-        margin-right: 5px;
+                            .tituloTarea{
+                                width: 100%;
+                                font-size: 15px;
+                                font-family: Arial, Helvetica, sans-serif;
+                                font-weight: bold;
+                                text-align: left;
+                                outline: none;
+                                border: none;
+                                background-color: transparent;
+                                resize: none;
+                                padding: 5px;
+                                border-radius: 7px;
+                            }
 
-        box-sizing: border-box;
-        overflow-x: auto;
-        overflow-y: auto;
-    }
+                            .tituloTarea:hover{
+                                background-color: rgba(0, 0, 0, 0.05);
+                            }
 
-    .macroContenedor{   
-        display: flex;
-        flex-direction: column;
+                            .tituloTarea::placeholder {
+                                font-style: italic;
+                            }
 
-        box-sizing: border-box;
+                        /*___ RENGLON 2 ___*/
+                        .tareaListada_l2{
+                            display: flex;
+                            flex-wrap: wrap;
+                            box-sizing: border-box;
+                            width: 30%;
+                            justify-content: end;
+                        }
+
+                            /*___ CONTROL ___*/ 
+                            .botonL, 
+                            .botonUp, 
+                            .botonDown, 
+                            .botonR, 
+                            .botonConfigTarea, 
+                            .botonMinMaxTarea, 
+                            .botonEliminarTarea {
+                                min-width: 3em;
+                                max-width: 3em;
+                                height: 2em;
+                                border-radius: 5px;
+                                border: none;
+                                outline: none;
+                                justify-content: center;
+                                align-content: center;
+                                background-color: transparent;
+                                color: rgb(150,150,150);
+                            }
+
+                            .botonL:hover, 
+                            .botonUp:hover, 
+                            .botonDown:hover, 
+                            .botonR:hover, 
+                            .botonConfigTarea:hover, 
+                            .botonMinMaxTarea:hover {
+                                cursor: pointer;
+                                background-color: rgba(0, 0, 0, 0.05);
+                                color: rgb(0,0,0);   
+                            }
+
+                            .botonEliminarTarea:hover{
+                                cursor: pointer;
+                                background-color: rgb(255, 150, 150);
+                                color: rgb(0,0,0);
+                            }
+
+                        .tareaListada_l3{
+                            width: 100%;
+                            display: flex;
+                            flex-wrap: wrap;
+                            padding-top: 1px;
+                            padding-bottom: 1px;
+                            box-sizing: border-box;
+                            column-gap: 10px;
+                            row-gap: 10px;
+                            align-items: stretch;
+                        }
+                            /*___ DATOS ___*/ 
+                            .textoTarea{
+                                width: 100%;
+                                font-size: 15px;
+                                font-family: Arial, Helvetica, sans-serif;
+                                font-weight: 300;
+                                border-radius: 5px;
+                                text-align: left;
+                                outline: none;
+                                border: none;
+                                resize: none;
+                                padding: 5px;
+                            }
+
+                            .pesoTarea, .etiqueta, .responsable{
+                                min-width: 6em;
+                                max-width: 6em;
+                                min-height: 1.5em;
+                                max-height: 1.5em;
+
+                                font-size: 15px;
+                                font-family: Arial, Helvetica, sans-serif;
+
+                                border-radius: 5px;
+                                border: none;
             
-        padding: 5px;
-        overflow-x: hidden;
-    }
+                                outline: none;
+                            }
 
-    /*___ SUBTITULO ___*/ 
-    .contenedorSubTitulo{
-        display: flex;
-        flex-direction: row;
+                            .pesoTarea::placeholder {
+                                font-style: italic;
+                            }
 
-        width: 100%;
-        padding: 5px;
+                            .etiqueta::placeholder {
+                                font-style: italic;
+                            }
 
-        box-sizing: border-box;
-    
-        margin-bottom: 10px;
-        border-radius: 10px;
-        border: 1px solid rgb(0,0,0);
+                            .responsable::placeholder {
+                                font-style: italic;
+                            }
 
-        row-gap: 5px;
-    }
+                            .fechaInicio, .fechaFin{
+                                min-width: 6em;
+                                max-width: 6em;
+                                min-height: 1.5em;
+                                max-height: 1.5em;
 
-    .contenedorSubTitulo_l1{
-        display: flex;
-        width: 60%;               
-        padding-left: 5px;
-        padding-right: 5px;
-        box-sizing: border-box;
-        column-gap: 5px;
-        align-items: stretch;
-        align-items: center;
-    }
 
-    .textoContador{
-        width: 7%;                        
-        font-size: 20px;
-        font-family: Arial, Helvetica, sans-serif;
-        text-align: left;
-        font-weight: bold;
-        margin: 0;
-        padding: 3px;
-        font-style: italic;
-        border-radius: 5px;
-    }
-                    
-    .subTitulo{
-        width: 100%;
+                                font-size: 15px;
+                                font-family: Arial, Helvetica, sans-serif;
 
-        font-size: 20px;
-        font-weight: 600;
-        font-family: Arial, Helvetica, sans-serif;
-        text-align: left;
-
-        align-content: center;
-
-        border: none;
-        outline: none;
-        background-color: transparent;
-        border-radius: 5px;
-        padding: 3px;
-    }
-
-    /*___ FILTRO ___*/ 
-    .contenedorSubTitulo_l2{
-        width: 20%;
-        display: flex;               
-        padding-left: 5px;
-        padding-right: 5px;
-        box-sizing: border-box;
-        column-gap: 10px;
-    }
-
-    .campoFiltro{
-        width: 40%;
-
-        margin: 0px;
-        padding: 3px;
-
-        font-size: 14px;
-        font-weight: 300;
-        font-family: Arial, Helvetica, sans-serif;
-        text-align: left;
-        font-style: italic;
-        color:rgb(120,120,120);
-
-        justify-content: center;
-        align-content: center;
-
-        border-radius: 5px;
-        border: none;
-        outline: none;
-
-        background-color: transparent;
-    }
-
-    .inputFiltro{
-        width: 60%;
-
-        margin: 0px;
-        padding: 3px;
-
-        font-size: 14px;
-        font-weight: 300;
-        font-family: Arial, Helvetica, sans-serif;
-        text-align: left;
-        font-style: italic;
-        color:rgb(120,120,120);
-
-        justify-content: center;
-        align-content: center;
-
-        border-radius: 5px;
-        border: 0px solid rgb(200,200,200);
-        outline: none;
-
-        background-color: transparent;
-    }
-
-     /*___ CONTROLES CONTENEDOR ___*/ 
-    .contenedorSubTitulo_l3{
-        width: 20%;
-        display: flex;
-        flex-wrap: wrap;                    
-        padding-left: 5px;
-        padding-right: 5px;
-        box-sizing: border-box;
-        align-items: flex-end;
-    }
-
-    .botonIzquierda, 
-    .botonDerecha, 
-    .botonAgregarTarea,  
-    .botonConfigurarContenedor, 
-    .botonMinMaxContenedor,
-    .botonEliminarContenedor{
-        min-width: 3em;
-        max-width: 3em;
-        height: 2em;
-        border-radius: 5px;
-        border: none;
-        outline: none;
-        justify-content: center;
-        align-content: center;
-        background-color: transparent;
-        color: rgb(0,0,0);
-    }
-
-    /*___ CONTENEDOR TAREAS ___*/ 
-    .contenedorTareasListadas{   
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        box-sizing: border-box;
-        overflow-y: auto;
-        row-gap:10px;
-    }
-
-    /*___ CONTENEDOR TAREA LISTADA ___*/ 
-    .tareaListada{
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        padding: 10px;
-        box-sizing: border-box;
-        border-radius: 10px;
-        row-gap: 5px;
-        align-items: stretch;
-    }
-
-     /*___ TITULO TAREA ___*/ 
-    .tareaListada_l1{
-        height: 2em;
-        width: 70%;
-
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-
-        box-sizing: border-box;                    
-    }
-
-    .tituloTarea{
-        width: 100%;
-        font-size: 15px;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: bold;
-        text-align: left;
-        outline: none;
-        border: none;
-        background-color: transparent;
-        resize: none;
-        padding: 5px;
-        border-radius: 7px;
-        column-gap: 10px;
-    }
-
-     /*___ CONTROL ___*/ 
-    .tareaListada_l2{
-        height: 2em;
-        width: 30%;
-                            
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;  
-
-        box-sizing: border-box;
-    }
-
-    .botonL, 
-    .botonUp, 
-    .botonDown, 
-    .botonR, 
-    .botonConfigTarea, 
-    .botonMinMaxTarea, 
-    .botonEliminarTarea {
-        min-width: 3em;
-        max-width: 3em;
-        height: 2em;
-        border-radius: 5px;
-        border: none;
-        outline: none;
-        justify-content: center;
-        align-content: center;
-        background-color: transparent;
-        color: rgb(150,150,150);
-    }
-
-    /*___ DATOS ___*/ 
-    .tareaListada_l3{
-        width: 100%;
-                            
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-
-        padding-top: 1px;
-        padding-bottom: 1px;
-        box-sizing: border-box;
-        column-gap: 10px;
-        row-gap: 10px;
-        align-items: stretch;
-    }
-
-    .textoTarea{
-        padding: 5px;
-        width: 100%;
-        font-size: 15px;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: 300;
-        border-radius: 5px;
-        text-align: left;
-        outline: none;
-        border: none;
-        resize: none;
-    }
-
-    .pesoTarea, .etiqueta, .responsable{
-        width: 5em;
-        font-size: 15px;
-        font-family: Arial, Helvetica, sans-serif;
-
-        border-radius: 5px;
-        border: none;
-        outline: none;
-    }
-
-    .fechaInicio, .fechaFin{
-        width: 5em;
-        font-size: 15px;
-
-        font-family: Arial, Helvetica, sans-serif;
-
-        border-radius: 5px;
-        border: none;
+                                border-radius: 5px;
+                                border: none;
             
-        outline: none;
-        text-align: left;
-    }
-}
-
+                                outline: none;
+                                text-align: left;
+                            }
+            
 /*___ VENTANA EMERGENTE ___*/
 .ventanaEmergente{
     display: flex;
@@ -1161,7 +568,3 @@ body{
     .color_1:hover, .color_2:hover, .color_3:hover, .color_4:hover, .color_5:hover{
         cursor: pointer;
     }
-
-
-
-

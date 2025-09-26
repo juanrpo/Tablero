@@ -29,6 +29,7 @@ if (tipoVista.getAttribute("href") === "kanban.css"){
 } 
 
 // FUNCIONES
+
 function funcionVistaKanban(){
     tipoVista.setAttribute("href", "kanban.css");
     botonKanban.style.border = "1px solid rgb(0,0,0)";
@@ -52,7 +53,6 @@ function funcionVistaLista(){
 
     return tipoVista;
 }
-
 
 function funcionAgregarContenedor(){
     let contenedorDeContenedores = document.querySelector(".contenedorDeContenedores");

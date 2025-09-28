@@ -41,7 +41,7 @@ function funcionTituloPestaña(){
 
 function funcionVistaTablero(){
     tipoVista.setAttribute("href", "tablero.css");
-    botonKanban.style.border = "1px solid rgb(0,0,0)";
+    botonTablero.style.border = "1px solid rgb(0,0,0)";
     botonLista.style.border = "0px solid rgb(0,0,0)";
 
     botonAgregarContenedor.disabled = false;
@@ -54,7 +54,7 @@ function funcionVistaTablero(){
 function funcionVistaLista(){
     tipoVista.setAttribute("href", "lista.css");
     botonLista.style.border = "1px solid rgb(0,0,0)"
-    botonKanban.style.border = "0px solid rgb(0,0,0)"
+    botonTablero.style.border = "0px solid rgb(0,0,0)"
     
     botonAgregarContenedor.disabled = false;
     botonCargarTablero.disabled = false;
@@ -947,5 +947,5 @@ botonCargarTablero.addEventListener("click", () =>{
     document.getElementById("inputArchivo").click();
 });
 
-botonKanban.addEventListener("click", funcionVistaKanban);
+botonTablero.addEventListener("click", funcionVistaTablero);
 botonLista.addEventListener("click", funcionVistaLista);

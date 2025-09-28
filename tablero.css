@@ -86,7 +86,7 @@ body{
             .botonAgregarContenedor:hover, 
             .botonCargarTablero:hover, 
             .botonGuardarTablero:hover,
-            .kanbanView:hover,
+            .boardView:hover,
             .listView:hover{
                 cursor: pointer;
                 background-color: rgba(0,0,0,0.1)

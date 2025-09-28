@@ -6,7 +6,7 @@ let botonAgregarContenedor = document.getElementById("botonAgregarContenedor");
 let botonCargarTablero = document.getElementById("botonCargarTablero")
 let inputCargarTablero = document.getElementById("inputArchivo");
 let botonGuardarTablero = document.getElementById("botonGuardarTablero");
-let botonKanban = document.getElementById("kanbanView");
+let botonTablero = document.getElementById("boardView");
 let botonLista = document.getElementById("listView");
 
 // ELEMTOS GENERALES
@@ -26,8 +26,8 @@ let _responsable = "responable";
 
 let tipoVista = document.getElementById("tipoVista")
 
-if (tipoVista.getAttribute("href") === "kanban.css"){
-    botonKanban.style.border = "1px solid rgb(0,0,0)";
+if (tipoVista.getAttribute("href") === "tablero.css"){
+    botonTablero.style.border = "1px solid rgb(0,0,0)";
 } 
 
 // FUNCIONES
@@ -39,8 +39,8 @@ function funcionTituloPestaña(){
 }
 
 
-function funcionVistaKanban(){
-    tipoVista.setAttribute("href", "kanban.css");
+function funcionVistaTablero(){
+    tipoVista.setAttribute("href", "tablero.css");
     botonKanban.style.border = "1px solid rgb(0,0,0)";
     botonLista.style.border = "0px solid rgb(0,0,0)";
 

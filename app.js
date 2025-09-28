@@ -1,5 +1,7 @@
 //ELEMENTOS TRAIDOS DEL HTML
 let inputTitulo = document.getElementById("titulo");
+inputTitulo.addEventListener("change", funcionTituloPestaña);
+
 let botonAgregarContenedor = document.getElementById("botonAgregarContenedor");
 let botonCargarTablero = document.getElementById("botonCargarTablero")
 let inputCargarTablero = document.getElementById("inputArchivo");
@@ -29,6 +31,13 @@ if (tipoVista.getAttribute("href") === "kanban.css"){
 } 
 
 // FUNCIONES
+
+function funcionTituloPestaña(){
+    let tituloPestaña = inputTitulo.value;
+    document.title = tituloPestaña;
+    return tituloPestaña;
+}
+
 
 function funcionVistaKanban(){
     tipoVista.setAttribute("href", "kanban.css");
@@ -917,6 +926,7 @@ function funcionCargarTablero(event){
 
     // Tomamos el nombre del archivo para el inputTitulo
     inputTitulo.value = archivo.name.slice(0,-5);
+    funcionTituloPestaña();
 }
 
 // EVENTOS

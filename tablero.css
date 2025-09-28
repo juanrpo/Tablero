@@ -152,11 +152,13 @@ body{
                 row-gap: 5px;
 
                 border: 1px solid rgb(0,0,0);
+                align-items: stretch;
             }
 
 
                 .contenedorSubTitulo_l1{
-                    display: flex;               
+                    display: flex; 
+                    width: 100%;             
                     padding-left: 5px;
                     padding-right: 5px;
                     box-sizing: border-box;
@@ -170,14 +172,13 @@ body{
                         text-align: left;
                         font-weight: bold;
                         margin: 0;
-                        padding: 3px;
                         font-style: italic;
                         border-radius: 5px;
+                        padding: 3px;
                     }
                     
                     .subTitulo{
-                        width: 85%;
-
+                        width: 100%;
                         font-size: 20px;
                         font-weight: 600;
                         font-family: Arial, Helvetica, sans-serif;
@@ -202,6 +203,7 @@ body{
 
 
                 .contenedorSubTitulo_l2{
+                    width: 100%;
                     display: flex;               
                     padding-left: 5px;
                     padding-right: 5px;
@@ -211,8 +213,6 @@ body{
                 }
 
                     .campoFiltro{
-                        width: 40%;
-
                         margin: 0px;
                         padding: 3px;
 
@@ -236,8 +236,6 @@ body{
                     }
 
                     .inputFiltro{
-                        width: 60%;
-
                         margin: 0px;
                         padding: 3px;
 
@@ -248,16 +246,13 @@ body{
                         font-style: italic;
                         color:rgb(120,120,120);
 
-                        justify-content: center;
-                        align-content: center;
+                        align-items: center;
 
-                        /* border: none; */
                         border-radius: 5px;
                         border: 0px solid rgb(200,200,200);
                         outline: none;
 
                         background-color: transparent;
-
                     }
 
                     .campoFiltro::placeholder, .inputFiltro::placeholder {

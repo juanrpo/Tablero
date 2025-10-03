@@ -1,0 +1,15 @@
+{
+  "name": "Tablero",
+  "short_name": "Tablero",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/imagenes/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -15,6 +15,7 @@ let listaTareas = [];
 let objetoContenedor = {};
 let colorBasePorDefecto = "rgb(245,245,245)";
 let contadorMinMax = 0;
+let estadoMinMax = "";
 
 // CAMPOS DE FILTRADO
 let _tituloTarea = "tituloTarea";
@@ -26,9 +27,11 @@ let _responsable = "responable";
 
 let tipoVista = document.getElementById("tipoVista")
 
+// BORDE PARA BOTON VISTATABLERO POR DEFECTO
 if (tipoVista.getAttribute("href") === "tablero.css"){
     botonTablero.style.border = "1px solid rgb(0,0,0)";
 } 
+
 
 // FUNCIONES
 
@@ -37,7 +40,6 @@ function funcionTituloPestaña(){
     document.title = tituloPestaña;
     return tituloPestaña;
 }
-
 
 function funcionVistaTablero(){
     tipoVista.setAttribute("href", "tablero.css");
@@ -84,10 +86,10 @@ function funcionAgregarContenedor(){
 function funcionDibujarContenedor(
     $id_macroContenedor,
     $subTitulo, 
-    $colorSubTitulo,)
+    $colorSubTitulo)
     {
 
-// Creamos elemntos que componene el macroContenedor
+    // Creamos elemntos que componene el macroContenedor
     let macroContenedor = document.createElement("div");
     macroContenedor.id = $id_macroContenedor;
     macroContenedor.classList.add("macroContenedor");
@@ -268,10 +270,22 @@ function funcionMinMaxContenedor(event){
      
     if (contenedorTareasListadas.style.display === "flex") {
         contenedorTareasListadas.style.display = "none";
+        estadoMinMax = "min";
     } 
     else {
         contenedorTareasListadas.style.display = "flex";  
+        estadoMinMax = "max";
     }
+
+    if (estadoMinMax === "min"){
+        boton.style.border = "1px solid";
+    }
+    
+    if (estadoMinMax === "max"){
+        boton.style.border = "none";
+    }
+
+    return estadoMinMax
 }
 
 function funcionFiltrarTarea(event){
@@ -749,10 +763,20 @@ function funcionDragDropSortTareas() {
     
     let contenedores = document.querySelectorAll(".contenedorTareasListadas");
     let tareas = document.querySelectorAll(".tareaListada");
-    
-    // Comportamiento en tareas
-    tareas.forEach(tarea => {
-        
+
+    // Comportamiento en tareas drag and drop
+    for ( let tarea of tareas){
+
+        // Se establece que si algun campo dentro de la tarea esta activo el drag and drop se deshabilita
+        if( tarea.contains(document.activeElement)){
+            tarea.setAttribute("draggable", false);
+        }
+
+        // una vez los campos esten fuera de foco el drag and drop se habilita
+        if( !tarea.contains(document.activeElement)){
+            tarea.setAttribute("draggable", true);
+        }
+
         tarea.addEventListener("dragstart", function(e){
             e.dataTransfer.setData("id", e.target.id);
         });
@@ -771,7 +795,7 @@ function funcionDragDropSortTareas() {
             }
         });
         funcionActualizarContadores();
-    });
+    }
     
     // Comportamiento en contenedores de tareas listadas   
     contenedores.forEach(contenedor => {

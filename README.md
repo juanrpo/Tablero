@@ -1,1 +1,1 @@
-Kanban board App
+Board App to organize tasks

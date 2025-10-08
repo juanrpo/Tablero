@@ -339,26 +339,28 @@ body{
 
                         /*___ RENGLON 1 ___*/
                         .tareaListada_l1{
-                            display: flex;
+                            display: grid;
+                            grid-template-columns: repeat(8, 1fr);
                             flex-direction: row;
+                            flex-wrap: wrap;
                             box-sizing: border-box;
-                            align-items:stretch;
-                            justify-items: stretch;
-                        
+                            row-gap: 0px;
                         }
 
                             .tituloTarea{
-                                width: 100%;
                                 font-size: 15px;
+                                grid-column: span 8;
+                                
                                 font-family: Arial, Helvetica, sans-serif;
                                 font-weight: bold;
                                 text-align: left;
+                                
                                 outline: none;
                                 border: none;
                                 background-color: transparent;
                                 resize: none;
-                                padding: 5px;
                                 border-radius: 7px;
+                                padding: 3px;
                             }
 
                             .tituloTarea:hover{
@@ -368,6 +370,64 @@ body{
                             .tituloTarea::placeholder {
                                 font-style: italic;
                             }
+
+                            .tituloFechas{
+                                height: 1.5em;
+                                width: 2em;
+                                font-size: 0.8em;
+                                grid-column: span 1;
+                            
+                                font-family: Arial, Helvetica, sans-serif;
+                                font-style: italic;
+                                color: rgb(120,120,120);
+                                font-weight: bold;
+                                
+                                align-self: end;
+
+                                
+                            }
+
+
+                            .fechaInicio, .fechaFin{
+                                height: 1.5em;
+                                width: 1.3em;
+                                font-size: 1em;
+                                grid-column: span 1;
+
+    
+                                font-family: Arial, Helvetica, sans-serif;
+                                font-style: italic;
+                                color: rgb(120,120,120);
+                                
+                                align-self: center;
+                                justify-self: center;
+                              
+                                border-radius: 3px;
+                                border: none;
+                                outline: none;
+                                background-color: transparent;
+                            }
+
+
+                            .fechaInicio:hover, .fechaFin:hover{
+                                cursor: pointer;
+                                background-color: rgba(0, 0, 0, 0.05);
+                                color: rgb(0,0,0);  
+                            }
+
+                            .textoFechas{
+                                height: 1.5em;
+                                width: 6em;
+                                font-size: 0.8em;
+                                grid-column: span 6;
+
+                                font-family: Arial, Helvetica, sans-serif;
+                                font-style: italic;
+                                color: rgb(120,120,120);
+                                
+                                align-self: end;
+                            }
+
 
                         /*___ RENGLON 2 ___*/
                         .tareaListada_l2{
@@ -453,34 +513,13 @@ body{
                                 outline: none;
                             }
 
-                            .pesoTarea::placeholder {
-                                font-style: italic;
-                            }
-
-                            .etiqueta::placeholder {
-                                font-style: italic;
-                            }
-
+                            .pesoTarea::placeholder,
+                            .etiqueta::placeholder,
                             .responsable::placeholder {
                                 font-style: italic;
                             }
 
-                            .fechaInicio, .fechaFin{
-                                min-width: 6em;
-                                max-width: 6em;
-                                min-height: 1.5em;
-                                max-height: 1.5em;
-
-
-                                font-size: 15px;
-                                font-family: Arial, Helvetica, sans-serif;
-
-                                border-radius: 5px;
-                                border: none;
-            
-                                outline: none;
-                                text-align: left;
-                            }
+                            
 
 /*___ VENTANA EMERGENTE ___*/
 .ventanaEmergente{

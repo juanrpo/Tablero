@@ -448,13 +448,52 @@ function funcionDibujarTareas(
     let tareaListada_l1 = document.createElement("div");
     tareaListada_l1.classList.add("tareaListada_l1");
 
-
         // Crear campo titulo tarea
         let tituloTarea = document.createElement("textarea");
         tituloTarea.textContent= $tituloTarea;
         tituloTarea.classList.add("tituloTarea");
         tituloTarea.setAttribute("rows", 3);
         tituloTarea.setAttribute("placeholder", "Tarea...");
+
+        let fInicio = document.createElement("span");
+        fInicio.textContent = "Inicio:";
+        fInicio.classList.add("tituloFechas");
+
+            // Crear campo de fecha de inicio
+            let fechaInicio = document.createElement("input");
+            fechaInicio.value = $fechaInicio;
+            fechaInicio.classList.add("fechaInicio");
+            fechaInicio.setAttribute("type", "date");
+            fechaInicio.addEventListener("change", function(){
+                textoFechaInicio.textContent = fechaInicio.value;
+                if (textoFechaInicio.textContent == ""){
+                    textoFechaInicio.textContent = "";
+                }
+            });
+
+            let textoFechaInicio = document.createElement("span");
+            textoFechaInicio.textContent = ""
+            textoFechaInicio.classList.add("textoFechas");
+
+        let fFin = document.createElement("span");
+        fFin.textContent = "Fin:";
+        fFin.classList.add("tituloFechas");
+
+            // Crear campo de fecha de final
+            let fechaFin = document.createElement("input");
+            fechaFin.value = $fechaFin;
+            fechaFin.classList.add("fechaFin");
+            fechaFin.setAttribute("type", "date");
+            fechaFin.addEventListener("change", function(){
+                textoFechaFin.textContent = fechaFin.value;
+                if (textoFechaFin.textContent == ""){
+                    textoFechaFin.textContent = "";
+                }
+            });
+
+            let textoFechaFin = document.createElement("span");
+            textoFechaFin.textContent = ""
+            textoFechaFin.classList.add("textoFechas");
    
     // Creamos linea 2 del contenedor tareaListada
     let tareaListada_l2 = document.createElement("div");
@@ -525,18 +564,6 @@ function funcionDibujarTareas(
         etiqueta.setAttribute("type", "text");
         etiqueta.setAttribute("placeholder", "etiqueta");
 
-        // Crear campo de fecha de inicio
-        let fechaInicio = document.createElement("input");
-        fechaInicio.value = $fechaInicio;
-        fechaInicio.classList.add("fechaInicio");
-        fechaInicio.setAttribute("type", "date");
-
-        // Crear campo de fecha de final
-        let fechaFin = document.createElement("input");
-        fechaFin.value = $fechaFin;
-        fechaFin.classList.add("fechaFin");
-        fechaFin.setAttribute("type", "date");
-
         // Crear campo de responsable
         let responsable = document.createElement("input");
         responsable.value = $responsable;
@@ -544,13 +571,18 @@ function funcionDibujarTareas(
         responsable.setAttribute("type", "text");
         responsable.setAttribute("placeholder", "responsable");
 
-
     // Ensamblamos
     tareaListada.appendChild(tareaListada_l1);
     tareaListada.appendChild(tareaListada_l2);
     tareaListada.appendChild(tareaListada_l3);
     
     tareaListada_l1.appendChild(tituloTarea);
+    tareaListada_l1.appendChild(fInicio);
+    tareaListada_l1.appendChild(fechaInicio);
+    tareaListada_l1.appendChild(textoFechaInicio);
+    tareaListada_l1.appendChild(fFin);
+    tareaListada_l1.appendChild(fechaFin);
+    tareaListada_l1.appendChild(textoFechaFin);
     
     tareaListada_l2.appendChild(botonUp);
     tareaListada_l2.appendChild(botonDown);
@@ -564,26 +596,33 @@ function funcionDibujarTareas(
     tareaListada_l3.appendChild(pesoTarea);
     tareaListada_l3.appendChild(etiqueta);
     tareaListada_l3.appendChild(responsable);
-    tareaListada_l3.appendChild(fechaInicio);
-    tareaListada_l3.appendChild(fechaFin);
+
 
     // SE AGREGA POR DEFECTO LA EL EVENT LISTENER PARA MOSTRAR U OCULTAR BOTONES DE ACCION EN LA TAREA LISTADA
     tareaListada.addEventListener("mouseover", function(){
-        tareaListada_l2.style.visibility = "visible";
+        tareaListada_l2.style.display = "flex";
     })
             
     tareaListada.addEventListener("mouseout", function(){
-        tareaListada_l2.style.visibility = "hidden";
+        if(tareaListada_l3.style.display != "none"){
+            tareaListada_l2.style.display = "flex";
+
+        } else {
+            tareaListada_l2.style.display = "none";
+        }
+        
     })
     
-    tareaListada_l2.style.visibility= "hidden";
+    tareaListada_l2.style.display= "none";
     tareaListada_l3.style.display = "none";
+
 
     return tareaListada;
 }
 
+
 function funcionMinMaxTarea(event){
-    let boton = event.target
+    let boton = event.target;
     let tareaListada = boton.closest(".tareaListada");
     let tareaListada_l2 = tareaListada.querySelector(".tareaListada_l2");
     let tareaListada_l3 = tareaListada.querySelector(".tareaListada_l3");
@@ -593,11 +632,12 @@ function funcionMinMaxTarea(event){
         tareaListada.addEventListener("mouseover", function(){
             tareaListada_l2.style.visibility = "visible";
         }) 
+
         tareaListada.addEventListener("mouseout", function(){
             tareaListada_l2.style.visibility = "visible";
         })
-
         tareaListada_l3.style.display = "flex";
+        boton.style.border = "1px solid";
         contadorMinMax = 1;
     } else {
         //SE MODIFICA EL COMPORTAMIENTO DE LOS EVENT LISTENER EN LA TAREA LISTADA, SEGUN SI ESTA DESPLEGADA O MINIMIZADA
@@ -607,8 +647,8 @@ function funcionMinMaxTarea(event){
         tareaListada.addEventListener("mouseout", function(){
             tareaListada_l2.style.visibility = "hidden";
         })
-
         tareaListada_l3.style.display = "none";
+        boton.style.border = "none";
         contadorMinMax = 0;
     }
 
@@ -777,11 +817,11 @@ function funcionDragDropSortTareas() {
             tarea.setAttribute("draggable", true);
         }
 
+        
         tarea.addEventListener("dragstart", function(e){
             e.dataTransfer.setData("id", e.target.id);
         });
         
-
         tarea.addEventListener("dragover", function(e){
             e.preventDefault();
         });

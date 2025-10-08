@@ -438,7 +438,6 @@ function funcionDibujarTareas(
     tareaListada.id = $id_tareaListada;
     tareaListada.classList.add("tareaListada");
     tareaListada.setAttribute("draggable", true);
-    tareaListada.addEventListener("dblclick", funcionMinMaxTarea);
 
     // asignar color
     let colorTareaListada = $color;

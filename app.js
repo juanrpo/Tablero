@@ -27,10 +27,10 @@ let _responsable = "responable";
 
 let tipoVista = document.getElementById("tipoVista")
 
-// BORDE PARA BOTON VISTATABLERO POR DEFECTO
-if (tipoVista.getAttribute("href") === "tablero.css"){
-    botonTablero.style.border = "1px solid rgb(0,0,0)";
-} 
+// // BORDE PARA BOTON VISTATABLERO POR DEFECTO
+// if (tipoVista.getAttribute("href") === "tablero.css"){
+//     botonTablero.style.border = "1px solid rgb(0,0,0)";
+// } 
 
 
 // FUNCIONES
@@ -45,10 +45,6 @@ function funcionVistaTablero(){
     tipoVista.setAttribute("href", "tablero.css");
     botonTablero.style.border = "1px solid rgb(0,0,0)";
     botonLista.style.border = "0px solid rgb(0,0,0)";
-
-    botonAgregarContenedor.disabled = false;
-    botonCargarTablero.disabled = false;
-    botonGuardarTablero.disabled = false; 
     
     return tipoVista;
 }
@@ -57,10 +53,6 @@ function funcionVistaLista(){
     tipoVista.setAttribute("href", "lista.css");
     botonLista.style.border = "1px solid rgb(0,0,0)"
     botonTablero.style.border = "0px solid rgb(0,0,0)"
-    
-    botonAgregarContenedor.disabled = false;
-    botonCargarTablero.disabled = false;
-    botonGuardarTablero.disabled = false;  
 
     return tipoVista;
 }
@@ -418,6 +410,10 @@ function funcionAgregarTarea(event){
 
     // Agregamos la tarea listada al contenedor que identificamos en las primeras lineas
     contenedorTareasListadas.appendChild(tarea);
+    
+    let botonMinMaxContenedor = macroContenedor.querySelector(".botonMinMaxContenedor");
+    botonMinMaxContenedor.style.border = "none";
+    
     funcionActualizarContadores();
 }
 
@@ -463,16 +459,6 @@ function funcionDibujarTareas(
             fechaInicio.value = $fechaInicio;
             fechaInicio.classList.add("fechaInicio");
             fechaInicio.setAttribute("type", "date");
-            fechaInicio.addEventListener("change", function(){
-                textoFechaInicio.textContent = fechaInicio.value;
-                if (textoFechaInicio.textContent == ""){
-                    textoFechaInicio.textContent = "";
-                }
-            });
-
-            let textoFechaInicio = document.createElement("span");
-            textoFechaInicio.textContent = ""
-            textoFechaInicio.classList.add("textoFechas");
 
         let fFin = document.createElement("span");
         fFin.textContent = "Fin:";
@@ -483,16 +469,6 @@ function funcionDibujarTareas(
             fechaFin.value = $fechaFin;
             fechaFin.classList.add("fechaFin");
             fechaFin.setAttribute("type", "date");
-            fechaFin.addEventListener("change", function(){
-                textoFechaFin.textContent = fechaFin.value;
-                if (textoFechaFin.textContent == ""){
-                    textoFechaFin.textContent = "";
-                }
-            });
-
-            let textoFechaFin = document.createElement("span");
-            textoFechaFin.textContent = ""
-            textoFechaFin.classList.add("textoFechas");
    
     // Creamos linea 2 del contenedor tareaListada
     let tareaListada_l2 = document.createElement("div");
@@ -578,10 +554,8 @@ function funcionDibujarTareas(
     tareaListada_l1.appendChild(tituloTarea);
     tareaListada_l1.appendChild(fInicio);
     tareaListada_l1.appendChild(fechaInicio);
-    tareaListada_l1.appendChild(textoFechaInicio);
     tareaListada_l1.appendChild(fFin);
     tareaListada_l1.appendChild(fechaFin);
-    tareaListada_l1.appendChild(textoFechaFin);
     
     tareaListada_l2.appendChild(botonUp);
     tareaListada_l2.appendChild(botonDown);
@@ -615,10 +589,8 @@ function funcionDibujarTareas(
     tareaListada_l2.style.display= "none";
     tareaListada_l3.style.display = "none";
 
-
     return tareaListada;
 }
-
 
 function funcionMinMaxTarea(event){
     let boton = event.target;
@@ -1005,10 +977,11 @@ botonGuardarTablero.addEventListener("click", funcionGuardarTablero);
 
 // BOTON CARGAR TABLERO
 inputCargarTablero.addEventListener("change", funcionCargarTablero);
+
 // BOTON QUE TRASLADA LA ACION DEL BOTON CARGAR A INPUT FILE
 botonCargarTablero.addEventListener("click", () =>{
     document.getElementById("inputArchivo").click();
 });
 
-botonTablero.addEventListener("click", funcionVistaTablero);
-botonLista.addEventListener("click", funcionVistaLista);
+// botonTablero.addEventListener("click", funcionVistaTablero);
+// botonLista.addEventListener("click", funcionVistaLista);

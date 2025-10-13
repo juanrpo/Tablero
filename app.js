@@ -2,7 +2,7 @@
 let inputTitulo = document.getElementById("titulo");
 inputTitulo.addEventListener("change", funcionTituloPestaña);
 
-let fechaCreacion = document.getElementById("fechaCreacion");
+let fechaInicioSesion = document.getElementById("fechaInicioSesion");
 let fechaUltimoGuardado = document.getElementById("fechaUltimoGuardado");
 
 let botonAgregarContenedor = document.getElementById("botonAgregarContenedor");
@@ -25,7 +25,6 @@ let _etiqueta = "etiqueta";
 let _fechaInicio = "fechaInicio";
 let _fechaFin = "fechaFin";
 let _responsable = "responable";
-
 
 
 // FUNCIONES
@@ -561,7 +560,6 @@ function funcionDibujarTareas(
     tareaListada_l3.appendChild(responsable);
 
 
-
     // Se agregan por defecto los eventlisteners de las tareas listadas para ocultar o mostrar botones
     tareaListada.addEventListener("mouseover", function(){
         tareaListada_l2.style.display = "flex";
@@ -924,14 +922,14 @@ function funcionGuardarTablero(event) {
             nombreArchivo = inputTitulo.value+".json";
     }
 
-    fechaUltimoGuardado.innerHTML = "Fecha de guardado: " + new Date();
-
     // Descargar JSON
     let blob = new Blob([JSON.stringify(listaContenedores, null, 2)], { type: "application/json" });
     let enlace = document.createElement("a");
     enlace.href = URL.createObjectURL(blob);
     enlace.download = nombreArchivo;
     enlace.click();
+    
+    fechaUltimoGuardado.innerHTML = "Ultimo Guardado: " + new Date();
 }
 
 // Esta funcion carga el archivo JSON y lo reconstruye en el DOM
@@ -996,7 +994,6 @@ function funcionCargarTablero(event){
     funcionTituloPestaña();
 }
 
-
 // EVENTOS
 
 // FUNCION D&D+S
@@ -1018,5 +1015,5 @@ botonCargarTablero.addEventListener("click", () =>{
 
 // EVENTO PARA ESTABLECER FECHA DE CREACION
 window.addEventListener("load", function(){
-    fechaCreacion.innerHTML = "Fecha de Creacion: " + new Date();
+    fechaInicioSesion.innerHTML = "Inicio Sesion: " + new Date();
 });

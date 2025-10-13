@@ -150,6 +150,8 @@ body{
                 row-gap: 5px;
                 border: 2px solid rgb(0,0,0);
                 align-items: stretch;
+                padding-bottom: 5px;
+                padding-top: 5px;
             }
 
                 .contenedorSubTitulo_l1{

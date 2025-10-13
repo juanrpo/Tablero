@@ -11,6 +11,7 @@ let inputCargarTablero = document.getElementById("inputArchivo");
 let botonGuardarTablero = document.getElementById("botonGuardarTablero");
 
 // ELEMTOS GENERALES
+let fechaConHora;
 let listaContenedores = [];
 let listaTareas = [];   
 let objetoContenedor = {};
@@ -914,12 +915,13 @@ function funcionGuardarTablero(event) {
         listaContenedores.push(objetoContenedor);  
     });
 
-    // Establecemos el nombre del archivo, ya que este sera el nombre del pryecto
+    // Establecemos el nombre del archivo, ya que este sera el nombre del Tablero
     let nombreArchivo = "";
     if (inputTitulo.value === ""){
-            nombreArchivo = "Proyecto-"+Date.now();
+            funcionObtenerFechaConHora()
+            nombreArchivo = "Tablero" + " - " + fechaConHora;
         }else{
-            nombreArchivo = inputTitulo.value+".json";
+            nombreArchivo = inputTitulo.value+" - "+fechaConHora+".json";
     }
 
     // Descargar JSON
@@ -928,8 +930,7 @@ function funcionGuardarTablero(event) {
     enlace.href = URL.createObjectURL(blob);
     enlace.download = nombreArchivo;
     enlace.click();
-    
-    fechaUltimoGuardado.innerHTML = "Ultimo Guardado: " + new Date();
+    fechaUltimoGuardado.innerHTML = "Ultimo Guardado: " + funcionObtenerFechaConHora();
 }
 
 // Esta funcion carga el archivo JSON y lo reconstruye en el DOM
@@ -990,8 +991,31 @@ function funcionCargarTablero(event){
     inputCargarTablero.value = "";
     
     // Tomamos el nombre del archivo para el inputTitulo
-    inputTitulo.value = archivo.name.slice(0,-5);
+    // El valor 21 es porque al archivo se le quitan los identificadores
+    // de tipo de archivo [* - AAAAMMDD HHMMSS.json] el asterisco es la ultima letra del titulo del archivo
+    inputTitulo.value = archivo.name.slice(0,-23);
     funcionTituloPestaña();
+}
+
+function funcionObtenerFechaConHora(){
+        // Obtener la fecha actual
+        let fecha = new Date();
+        
+        // Formatear a AAAA-MM-DD
+        let año = String(fecha.getFullYear()).padStart(2,"0");
+        let mes = String(fecha.getMonth()+1).padStart(2,"0"); // Esto se hace debido que los meses van de 0 a 11
+        let dia = String(fecha.getDate()).padStart(2,"0");
+        let fechaFormateada = año + mes + dia;
+        
+        // Formatear a HH MM
+        let hora = String(fecha.getHours()).padStart(2,"0");;
+        let minutos = String(fecha.getMinutes()).padStart(2,"0");
+        let segundos = String(fecha.getSeconds()).padStart(2,"0");
+        let horaFormateada = hora + minutos + segundos;
+        
+        // Fecha completa
+        fechaConHora = fechaFormateada + " " + horaFormateada
+        return fechaConHora;
 }
 
 // EVENTOS
@@ -1015,5 +1039,6 @@ botonCargarTablero.addEventListener("click", () =>{
 
 // EVENTO PARA ESTABLECER FECHA DE CREACION
 window.addEventListener("load", function(){
-    fechaInicioSesion.innerHTML = "Inicio Sesion: " + new Date();
+    
+    fechaInicioSesion.innerHTML = "Inicio Sesion: " + funcionObtenerFechaConHora();
 });

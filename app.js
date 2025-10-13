@@ -918,10 +918,9 @@ function funcionGuardarTablero(event) {
     // Establecemos el nombre del archivo, ya que este sera el nombre del Tablero
     let nombreArchivo = "";
     if (inputTitulo.value === ""){
-            funcionObtenerFechaConHora()
-            nombreArchivo = "Tablero" + " - " + fechaConHora;
+            nombreArchivo = "Tablero" + " - " + funcionObtenerFechaConHora();
         }else{
-            nombreArchivo = inputTitulo.value+" - "+fechaConHora+".json";
+            nombreArchivo = inputTitulo.value+" - " + funcionObtenerFechaConHora() + ".json";
     }
 
     // Descargar JSON
@@ -1037,8 +1036,7 @@ botonCargarTablero.addEventListener("click", () =>{
     document.getElementById("inputArchivo").click();
 });
 
-// EVENTO PARA ESTABLECER FECHA DE CREACION
+// EVENTO PARA ESTABLECER FECHA DE INICIO DE SESION
 window.addEventListener("load", function(){
-    
     fechaInicioSesion.innerHTML = "Inicio Sesion: " + funcionObtenerFechaConHora();
 });

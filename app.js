@@ -36,14 +36,6 @@ function funcionTituloPestaña(){
     return tituloPestaña;
 }
 
-function funcionVistaLista(){
-    tipoVista.setAttribute("href", "lista.css");
-    botonLista.style.border = "1px solid rgb(0,0,0)"
-    botonTablero.style.border = "0px solid rgb(0,0,0)"
-
-    return tipoVista;
-}
-
 function funcionAgregarContenedor(){
     let contenedorDeContenedores = document.querySelector(".contenedorDeContenedores");
     

@@ -2,12 +2,13 @@
 let inputTitulo = document.getElementById("titulo");
 inputTitulo.addEventListener("change", funcionTituloPestaña);
 
+let fechaCreacion = document.getElementById("fechaCreacion");
+let fechaUltimoGuardado = document.getElementById("fechaUltimoGuardado");
+
 let botonAgregarContenedor = document.getElementById("botonAgregarContenedor");
 let botonCargarTablero = document.getElementById("botonCargarTablero")
 let inputCargarTablero = document.getElementById("inputArchivo");
 let botonGuardarTablero = document.getElementById("botonGuardarTablero");
-let botonTablero = document.getElementById("boardView");
-let botonLista = document.getElementById("listView");
 
 // ELEMTOS GENERALES
 let listaContenedores = [];
@@ -25,12 +26,6 @@ let _fechaInicio = "fechaInicio";
 let _fechaFin = "fechaFin";
 let _responsable = "responable";
 
-let tipoVista = document.getElementById("tipoVista")
-
-// // BORDE PARA BOTON VISTATABLERO POR DEFECTO
-// if (tipoVista.getAttribute("href") === "tablero.css"){
-//     botonTablero.style.border = "1px solid rgb(0,0,0)";
-// } 
 
 
 // FUNCIONES
@@ -39,14 +34,6 @@ function funcionTituloPestaña(){
     let tituloPestaña = inputTitulo.value;
     document.title = tituloPestaña;
     return tituloPestaña;
-}
-
-function funcionVistaTablero(){
-    tipoVista.setAttribute("href", "tablero.css");
-    botonTablero.style.border = "1px solid rgb(0,0,0)";
-    botonLista.style.border = "0px solid rgb(0,0,0)";
-    
-    return tipoVista;
 }
 
 function funcionVistaLista(){
@@ -386,6 +373,7 @@ function funcionAgregarTarea(event){
     let id = "tareaListada-"+Date.now();
 
     // Como es una tarea nueva se asignan estos campos vacios
+    let estadoTarea = false;
     let tituloTarea = "";
     let textoInput = "";
     let pesoTarea = "";
@@ -398,6 +386,7 @@ function funcionAgregarTarea(event){
 
     let tarea = funcionDibujarTareas(
                     id,
+                    estadoTarea,
                     tituloTarea,
                     textoInput, 
                     pesoTarea,
@@ -409,7 +398,7 @@ function funcionAgregarTarea(event){
                 );
 
     // Agregamos la tarea listada al contenedor que identificamos en las primeras lineas
-    contenedorTareasListadas.appendChild(tarea);
+    contenedorTareasListadas.insertBefore(tarea, contenedorTareasListadas.firstChild);
     
     let botonMinMaxContenedor = macroContenedor.querySelector(".botonMinMaxContenedor");
     botonMinMaxContenedor.style.border = "none";
@@ -419,6 +408,7 @@ function funcionAgregarTarea(event){
 
 function funcionDibujarTareas(
     $id_tareaListada,
+    $estadoTarea,
     $tituloTarea,
     $textoTarea, 
     $pesoTarea,
@@ -443,6 +433,13 @@ function funcionDibujarTareas(
     let tareaListada_l1 = document.createElement("div");
     tareaListada_l1.classList.add("tareaListada_l1");
 
+        // Crear elemento estado
+        let estadoTarea = document.createElement("input");
+        estadoTarea.setAttribute("type","checkbox");
+        estadoTarea.classList.add("estadoTarea");
+        estadoTarea.addEventListener("click", funcionMarcarTarea);
+        estadoTarea.checked = $estadoTarea
+    
         // Crear campo titulo tarea
         let tituloTarea = document.createElement("textarea");
         tituloTarea.textContent= $tituloTarea;
@@ -551,6 +548,7 @@ function funcionDibujarTareas(
     tareaListada.appendChild(tareaListada_l2);
     tareaListada.appendChild(tareaListada_l3);
     
+    tareaListada_l1.appendChild(estadoTarea);
     tareaListada_l1.appendChild(tituloTarea);
     tareaListada_l1.appendChild(fInicio);
     tareaListada_l1.appendChild(fechaInicio);
@@ -571,7 +569,8 @@ function funcionDibujarTareas(
     tareaListada_l3.appendChild(responsable);
 
 
-    // SE AGREGA POR DEFECTO LA EL EVENT LISTENER PARA MOSTRAR U OCULTAR BOTONES DE ACCION EN LA TAREA LISTADA
+
+    // Se agregan por defecto los eventlisteners de las tareas listadas para ocultar o mostrar botones
     tareaListada.addEventListener("mouseover", function(){
         tareaListada_l2.style.display = "flex";
     })
@@ -589,7 +588,34 @@ function funcionDibujarTareas(
     tareaListada_l2.style.display= "none";
     tareaListada_l3.style.display = "none";
 
+    //Se establece que si la tarea se dibuja con un check esta se dejara con un 50% de opacidad
+    if(estadoTarea.checked){
+        tareaListada.style.opacity = "0.5";
+    }
+    if(!estadoTarea.checked){
+        tareaListada.style.opacity = "1.0";   
+    }
+
+    //fin de la funcion
     return tareaListada;
+}
+
+function funcionMarcarTarea(event){
+    let boton = event.target;
+    let macroContenedor = boton.closest(".macroContenedor")
+    let contenedorTareasListadas = macroContenedor.querySelector(".contenedorTareasListadas");
+    let tareaListada = boton.closest(".tareaListada");
+
+    if(boton.checked){
+        contenedorTareasListadas.appendChild(tareaListada);
+        tareaListada.style.opacity = "0.5";
+        funcionActualizarContadores();
+    }
+    if(!boton.checked){
+        contenedorTareasListadas.insertBefore(tareaListada,contenedorTareasListadas.firstChild);
+        tareaListada.style.opacity = "1.0";
+        funcionActualizarContadores();
+    }
 }
 
 function funcionMinMaxTarea(event){
@@ -654,11 +680,11 @@ function funcionMoverTarea(event){
     }
     if (boton.classList.contains("botonL") && macroContenedor.previousElementSibling){
         let contenedorL = macroContenedor.previousElementSibling.querySelector(".contenedorTareasListadas");
-        contenedorL.appendChild(tareaListada);
+        contenedorL.insertBefore(tareaListada, contenedorL.firstChild);
     }
     if (boton.classList.contains("botonR") && macroContenedor.nextElementSibling){
         let contenedorR = macroContenedor.nextElementSibling.querySelector(".contenedorTareasListadas");
-        contenedorR.appendChild(tareaListada);
+        contenedorR.insertBefore(tareaListada, contenedorR.firstChild);
     }
     
 }
@@ -831,24 +857,34 @@ function funcionDragDropSortTareas() {
 
 function funcionActualizarContadores(){
     //selecccionar todos los macro
-    let macro = document.querySelectorAll(".macroContenedor");
-    macro.forEach(element => {
+    let macroContenedor = document.querySelectorAll(".macroContenedor");
+    macroContenedor.forEach(elemento => {
 
-        let txtCont = element.querySelector(".textoContador");
-        let cantidad = element.querySelector(".contenedorTareasListadas");
-        
-        let cant = cantidad.children.length;
+        let txtCont = elemento.querySelector(".textoContador");
+        let contenedorTareasListadas = elemento.querySelector(".contenedorTareasListadas");
 
-        txtCont.innerHTML = "[ " + cant + " ]";
+        let activas = 0;
+        let finalizadas = 0;
 
+        let tareasListadas = contenedorTareasListadas.querySelectorAll(".tareaListada");
+        tareasListadas.forEach(tarea => {
+            let estadoTarea = tarea.querySelector(".estadoTarea");
+            if(!estadoTarea.checked){
+                activas = activas + 1
+            }
+            if (estadoTarea.checked){
+                finalizadas = finalizadas + 1
+            }
+        })
+
+        txtCont.innerHTML = "[ " + activas + " / " + finalizadas + " ]";
     })
 }
 
 // Esta funcion crea el archivo JSON de tareas
 function funcionGuardarTablero(event) {
     if (event) event.preventDefault();
-    console.log("GUARDAR");
-
+    
     listaContenedores = [];
 
     // Recorremos todos los macroContenedores
@@ -868,6 +904,7 @@ function funcionGuardarTablero(event) {
         $tareasListadas.forEach(tarea => {
             let objetoTarea = {
                 id_tareaListada: tarea.id,
+                estadoTarea:tarea.querySelector(".estadoTarea").checked,
                 tituloTarea: tarea.querySelector(".tituloTarea").value,
                 textoTarea: tarea.querySelector(".textoTarea").value,
                 pesoTarea: tarea.querySelector(".pesoTarea").value,
@@ -894,6 +931,8 @@ function funcionGuardarTablero(event) {
         }else{
             nombreArchivo = inputTitulo.value+".json";
     }
+
+    fechaUltimoGuardado.innerHTML = "Fecha de guardado: " + new Date();
 
     // Descargar JSON
     let blob = new Blob([JSON.stringify(listaContenedores, null, 2)], { type: "application/json" });
@@ -931,6 +970,7 @@ function funcionCargarTablero(event){
             for(let y = 0 ; y < objetoContenedor[i].tareas.length; y++ ){
                  let tarea = funcionDibujarTareas(
                     objetoContenedor[i].tareas[y].id_tareaListada,
+                    objetoContenedor[i].tareas[y].estadoTarea,
                     objetoContenedor[i].tareas[y].tituloTarea,
                     objetoContenedor[i].tareas[y].textoTarea, 
                     objetoContenedor[i].tareas[y].pesoTarea,
@@ -958,11 +998,12 @@ function funcionCargarTablero(event){
     
     lector.readAsText(archivo);
     inputCargarTablero.value = "";
-
+    
     // Tomamos el nombre del archivo para el inputTitulo
     inputTitulo.value = archivo.name.slice(0,-5);
     funcionTituloPestaña();
 }
+
 
 // EVENTOS
 
@@ -983,5 +1024,7 @@ botonCargarTablero.addEventListener("click", () =>{
     document.getElementById("inputArchivo").click();
 });
 
-// botonTablero.addEventListener("click", funcionVistaTablero);
-// botonLista.addEventListener("click", funcionVistaLista);
+// EVENTO PARA ESTABLECER FECHA DE CREACION
+window.addEventListener("load", function(){
+    fechaCreacion.innerHTML = "Fecha de Creacion: " + new Date();
+});

@@ -14,17 +14,26 @@
 
        <div class = "superdiv">
             <div class = "contenedorTitulo">
-                <input class="titulo" type="text" id="titulo" placeholder="Titulo de Proyecto..."></input>
-                <div class = "contenedorControles">
-                    <button id = "botonAgregarContenedor" class = botonAgregarContenedor>+</button>
-                    <button id = "botonGuardarTablero" class = botonGuardarTablero>Sv</button> 
-                    <button id = "botonCargarTablero" class = botonCargarTablero>Ld</button> 
-                    <input type="file" id="inputArchivo" class = "inputCargarTablero">
-                    <!-- <button id = "boardView" class = "boardView">Tablero</button> -->
-                    <!-- <button id = "listView" class = listView>Lista</button> -->
+                
+                <div class = titulo_l1>
+                    <input class = "titulo" type = "text" id = "titulo" placeholder = "Titulo de Proyecto..."></input>
+                </div>
+                
+                <div class = titulo_l2>
+                    <span class = "fechaCreacion" id = "fechaCreacion">Fecha Creacion: </span>
+                    <span class = "fechaUltimoGuardado" id = "fechaUltimoGuardado">Ultimo Guardado: </span>
+                </div>
+                
+                <div class = "titulo_l3">
+                        <button id = "botonAgregarContenedor" class = botonAgregarContenedor>+</button>
+                        <button id = "botonGuardarTablero" class = botonGuardarTablero>Sv</button> 
+                        <button id = "botonCargarTablero" class = botonCargarTablero>Ld</button> 
+                        <input type="file" id="inputArchivo" class = "inputCargarTablero">
                 </div>
             </div>
+            
             <div class = "contenedorDeContenedores" id = "contenedorDeContenedores"></div>
+        
         </div>
             
     <script src = "app.js"></script>

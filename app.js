@@ -1001,7 +1001,7 @@ function funcionObtenerFechaConHora(){
         let fecha = new Date();
         
         // Formatear a AAAA-MM-DD
-        let año = String(fecha.getFullYear()).padStart(2,"0");
+        let año = String(fecha.getFullYear());
         let mes = String(fecha.getMonth()+1).padStart(2,"0"); // Esto se hace debido que los meses van de 0 a 11
         let dia = String(fecha.getDate()).padStart(2,"0");
         let fechaFormateada = año + mes + dia;

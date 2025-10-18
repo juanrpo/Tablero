@@ -562,8 +562,8 @@ body{
 
 @media (min-width: 720px) and (max-width: 1079px){
     .macroContenedor{   
-        min-width: 33%;
-        max-width: 33%;
+        min-width: 50%;
+        max-width: 50%;
         display: flex;
         flex-direction: column;
         box-sizing: border-box;
@@ -573,8 +573,8 @@ body{
 
 @media (min-width: 1080px){
     .macroContenedor{   
-        min-width: 23%;
-        max-width: 23%;
+        min-width: 25%;
+        max-width: 25%;
         display: flex;
         flex-direction: column;
         box-sizing: border-box;

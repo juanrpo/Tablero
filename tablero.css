@@ -540,8 +540,8 @@ body{
 /*___ MEDIA QUERY ___*/
 @media (min-width: 0px) and (max-width: 479px){
     .macroContenedor{  
-        min-width: 93%;
-        max-width: 93%; 
+        min-width: 95%;
+        max-width: 95%; 
         display: flex;
         flex-direction: column;
         box-sizing: border-box;
@@ -551,8 +551,8 @@ body{
 
 @media (min-width: 480px) and (max-width: 719px){
     .macroContenedor{   
-        min-width: 73%;
-        max-width: 73%;
+        min-width: 70%;
+        max-width: 70%;
         display: flex;
         flex-direction: column;
         box-sizing: border-box;
@@ -562,8 +562,8 @@ body{
 
 @media (min-width: 720px) and (max-width: 1079px){
     .macroContenedor{   
-        min-width: 43%;
-        max-width: 43%;
+        min-width: 40%;
+        max-width: 40%;
         display: flex;
         flex-direction: column;
         box-sizing: border-box;
@@ -573,8 +573,8 @@ body{
 
 @media (min-width: 1080px){
     .macroContenedor{   
-        min-width: 23%;
-        max-width: 23%;
+        min-width: 25%;
+        max-width: 25%;
         display: flex;
         flex-direction: column;
         box-sizing: border-box;

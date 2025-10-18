@@ -128,14 +128,8 @@ body{
         column-gap: 10px;
     }
 
-        .macroContenedor{   
-            display: flex;
-            flex-direction: column;
-            min-width: 21em;
-            max-width: 21em;
-            box-sizing: border-box;
-            overflow-x: hidden;
-        }
+
+    /* El macroContendor se controla con media queries al final del codigo */
 
             .contenedorSubTitulo{
                 display: flex;
@@ -545,11 +539,11 @@ body{
 
 /*___ MEDIA QUERY ___*/
 @media (min-width: 0px) and (max-width: 479px){
-    .macroContenedor{   
+    .macroContenedor{  
+        min-width: 100%;
+        max-width: 100%; 
         display: flex;
         flex-direction: column;
-        max-width: 18em;
-        min-width: 18em;
         box-sizing: border-box;
         overflow-x: hidden;
     }
@@ -557,10 +551,10 @@ body{
 
 @media (min-width: 480px) and (max-width: 719px){
     .macroContenedor{   
+        min-width: 100%;
+        max-width: 100%;
         display: flex;
         flex-direction: column;
-        max-width: 19em;
-        min-width: 19em;
         box-sizing: border-box;
         overflow-x: hidden;
     }
@@ -568,10 +562,10 @@ body{
 
 @media (min-width: 720px) and (max-width: 1079px){
     .macroContenedor{   
+        min-width: 33%;
+        max-width: 33%;
         display: flex;
         flex-direction: column;
-        max-width: 20em;
-        min-width: 20em;
         box-sizing: border-box;
         overflow-x: hidden;
     }
@@ -579,15 +573,13 @@ body{
 
 @media (min-width: 1080px){
     .macroContenedor{   
+        min-width: 23%;
+        max-width: 23%;
         display: flex;
         flex-direction: column;
-        max-width: 21em;
-        min-width: 21em;
         box-sizing: border-box;
         overflow-x: hidden;
     }
 }
-
-
 
 

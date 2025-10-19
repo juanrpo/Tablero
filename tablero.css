@@ -540,8 +540,8 @@ body{
 /*___ MEDIA QUERY ___*/
 @media (min-width: 0px) and (max-width: 479px){
     .macroContenedor{  
-        min-width: 95%;
-        max-width: 95%; 
+        min-width: 100%;
+        max-width: 100%; 
         display: flex;
         flex-direction: column;
         box-sizing: border-box;
@@ -573,8 +573,8 @@ body{
 
 @media (min-width: 1080px){
     .macroContenedor{   
-        min-width: 25%;
-        max-width: 25%;
+        min-width: 20%;
+        max-width: 20%;
         display: flex;
         flex-direction: column;
         box-sizing: border-box;

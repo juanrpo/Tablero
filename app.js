@@ -415,7 +415,7 @@ function funcionDibujarTareas(
     let tareaListada = document.createElement("div");
     tareaListada.id = $id_tareaListada;
     tareaListada.classList.add("tareaListada");
-    tareaListada.setAttribute("draggable", true);
+    tareaListada.setAttribute("draggable", false);
 
     // asignar color
     let colorTareaListada = $color;
@@ -787,65 +787,6 @@ function funcionDialogoColoresContenedores(event){
     });
 }
 
-function funcionDragDropSortTareas() {
-    
-    let contenedores = document.querySelectorAll(".contenedorTareasListadas");
-    let tareas = document.querySelectorAll(".tareaListada");
-
-    // Comportamiento en tareas drag and drop
-    for ( let tarea of tareas){
-
-        // Se establece que si algun campo dentro de la tarea esta activo el drag and drop se deshabilita
-        if( tarea.contains(document.activeElement)){
-            tarea.setAttribute("draggable", false);
-        }
-
-        // una vez los campos esten fuera de foco el drag and drop se habilita
-        if( !tarea.contains(document.activeElement)){
-            tarea.setAttribute("draggable", true);
-        }
-
-        
-        tarea.addEventListener("dragstart", function(e){
-            e.dataTransfer.setData("id", e.target.id);
-        });
-        
-        tarea.addEventListener("dragover", function(e){
-            e.preventDefault();
-        });
-
-        tarea.addEventListener("drop", function(e){
-            e.preventDefault();
-            let id = e.dataTransfer.getData("id");
-            let tareaArrastrada = document.getElementById(id);
-            if (tareaArrastrada !== tarea) {
-                tarea.parentNode.insertBefore(tareaArrastrada, tarea);
-            }
-        });
-        funcionActualizarContadores();
-    }
-    
-    // Comportamiento en contenedores de tareas listadas   
-    contenedores.forEach(contenedor => {
-        contenedor.addEventListener("dragover", function(e){
-            e.preventDefault();
-        });
-
-        contenedor.addEventListener("drop", function(e){
-            e.preventDefault();
-            let id = e.dataTransfer.getData("id");
-            let tarea = document.getElementById(id);
-
-            // Si se suelta en un hueco, mandarla al final
-            if (!e.target.classList.contains("tareaListada")) {
-                contenedor.appendChild(tarea);
-            }
-            
-            funcionActualizarContadores();
-        });
-    });
-}
-
 function funcionActualizarContadores(){
     //selecccionar todos los macro
     let macroContenedor = document.querySelectorAll(".macroContenedor");
@@ -870,6 +811,27 @@ function funcionActualizarContadores(){
 
         txtCont.innerHTML = "[ " + activas + " / " + finalizadas + " ]";
     })
+}
+
+function funcionObtenerFechaConHora(){
+        // Obtener la fecha actual
+        let fecha = new Date();
+        
+        // Formatear a AAAA-MM-DD
+        let año = String(fecha.getFullYear());
+        let mes = String(fecha.getMonth()+1).padStart(2,"0"); // el +1 se hace debido que los meses van de 0 a 11
+        let dia = String(fecha.getDate()).padStart(2,"0");
+        let fechaFormateada = año + " " + mes + " " + dia;
+        
+        // Formatear a HH MM
+        let hora = String(fecha.getHours()).padStart(2,"0");;
+        let minutos = String(fecha.getMinutes()).padStart(2,"0");
+        let segundos = String(fecha.getSeconds()).padStart(2,"0");
+        let horaFormateada = hora +":"+ minutos +":"+ segundos;
+        
+        // Fecha completa
+        fechaConHora = fechaFormateada + " / " + horaFormateada
+        return fechaConHora;
 }
 
 // Esta funcion crea el archivo JSON de tareas
@@ -920,7 +882,7 @@ function funcionGuardarTablero(event) {
     if (inputTitulo.value === ""){
             nombreArchivo = "Tablero" + " - " + funcionObtenerFechaConHora();
         }else{
-            nombreArchivo = inputTitulo.value+" - " + funcionObtenerFechaConHora() + ".json";
+            nombreArchivo = inputTitulo.value + ".json";
     }
 
     // Descargar JSON
@@ -989,38 +951,12 @@ function funcionCargarTablero(event){
     lector.readAsText(archivo);
     inputCargarTablero.value = "";
     
-    // Tomamos el nombre del archivo para el inputTitulo
-    // El valor 21 es porque al archivo se le quitan los identificadores
-    // de tipo de archivo [* - AAAAMMDD HHMMSS.json] el asterisco es la ultima letra del titulo del archivo
-    inputTitulo.value = archivo.name.slice(0,-23);
+    inputTitulo.value = archivo.name.slice(0,-5);
     funcionTituloPestaña();
-}
-
-function funcionObtenerFechaConHora(){
-        // Obtener la fecha actual
-        let fecha = new Date();
-        
-        // Formatear a AAAA-MM-DD
-        let año = String(fecha.getFullYear());
-        let mes = String(fecha.getMonth()+1).padStart(2,"0"); // Esto se hace debido que los meses van de 0 a 11
-        let dia = String(fecha.getDate()).padStart(2,"0");
-        let fechaFormateada = año + mes + dia;
-        
-        // Formatear a HH MM
-        let hora = String(fecha.getHours()).padStart(2,"0");;
-        let minutos = String(fecha.getMinutes()).padStart(2,"0");
-        let segundos = String(fecha.getSeconds()).padStart(2,"0");
-        let horaFormateada = hora + minutos + segundos;
-        
-        // Fecha completa
-        fechaConHora = fechaFormateada + " " + horaFormateada
-        return fechaConHora;
+    fechaUltimoGuardado.innerHTML = "Ultimo Guardado: ";
 }
 
 // EVENTOS
-
-// FUNCION D&D+S
-document.addEventListener("click", funcionDragDropSortTareas);
 
 // BOTON AGREGAR CONTENEDOR
 botonAgregarContenedor.addEventListener("click", funcionAgregarContenedor);

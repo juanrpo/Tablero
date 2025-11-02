@@ -28,7 +28,7 @@ let _fechaFin = "fechaFin";
 let _responsable = "responable";
 
 
-// FUNCIONES
+// FUNCIONES:
 
 function funcionTituloPestaña(){
     let tituloPestaña = inputTitulo.value;
@@ -943,9 +943,10 @@ function funcionCargarTablero(event){
             }   
         }
         
-        // Variable para simular el clcik en el body y activar la funcion D&D+S
+        // Variable para simular el clcik en el body esto era para una funcion que ya no esta disponible
         let body = document.body;
         body.click();
+        funcionActualizarContadores();
     };
     
     lector.readAsText(archivo);
@@ -954,10 +955,9 @@ function funcionCargarTablero(event){
     inputTitulo.value = archivo.name.slice(0,-5);
     funcionTituloPestaña();
     fechaUltimoGuardado.innerHTML = "Ultimo Guardado: ";
-    funcionActualizarContadores();
 }
 
-// EVENTOS
+// EVENTOS:
 
 // BOTON AGREGAR CONTENEDOR
 botonAgregarContenedor.addEventListener("click", funcionAgregarContenedor);

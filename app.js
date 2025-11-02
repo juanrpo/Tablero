@@ -181,8 +181,9 @@ function funcionDibujarContenedor(
         contenedorTareasListadas.classList.add("contenedorTareasListadas");
 
     // ENSAMBLAMOS TODO
-    contenedorSubtitulo_l1.appendChild(textoContador);
     contenedorSubtitulo_l1.appendChild(subTitulo);
+    contenedorSubtitulo_l1.appendChild(textoContador);
+    
     
     contenedorSubtitulo_l2.appendChild(campoFiltro);
     contenedorSubtitulo_l2.appendChild(inputFiltro);

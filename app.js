@@ -954,6 +954,7 @@ function funcionCargarTablero(event){
     inputTitulo.value = archivo.name.slice(0,-5);
     funcionTituloPestaña();
     fechaUltimoGuardado.innerHTML = "Ultimo Guardado: ";
+    funcionActualizarContadores();
 }
 
 // EVENTOS
